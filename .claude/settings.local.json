@@ -67,7 +67,9 @@
       "Bash(gh repo *)",
       "Bash(git rm *)",
       "Bash(git push *)",
-      "Bash(git reset *)"
+      "Bash(git reset *)",
+      "mcp__Claude_in_Chrome__read_page",
+      "mcp__Claude_in_Chrome__find"
     ]
   }
 }
