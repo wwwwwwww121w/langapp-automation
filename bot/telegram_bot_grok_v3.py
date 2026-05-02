@@ -280,7 +280,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
 
 
-async def main():
+def main():
     """Запуск бота"""
     application = Application.builder().token(TELEGRAM_BOT_TOKEN).build()
 
@@ -296,8 +296,9 @@ async def main():
     print(f"✅ Используется xAI Grok Video API")
     print(f"{'=' * 60}\n")
 
-    await application.run_polling()
+    # Use application's built-in run method
+    application.run_polling()
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()
