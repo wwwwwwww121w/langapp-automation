@@ -30,10 +30,24 @@ from telegram.ext import (
 )
 from telegram.constants import ChatAction, ParseMode
 
+# DEBUG: Print all environment variables
+print("DEBUG: Environment variables available:")
+print(f"  TELEGRAM_BOT_TOKEN: {'SET' if os.getenv('TELEGRAM_BOT_TOKEN') else 'EMPTY'}")
+print(f"  TELEGRAM_ADMIN_ID: {'SET' if os.getenv('TELEGRAM_ADMIN_ID') else 'EMPTY'}")
+print(f"  XAI_API_KEY: {'SET' if os.getenv('XAI_API_KEY') else 'EMPTY'}")
+print(f"All env vars: {list(os.environ.keys())[:20]}")
+
 # Load config
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_ADMIN_ID = int(os.getenv("TELEGRAM_ADMIN_ID", "0"))
 APP_NAME = "LinguaStart"
+
+# Validate tokens
+if not TELEGRAM_BOT_TOKEN:
+    print("ERROR: TELEGRAM_BOT_TOKEN is empty!")
+    sys.exit(1)
+if TELEGRAM_ADMIN_ID == 0:
+    print("ERROR: TELEGRAM_ADMIN_ID is empty!")
 
 # Paths
 VIDEOS_DIR = Path(__file__).parent.parent / "output" / "videos"
