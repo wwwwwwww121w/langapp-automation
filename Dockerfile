@@ -23,9 +23,13 @@ COPY . .
 # Create output directories
 RUN mkdir -p output/videos logs data
 
+# Copy entrypoint script
+COPY entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
 ENV PORT=8080
 
-# Run the bot
-CMD ["python", "bot/telegram_bot_grok_v3.py"]
+# Run via entrypoint
+ENTRYPOINT ["/app/entrypoint.sh"]
