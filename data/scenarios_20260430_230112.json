@@ -1,0 +1,201 @@
+[
+  {
+    "id": 11,
+    "type": "mistake",
+    "hook_en": "English hook line",
+    "hook_ar": "Arabic hook",
+    "items": [
+      {
+        "en": "English word",
+        "ar": "Arabic word",
+        "pronunciation": "romanized"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic"
+    ]
+  },
+  {
+    "id": 16,
+    "type": "phrase",
+    "hook_en": "Stop scrolling! 👋 Want to master the most used Arabic phrase? 🎉",
+    "hook_ar": "توقف! هل تريد إتقان أكثر عبارة عربية مستخدمة؟ 🎉",
+    "items": [
+      {
+        "en": "How are you?",
+        "ar": "كيف حالك؟",
+        "pronunciation": "kayfa haluk?"
+      },
+      {
+        "en": "I’m fine",
+        "ar": "أنا بخير",
+        "pronunciation": "ana bikhayr"
+      },
+      {
+        "en": "Thank you",
+        "ar": "شكراً",
+        "pronunciation": "shukran"
+      },
+      {
+        "en": "You’re welcome",
+        "ar": "على الرحب والسعة",
+        "pronunciation": "ala al-rahb wa al-sa'a"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#dailyphrase",
+      "#arabicenglearn"
+    ]
+  },
+  {
+    "id": 17,
+    "type": "phrase",
+    "hook_en": "Need help? Learn to say 'I need help' in Arabic in seconds! 💪",
+    "hook_ar": "تحتاج مساعدة؟ تعلم كيف تقول 'أحتاج مساعدة' بالعربية في ثوانٍ! 💪",
+    "items": [
+      {
+        "en": "Help",
+        "ar": "مساعدة",
+        "pronunciation": "musa'ada"
+      },
+      {
+        "en": "I need help",
+        "ar": "أحتاج مساعدة",
+        "pronunciation": "uhhtaj musa'ada"
+      },
+      {
+        "en": "Please",
+        "ar": "من فضلك",
+        "pronunciation": "min fadlik"
+      },
+      {
+        "en": "Excuse me",
+        "ar": "عفوا",
+        "pronunciation": "afwan"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#help",
+      "#arabicenglearn"
+    ]
+  },
+  {
+    "id": 18,
+    "type": "phrase",
+    "hook_en": "Coffee lovers, listen up! ☕ Learn how to order a coffee in Arabic like a local!",
+    "hook_ar": "محبو القهوة، استمعوا! ☕ تعلّم كيف تطلب قهوة بالعربية كالمحليين!",
+    "items": [
+      {
+        "en": "Coffee",
+        "ar": "قهوة",
+        "pronunciation": "qahwa"
+      },
+      {
+        "en": "I want coffee",
+        "ar": "أريد قهوة",
+        "pronunciation": "urid qahwa"
+      },
+      {
+        "en": "With milk",
+        "ar": "بالحليب",
+        "pronunciation": "bal-haleeb"
+      },
+      {
+        "en": "No sugar",
+        "ar": "بدون سكر",
+        "pronunciation": "bidun sukkar"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#coffee",
+      "#arabicenglearn"
+    ]
+  },
+  {
+    "id": 19,
+    "type": "phrase",
+    "hook_en": "Lost? 😱 Learn the Arabic phrase to ask 'Where is the ...?' and never be lost again!",
+    "hook_ar": "ضائع؟ 😱 تعلّم كيف تسأل 'أين يقع ...؟' ولا تضيع أبداً!",
+    "items": [
+      {
+        "en": "Where",
+        "ar": "أين",
+        "pronunciation": "ayna"
+      },
+      {
+        "en": "is",
+        "ar": "يقع",
+        "pronunciation": "yaqa'"
+      },
+      {
+        "en": "the bathroom",
+        "ar": "الحمام",
+        "pronunciation": "al-hammam"
+      },
+      {
+        "en": "the metro",
+        "ar": "المترو",
+        "pronunciation": "al-metro"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#directions",
+      "#arabicenglearn"
+    ]
+  },
+  {
+    "id": 20,
+    "type": "phrase",
+    "hook_en": "Start your day right! 🌞 Master 'Good morning' in Arabic and impress everyone!",
+    "hook_ar": "ابدأ يومك بشكل صحيح! 🌞 أتقن 'صباح الخير' بالعربية وأذهل الجميع!",
+    "items": [
+      {
+        "en": "Good morning",
+        "ar": "صباح الخير",
+        "pronunciation": "sabah al-khayr"
+      },
+      {
+        "en": "Good night",
+        "ar": "تصبح على خير",
+        "pronunciation": "tisbah ala khayr"
+      },
+      {
+        "en": "Hello",
+        "ar": "مرحبا",
+        "pronunciation": "marhaba"
+      },
+      {
+        "en": "Goodbye",
+        "ar": "مع السلامة",
+        "pronunciation": "ma'a as-salama"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#greetings",
+      "#arabicenglearn"
+    ]
+  }
+]

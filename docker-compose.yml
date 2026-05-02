@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  linguastart-bot:
+    build: .
+    container_name: linguastart-telegram-bot
+    environment:
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+      TELEGRAM_ADMIN_ID: ${TELEGRAM_ADMIN_ID}
+      XAI_API_KEY: ${XAI_API_KEY}
+      XAI_VIDEO_MODEL: ${XAI_VIDEO_MODEL}
+      XAI_VIDEO_DURATION: ${XAI_VIDEO_DURATION}
+      XAI_VIDEO_ASPECT_RATIO: ${XAI_VIDEO_ASPECT_RATIO}
+      XAI_VIDEO_RESOLUTION: ${XAI_VIDEO_RESOLUTION}
+      FIREWORKS_API_KEY: ${FIREWORKS_API_KEY}
+    volumes:
+      - ./output:/app/output
+      - ./logs:/app/logs
+      - ./data:/app/data
+    restart: always
+    networks:
+      - linguastart-network
+
+networks:
+  linguastart-network:
+    driver: bridge

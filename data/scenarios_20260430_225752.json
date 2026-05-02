@@ -1,0 +1,56 @@
+[
+  {
+    "id": 6,
+    "type": "dialect",
+    "hook_en": "English hook line",
+    "hook_ar": "Arabic hook",
+    "items": [
+      {
+        "en": "English word",
+        "ar": "Arabic word",
+        "pronunciation": "romanized"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic"
+    ]
+  },
+  {
+    "en": "Piano",
+    "ar": "بيانو",
+    "pronunciation": "bīyānū",
+    "id": 11,
+    "type": "mistake"
+  },
+  {
+    "en": "Vase",
+    "ar": "مزهرية",
+    "pronunciation": "muzahriyya",
+    "id": 12,
+    "type": "mistake"
+  },
+  {
+    "en": "Zoo",
+    "ar": "حديقة حيوانات",
+    "pronunciation": "ḥadīqa ḥayawānāt",
+    "id": 13,
+    "type": "mistake"
+  },
+  {
+    "en": "February",
+    "ar": "فبراير",
+    "pronunciation": "fibrayr",
+    "id": 14,
+    "type": "mistake"
+  },
+  {
+    "en": "Theater",
+    "ar": "مسرح",
+    "pronunciation": "masraḥ",
+    "id": 15,
+    "type": "mistake"
+  }
+]

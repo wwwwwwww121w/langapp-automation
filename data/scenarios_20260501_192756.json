@@ -1,0 +1,240 @@
+[
+  {
+    "id": 1,
+    "type": "fact",
+    "hook_en": "English hook line",
+    "hook_ar": "Arabic hook",
+    "items": [
+      {
+        "en": "English word",
+        "ar": "Arabic word",
+        "pronunciation": "romanized"
+      }
+    ],
+    "cta_en": "Download LinguaStart!",
+    "cta_ar": "حمل LinguaStart!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic"
+    ]
+  },
+  {
+    "id": 16,
+    "type": "phrase",
+    "hook_en": "Master these Arabic greetings in 30 seconds! 🇸🇦✨ #arabic #learnwithme",
+    "hook_ar": "تعلم التحيات العربية في 30 ثانية! 🇸🇦✨ #تعلم_العربية",
+    "items": [
+      {
+        "en": "Hello",
+        "ar": "مرحبا",
+        "pronunciation": "marhaba"
+      },
+      {
+        "en": "Good morning",
+        "ar": "صباح الخير",
+        "pronunciation": "sabah al-khayr"
+      },
+      {
+        "en": "How are you?",
+        "ar": "كيف حالك؟",
+        "pronunciation": "kayf haluk"
+      },
+      {
+        "en": "Thank you",
+        "ar": "شكراً",
+        "pronunciation": "shukran"
+      },
+      {
+        "en": "You're welcome",
+        "ar": "عفواً",
+        "pronunciation": "afwan"
+      }
+    ],
+    "cta_en": "Download LinguaStart!",
+    "cta_ar": "حمل LinguaStart!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#greetings",
+      "#languagelearning",
+      "#linguastart"
+    ]
+  },
+  {
+    "id": 17,
+    "type": "phrase",
+    "hook_en": "Ordering food in Arabic? Save this! 🍽️ #arabic #food #tiktoktips",
+    "hook_ar": "تريد طلب طعام بالعربية؟ احفظ هذا! 🍽️ #عربي_للمبتدئين",
+    "items": [
+      {
+        "en": "Water",
+        "ar": "ماء",
+        "pronunciation": "ma'"
+      },
+      {
+        "en": "Menu please",
+        "ar": "القائمة من فضلك",
+        "pronunciation": "al-qa'ima min fadlik"
+      },
+      {
+        "en": "The bill please",
+        "ar": "الفاتورة من فضلك",
+        "pronunciation": "al-fatura min fadlik"
+      },
+      {
+        "en": "Delicious",
+        "ar": "لذيذ",
+        "pronunciation": "lazeez"
+      },
+      {
+        "en": "I'm full",
+        "ar": "أنا شبعان",
+        "pronunciation": "ana shaba'an"
+      }
+    ],
+    "cta_en": "Download LinguaStart!",
+    "cta_ar": "حمل LinguaStart!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabicfood",
+      "#arabic",
+      "#restaurant",
+      "#travelarabic",
+      "#linguastart"
+    ]
+  },
+  {
+    "id": 18,
+    "type": "phrase",
+    "hook_en": "Shopping in Arabic made easy! 🛍️💰 #shoppinginarabic #arabiclearning",
+    "hook_ar": "التسوق بالعربية أصبح سهل! 🛍️💰 #تعلم_العربية",
+    "items": [
+      {
+        "en": "How much?",
+        "ar": "بكم؟",
+        "pronunciation": "bikam"
+      },
+      {
+        "en": "Too expensive",
+        "ar": "غالي جداً",
+        "pronunciation": "ghalī jiddan"
+      },
+      {
+        "en": "I want this",
+        "ar": "أريد هذا",
+        "pronunciation": "ureed hatha"
+      },
+      {
+        "en": "Discount",
+        "ar": "خصم",
+        "pronunciation": "khasm"
+      },
+      {
+        "en": "I'll take it",
+        "ar": "سآخذه",
+        "pronunciation": "sa'akhudh"
+      }
+    ],
+    "cta_en": "Download LinguaStart!",
+    "cta_ar": "حمل LinguaStart!",
+    "hashtags": [
+      "#learnarabic",
+      "#shopping",
+      "#bargain",
+      "#arabic",
+      "#linguastart",
+      "#everydayarabic"
+    ]
+  },
+  {
+    "id": 19,
+    "type": "phrase",
+    "hook_en": "Never get lost again! 📍 Learn directions in Arabic 🇦🇪 #arabic #travel #direction",
+    "hook_ar": "لن تضيع أبداً! 📍 تعلم الاتجاهات بالعربية 🇦🇪 #عربي",
+    "items": [
+      {
+        "en": "Where is?",
+        "ar": "أين؟",
+        "pronunciation": "ayna"
+      },
+      {
+        "en": "Turn left",
+        "ar": "انعطف يسار",
+        "pronunciation": "in'atif yasar"
+      },
+      {
+        "en": "Turn right",
+        "ar": "انعطف يمين",
+        "pronunciation": "in'atif yameen"
+      },
+      {
+        "en": "Straight ahead",
+        "ar": "للأمام مباشرة",
+        "pronunciation": "li-l-amam mubashiratan"
+      },
+      {
+        "en": "Near here",
+        "ar": "هنا قريب",
+        "pronunciation": "huna qareeb"
+      }
+    ],
+    "cta_en": "Download LinguaStart!",
+    "cta_ar": "حمل LinguaStart!",
+    "hashtags": [
+      "#learnarabic",
+      "#travel",
+      "#directions",
+      "#arabic",
+      "#linguastart",
+      "#dubaistyle"
+    ]
+  },
+  {
+    "id": 20,
+    "type": "phrase",
+    "hook_en": "Must-know phrases for your trip to Egypt! 🏛️ #egypt #travel #arabic",
+    "hook_ar": "عبارات ضرورية لرحلتك لمصر! 🏛️ #مصر #عربي #سفر",
+    "items": [
+      {
+        "en": "Welcome",
+        "ar": "أهلا وسهلا",
+        "pronunciation": "ahlan wa-sahlan"
+      },
+      {
+        "en": "Yes",
+        "ar": "نعم",
+        "pronunciation": "naam"
+      },
+      {
+        "en": "No",
+        "ar": "لا",
+        "pronunciation": "la"
+      },
+      {
+        "en": "Please help",
+        "ar": "أرجو المساعدة",
+        "pronunciation": "urju al-musaa'ada"
+      },
+      {
+        "en": "I understand",
+        "ar": "أفهم",
+        "pronunciation": "afham"
+      },
+      {
+        "en": "I don't understand",
+        "ar": "لا أفهم",
+        "pronunciation": "la afham"
+      }
+    ],
+    "cta_en": "Download LinguaStart!",
+    "cta_ar": "حمل LinguaStart!",
+    "hashtags": [
+      "#learnarabic",
+      "#egypt",
+      "#travel",
+      "#arabicphrase",
+      "#linguastart",
+      "#essentialarabic"
+    ]
+  }
+]

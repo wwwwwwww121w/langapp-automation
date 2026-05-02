@@ -1,0 +1,40 @@
+[
+  {
+    "id": 11,
+    "type": "mistake",
+    "hook_en": "English hook line",
+    "hook_ar": "Arabic hook",
+    "items": [
+      {
+        "en": "English word",
+        "ar": "Arabic word",
+        "pronunciation": "romanized"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic"
+    ]
+  },
+  {
+    "id": 16,
+    "type": "phrase",
+    "hook_en": "English hook line",
+    "hook_ar": "Arabic hook",
+    "items": [
+      {
+        "en": "English word",
+        "ar": "Arabic word",
+        "pronunciation": "romanized"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic"
+    ]
+  }
+]

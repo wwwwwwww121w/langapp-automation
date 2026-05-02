@@ -1,0 +1,348 @@
+
+[2026-04-30 22:20:33.341864] Starting scenario generation...
+[2026-04-30 22:20:34.002854] ERROR: Error code: 404 - {'error': {'message': 'Model not found, inaccessible, and/or not deployed', 'param': 'model', 'code': 'NOT_FOUND', 'type': 'error'}, 'request_id': 'chatcmpl-1922375a736445b5a008f9d91ed51d3a'}
+
+[2026-04-30 22:20:48.501289] Starting scenario generation...
+[2026-04-30 22:20:49.120971] ERROR: Error code: 404 - {'error': {'message': 'Model not found, inaccessible, and/or not deployed', 'param': 'model', 'code': 'NOT_FOUND', 'type': 'error'}, 'request_id': 'chatcmpl-67b86723a0b3472f8a07263536ed30fb'}
+
+[2026-04-30 22:25:08.818810] Starting scenario generation...
+[2026-04-30 22:25:09.525386] ERROR: Error code: 400 - {'error': {'message': 'Requests with max_tokens > 4096 must have stream=true', 'param': 'max_tokens', 'code': 'BAD_REQUEST', 'type': 'error'}, 'request_id': 'chatcmpl-4aed1a55b38f42b8876d69f66f2521ed'}
+
+[2026-04-30 22:25:20.509317] Starting scenario generation...
+[2026-04-30 22:25:21.025935] ERROR: Error code: 400 - {'error': {'message': 'Requests with max_tokens > 4096 must have stream=true', 'param': 'max_tokens', 'code': 'BAD_REQUEST', 'type': 'error'}, 'request_id': 'chatcmpl-c9cb91a9d204455abcd482a5f7b78bac'}
+
+[2026-04-30 22:27:05.892063] Starting scenario generation...
+[2026-04-30 22:27:06.489147] ERROR: Error code: 400 - {'error': {'message': 'Requests with max_tokens > 4096 must have stream=true', 'param': 'max_tokens', 'code': 'BAD_REQUEST', 'type': 'error'}, 'request_id': 'chatcmpl-d5b834c3fc83429c86c48a30ad21d758'}
+
+[2026-04-30 22:27:11.765430] Starting scenario generation...
+[2026-04-30 22:27:12.291760] ERROR: Error code: 400 - {'error': {'message': 'Requests with max_tokens > 4096 must have stream=true', 'param': 'max_tokens', 'code': 'BAD_REQUEST', 'type': 'error'}, 'request_id': 'chatcmpl-4684237d2f9d4b8480bb6b8a577a1c64'}
+
+[2026-04-30 22:30:14.533144] Starting scenario generation...
+[2026-04-30 22:30:15.215492] ERROR: Error code: 400 - {'error': {'message': 'Requests with max_tokens > 4096 must have stream=true', 'param': 'max_tokens', 'code': 'BAD_REQUEST', 'type': 'error'}, 'request_id': 'chatcmpl-0a41dab2fbe24d578d44e6de6f72a372'}
+
+[2026-04-30 22:33:15.269594] Starting scenario generation (4 batches)...
+[2026-04-30 22:33:15.269594] Batch 1: fact
+[2026-04-30 22:34:16.688803] Batch 1 ERROR: list index out of range
+[2026-04-30 22:34:16.689315] Batch 2: dialect
+
+[2026-04-30 22:37:02.273189] Starting scenario generation (4 batches)...
+[2026-04-30 22:37:02.273714] Batch 1: fact
+[2026-04-30 22:39:32.548639] Batch 1 ERROR: Expecting ',' delimiter: line 1 column 2016 (char 2015)
+[2026-04-30 22:39:32.548639] Batch 2: dialect
+
+[2026-04-30 22:49:21.993290] Starting scenario generation (4 batches)...
+[2026-04-30 22:49:21.994294] Batch 1: fact
+[2026-04-30 22:50:16.424777] Batch 1 ERROR: Expecting value: line 9 column 7 (char 205)
+[2026-04-30 22:50:16.425301] Batch 2: dialect
+[2026-04-30 22:51:22.989569] Batch 2 ERROR: Extra data: line 1 column 63 (char 62)
+[2026-04-30 22:51:22.990081] Batch 3: mistake
+[2026-04-30 22:52:20.978035] Batch 3 ERROR: Expecting value: line 7 column 1 (char 107)
+[2026-04-30 22:52:20.978035] Batch 4: phrase
+[2026-04-30 22:53:23.347568] Batch 4 ERROR: Extra data: line 1 column 70 (char 69)
+
+[2026-04-30 22:54:01.597372] Starting scenario generation (4 batches)...
+[2026-04-30 22:54:01.597372] Batch 1: fact
+[2026-04-30 22:55:00.481974] Batch 1 ERROR: Could not parse JSON from response
+[2026-04-30 22:55:00.481974] Batch 2: dialect
+[2026-04-30 22:56:06.284499] Batch 2 done: 1 scenarios
+[2026-04-30 22:56:06.284499] Batch 3: mistake
+[2026-04-30 22:56:59.568871] Batch 3 done: 5 scenarios
+[2026-04-30 22:56:59.569397] Batch 4: phrase
+[2026-04-30 22:57:52.977217] Batch 4 ERROR: 'str' object does not support item assignment
+[2026-04-30 22:57:52.978752] TOTAL: 6 scenarios
+[2026-04-30 22:57:52.978752] Saved to C:\langapp-automation\data\scenarios_20260430_225752.json
+
+[2026-04-30 22:58:21.544226] Starting scenario generation (4 batches)...
+[2026-04-30 22:58:21.545242] Batch 1: fact
+[2026-04-30 22:59:00.267848] Batch 1 ERROR: Error code: 429 - {'error': {'object': 'error', 'type': 'invalid_request_error', 'code': 'invalid_request_error', 'message': 'rate limit exceeded, please try again later'}}
+[2026-04-30 22:59:00.267848] Batch 2: dialect
+[2026-04-30 22:59:05.088885] Batch 2 ERROR: Error code: 429 - {'error': {'object': 'error', 'type': 'invalid_request_error', 'code': 'invalid_request_error', 'message': 'rate limit exceeded, please try again later'}}
+[2026-04-30 22:59:05.088885] Batch 3: mistake
+[2026-04-30 23:00:10.451783] Batch 3 done: 1 scenarios
+[2026-04-30 23:00:10.451783] Batch 4: phrase
+[2026-04-30 23:01:12.745803] Batch 4 done: 5 scenarios
+[2026-04-30 23:01:12.750918] TOTAL: 6 scenarios
+[2026-04-30 23:01:12.750918] Saved to C:\langapp-automation\data\scenarios_20260430_230112.json
+
+[2026-04-30 23:02:37.244654] Starting scenario generation (4 batches)...
+[2026-04-30 23:02:37.245266] Batch 1: fact
+[2026-04-30 23:03:22.019650] Batch 1 done: 4 scenarios
+[2026-04-30 23:03:22.019650] Batch 2: dialect
+[2026-04-30 23:04:07.838988] Batch 2 done: 1 scenarios
+[2026-04-30 23:04:07.839490] Batch 3: mistake
+[2026-04-30 23:04:12.975974] Batch 3 ERROR: Error code: 429 - {'error': {'object': 'error', 'type': 'invalid_request_error', 'code': 'invalid_request_error', 'message': 'rate limit exceeded, please try again later'}}
+[2026-04-30 23:04:12.975974] Batch 4: phrase
+[2026-04-30 23:04:18.129410] Batch 4 ERROR: Error code: 429 - {'error': {'object': 'error', 'type': 'invalid_request_error', 'code': 'invalid_request_error', 'message': 'rate limit exceeded, please try again later'}}
+[2026-04-30 23:04:18.130434] TOTAL: 5 scenarios
+[2026-04-30 23:04:18.130434] Saved to C:\langapp-automation\data\scenarios_20260430_230418.json
+
+[2026-04-30 23:07:09.388363] Starting scenario generation (4 batches)...
+[2026-04-30 23:07:09.389554] Batch 1: fact
+[2026-04-30 23:10:01.152756] Batch 1 done: 3 scenarios
+[2026-04-30 23:10:01.153261] Batch 2: dialect
+[2026-04-30 23:15:17.045024] Batch 2 done: 3 scenarios
+[2026-04-30 23:15:17.045528] Batch 3: mistake
+
+[2026-04-30 23:23:23.820180] Starting scenario generation (4 batches)...
+[2026-04-30 23:23:23.820180] Batch 1: fact
+[2026-04-30 23:24:35.503017] Batch 1 done: 3 scenarios
+[2026-04-30 23:24:35.503017] Batch 2: dialect
+[2026-04-30 23:27:55.850341] Batch 2 ERROR: Could not parse JSON from response
+[2026-04-30 23:27:55.850341] Batch 3: mistake
+[2026-04-30 23:30:20.058050] Batch 3 done: 1 scenarios
+[2026-04-30 23:30:20.058050] Batch 4: phrase
+[2026-04-30 23:32:47.706617] Batch 4 done: 3 scenarios
+[2026-04-30 23:32:47.709278] TOTAL: 7 scenarios
+[2026-04-30 23:32:47.709278] Saved to C:\langapp-automation\data\scenarios_20260430_233247.json
+
+[2026-04-30 23:49:25.073957] Starting scenario generation (4 batches)...
+[2026-04-30 23:49:25.074960] Batch 1: fact
+
+[2026-04-30 23:50:08.571417] Starting scenario generation (4 batches)...
+[2026-04-30 23:50:08.571417] Batch 1: fact
+
+[2026-04-30 23:50:47.611973] Starting scenario generation (4 batches)...
+[2026-04-30 23:50:47.611973] Batch 1: fact
+
+[2026-04-30 23:52:03.376157] Starting scenario generation (4 batches)...
+[2026-04-30 23:52:03.377385] Batch 1: fact
+
+[2026-04-30 23:52:59.387552] Starting scenario generation (4 batches)...
+[2026-04-30 23:52:59.387552] Batch 1: fact
+[2026-04-30 23:53:30.680644] Batch 1 ERROR: Could not parse JSON from response
+[2026-04-30 23:53:30.681158] Batch 2: dialect
+[2026-04-30 23:54:13.435424] Batch 2 done: 3 scenarios
+[2026-04-30 23:54:13.435424] Batch 3: mistake
+[2026-04-30 23:54:50.123288] Batch 1 done: 3 scenarios
+[2026-04-30 23:54:50.123792] Batch 2: dialect
+[2026-04-30 23:57:02.819011] Batch 1 ERROR: Could not parse JSON from response
+[2026-04-30 23:57:02.819524] Batch 2: dialect
+
+[2026-04-30 23:57:07.169556] Starting scenario generation (4 batches)...
+[2026-04-30 23:57:07.170069] Batch 1: fact
+[2026-04-30 23:57:55.181591] Batch 1 done: 3 scenarios
+[2026-04-30 23:57:55.181591] Batch 2: dialect
+[2026-04-30 23:58:28.583377] Batch 1 ERROR: Could not parse JSON from response
+[2026-04-30 23:58:28.583891] Batch 2: dialect
+[2026-04-30 23:58:48.446779] Batch 2 done: 3 scenarios
+[2026-04-30 23:58:48.446779] Batch 3: mistake
+[2026-04-30 23:58:52.210560] Batch 2 ERROR: Could not parse JSON from response
+[2026-04-30 23:58:52.210560] Batch 3: mistake
+[2026-04-30 23:59:22.593328] Batch 3 done: 3 scenarios
+[2026-04-30 23:59:22.593328] Batch 4: phrase
+[2026-04-30 23:59:29.818715] Batch 1 ERROR: Could not parse JSON from response
+[2026-04-30 23:59:29.819232] Batch 2: dialect
+[2026-04-30 23:59:55.081263] Batch 3 ERROR: Could not parse JSON from response
+[2026-04-30 23:59:55.081778] Batch 4: phrase
+[2026-05-01 00:00:06.061690] Batch 4 done: 1 scenarios
+[2026-05-01 00:00:06.063707] TOTAL: 7 scenarios
+[2026-05-01 00:00:06.063707] Saved to C:\langapp-automation\data\scenarios_20260501_000006.json
+[2026-05-01 00:00:29.007036] Batch 2 ERROR: Could not parse JSON from response
+[2026-05-01 00:00:29.007554] Batch 3: mistake
+[2026-05-01 00:02:15.031255] Batch 2 ERROR: Could not parse JSON from response
+[2026-05-01 00:02:15.031255] Batch 3: mistake
+[2026-05-01 00:02:16.776248] Batch 4 ERROR: Could not parse JSON from response
+[2026-05-01 00:02:16.778307] TOTAL: 3 scenarios
+[2026-05-01 00:02:16.778307] Saved to C:\langapp-automation\data\scenarios_20260501_000216.json
+[2026-05-01 00:03:18.576797] Batch 3 done: 1 scenarios
+[2026-05-01 00:03:18.576797] Batch 4: phrase
+[2026-05-01 00:03:45.193959] Batch 3 done: 3 scenarios
+[2026-05-01 00:03:45.193959] Batch 4: phrase
+[2026-05-01 00:04:20.411370] Batch 4 done: 1 scenarios
+[2026-05-01 00:04:20.413240] TOTAL: 5 scenarios
+[2026-05-01 00:04:20.413240] Saved to C:\langapp-automation\data\scenarios_20260501_000420.json
+[2026-05-01 00:04:31.563526] Batch 2 done: 3 scenarios
+[2026-05-01 00:04:31.564040] Batch 3: mistake
+[2026-05-01 00:05:33.100677] Batch 3 done: 3 scenarios
+[2026-05-01 00:05:33.101180] Batch 4: phrase
+[2026-05-01 00:05:57.903450] Batch 4 done: 3 scenarios
+[2026-05-01 00:05:57.905490] TOTAL: 9 scenarios
+[2026-05-01 00:05:57.905490] Saved to C:\langapp-automation\data\scenarios_20260501_000557.json
+[2026-05-01 00:06:13.325328] Batch 3 done: 3 scenarios
+[2026-05-01 00:06:13.325328] Batch 4: phrase
+[2026-05-01 00:06:18.509980] Batch 4 ERROR: Error code: 429 - {'error': {'object': 'error', 'type': 'invalid_request_error', 'code': 'invalid_request_error', 'message': 'rate limit exceeded, please try again later'}}
+[2026-05-01 00:06:18.512646] TOTAL: 6 scenarios
+[2026-05-01 00:06:18.512646] Saved to C:\langapp-automation\data\scenarios_20260501_000618.json
+[2026-05-01 00:06:58.505154] Batch 4 done: 3 scenarios
+[2026-05-01 00:06:58.507265] TOTAL: 6 scenarios
+[2026-05-01 00:06:58.507265] Saved to C:\langapp-automation\data\scenarios_20260501_000658.json
+
+[2026-05-01 00:35:56.591038] Starting scenario generation (4 batches)...
+[2026-05-01 00:35:56.591038] Batch 1: fact
+[2026-05-01 00:38:29.725529] Batch 1 ERROR: Could not parse JSON from response
+[2026-05-01 00:38:29.726054] Batch 2: dialect
+[2026-05-01 00:39:14.122752] Batch 2 done: 1 scenarios
+[2026-05-01 00:39:14.123256] Batch 3: mistake
+[2026-05-01 00:40:39.943729] Batch 3 done: 3 scenarios
+[2026-05-01 00:40:39.943729] Batch 4: phrase
+[2026-05-01 00:41:43.969982] Batch 4 ERROR: Could not parse JSON from response
+[2026-05-01 00:41:43.971525] TOTAL: 4 scenarios
+[2026-05-01 00:41:43.971525] Saved to C:\langapp-automation\data\scenarios_20260501_004143.json
+
+[2026-05-01 17:35:45.940136] Starting scenario generation (4 batches)...
+[2026-05-01 17:35:49.800654] Batch 1: fact
+[2026-05-01 17:36:25.370664] Batch 1 done: 1 scenarios
+[2026-05-01 17:36:25.371274] Batch 2: dialect
+[2026-05-01 17:37:27.106599] Batch 2 ERROR: Could not parse JSON from response
+[2026-05-01 17:37:27.106599] Batch 3: mistake
+[2026-05-01 17:38:02.922854] Batch 3 done: 1 scenarios
+[2026-05-01 17:38:02.923392] Batch 4: phrase
+
+[2026-05-01 17:38:44.141860] Starting scenario generation (4 batches)...
+[2026-05-01 17:38:44.142860] Batch 1: fact
+[2026-05-01 17:38:59.478113] Batch 4 ERROR: Could not parse JSON from response
+[2026-05-01 17:38:59.479152] TOTAL: 2 scenarios
+[2026-05-01 17:38:59.479152] Saved to C:\langapp-automation\data\scenarios_20260501_173859.json
+[2026-05-01 17:39:19.307198] Batch 1 done: 3 scenarios
+[2026-05-01 17:39:19.307722] Batch 2: dialect
+[2026-05-01 17:40:31.638422] Batch 2 done: 3 scenarios
+[2026-05-01 17:40:31.638422] Batch 3: mistake
+
+[2026-05-01 17:40:54.919083] Starting scenario generation (4 batches)...
+[2026-05-01 17:40:54.919083] Batch 1: fact
+[2026-05-01 17:41:27.205007] Batch 3 ERROR: Could not parse JSON from response
+[2026-05-01 17:41:27.205530] Batch 4: phrase
+[2026-05-01 17:41:29.054986] Batch 1 done: 1 scenarios
+[2026-05-01 17:41:29.054986] Batch 2: dialect
+[2026-05-01 17:42:21.124780] Batch 4 ERROR: Could not parse JSON from response
+[2026-05-01 17:42:21.126352] TOTAL: 6 scenarios
+[2026-05-01 17:42:21.126352] Saved to C:\langapp-automation\data\scenarios_20260501_174221.json
+[2026-05-01 17:42:24.128110] Batch 2 ERROR: Could not parse JSON from response
+[2026-05-01 17:42:24.128631] Batch 3: mistake
+[2026-05-01 17:43:14.886241] Batch 3 ERROR: Could not parse JSON from response
+[2026-05-01 17:43:14.886763] Batch 4: phrase
+[2026-05-01 17:43:47.639850] Batch 4 done: 3 scenarios
+[2026-05-01 17:43:47.640856] TOTAL: 4 scenarios
+[2026-05-01 17:43:47.640856] Saved to C:\langapp-automation\data\scenarios_20260501_174347.json
+
+[2026-05-01 17:48:03.654733] Starting scenario generation (4 batches)...
+[2026-05-01 17:48:03.654733] Batch 1: fact
+[2026-05-01 17:48:38.558390] Batch 1 done: 3 scenarios
+[2026-05-01 17:48:38.558896] Batch 2: dialect
+[2026-05-01 17:49:10.547710] Batch 2 done: 3 scenarios
+[2026-05-01 17:49:10.547710] Batch 3: mistake
+[2026-05-01 17:49:43.307917] Batch 3 done: 1 scenarios
+[2026-05-01 17:49:43.308422] Batch 4: phrase
+[2026-05-01 17:50:36.838738] Batch 4 ERROR: Could not parse JSON from response
+[2026-05-01 17:50:36.840884] TOTAL: 7 scenarios
+[2026-05-01 17:50:36.840884] Saved to C:\langapp-automation\data\scenarios_20260501_175036.json
+
+[2026-05-01 17:58:26.580978] Starting scenario generation (4 batches)...
+[2026-05-01 17:58:26.581508] Batch 1: fact
+[2026-05-01 17:59:00.682733] Batch 1 done: 3 scenarios
+[2026-05-01 17:59:00.683242] Batch 2: dialect
+[2026-05-01 17:59:55.542236] Batch 2 ERROR: Could not parse JSON from response
+[2026-05-01 17:59:55.542760] Batch 3: mistake
+[2026-05-01 18:00:54.522073] Batch 3 ERROR: Could not parse JSON from response
+[2026-05-01 18:00:54.522598] Batch 4: phrase
+[2026-05-01 18:01:50.635258] Batch 4 ERROR: Could not parse JSON from response
+[2026-05-01 18:01:50.636314] TOTAL: 3 scenarios
+[2026-05-01 18:01:50.636314] Saved to C:\langapp-automation\data\scenarios_20260501_180150.json
+
+[2026-05-01 18:11:57.573885] Starting scenario generation (4 batches)...
+[2026-05-01 18:11:57.573885] Batch 1: fact
+[2026-05-01 18:12:30.978895] Batch 1 done: 1 scenarios
+[2026-05-01 18:12:30.979400] Batch 2: dialect
+[2026-05-01 18:13:05.731824] Batch 2 done: 1 scenarios
+[2026-05-01 18:13:05.732354] Batch 3: mistake
+[2026-05-01 18:13:46.238639] Batch 3 done: 1 scenarios
+[2026-05-01 18:13:46.238639] Batch 4: phrase
+[2026-05-01 18:14:37.048913] Batch 4 ERROR: Could not parse JSON from response
+[2026-05-01 18:14:37.049951] TOTAL: 3 scenarios
+[2026-05-01 18:14:37.049951] Saved to C:\langapp-automation\data\scenarios_20260501_181437.json
+
+[2026-05-01 18:31:20.451368] Starting scenario generation (4 batches)...
+[2026-05-01 18:31:20.451368] Batch 1: fact
+[2026-05-01 18:31:51.488776] Batch 1 done: 1 scenarios
+[2026-05-01 18:31:51.488776] Batch 2: dialect
+[2026-05-01 18:32:48.243289] Batch 2 ERROR: Could not parse JSON from response
+[2026-05-01 18:32:48.243801] Batch 3: mistake
+[2026-05-01 18:33:52.557010] Batch 3 ERROR: Could not parse JSON from response
+[2026-05-01 18:33:52.557531] Batch 4: phrase
+[2026-05-01 18:34:19.448053] Batch 4 done: 5 scenarios
+[2026-05-01 18:34:19.449056] TOTAL: 6 scenarios
+[2026-05-01 18:34:19.449056] Saved to C:\langapp-automation\data\scenarios_20260501_183419.json
+
+[2026-05-01 18:52:25.576176] Starting scenario generation (4 batches)...
+[2026-05-01 18:52:25.576176] Batch 1: fact
+[2026-05-01 18:53:30.949358] Batch 1 ERROR: Could not parse JSON from response
+[2026-05-01 18:53:30.949358] Batch 2: dialect
+[2026-05-01 18:54:25.747758] Batch 2 ERROR: Could not parse JSON from response
+[2026-05-01 18:54:25.748269] Batch 3: mistake
+[2026-05-01 18:54:57.897604] Batch 3 done: 1 scenarios
+[2026-05-01 18:54:57.898124] Batch 4: phrase
+[2026-05-01 18:55:35.059461] Batch 4 done: 1 scenarios
+[2026-05-01 18:55:35.060468] TOTAL: 2 scenarios
+[2026-05-01 18:55:35.060468] Saved to C:\langapp-automation\data\scenarios_20260501_185535.json
+
+[2026-05-01 19:15:28.201593] Starting scenario generation (4 batches)...
+[2026-05-01 19:15:28.202593] Batch 1: fact
+[2026-05-01 19:16:11.350745] Batch 1 done: 1 scenarios
+[2026-05-01 19:16:11.350745] Batch 2: dialect
+[2026-05-01 19:17:12.705666] Batch 2 ERROR: Could not parse JSON from response
+[2026-05-01 19:17:12.706188] Batch 3: mistake
+[2026-05-01 19:17:46.806858] Batch 3 done: 1 scenarios
+[2026-05-01 19:17:46.806858] Batch 4: phrase
+[2026-05-01 19:18:35.073247] Batch 4 done: 1 scenarios
+[2026-05-01 19:18:35.074252] TOTAL: 3 scenarios
+[2026-05-01 19:18:35.074252] Saved to C:\langapp-automation\data\scenarios_20260501_191835.json
+
+[2026-05-01 19:19:26.031193] Starting scenario generation (4 batches)...
+[2026-05-01 19:19:26.031193] Batch 1: fact
+[2026-05-01 19:20:31.336948] Batch 1 ERROR: Could not parse JSON from response
+[2026-05-01 19:20:31.336948] Batch 2: dialect
+[2026-05-01 19:22:20.044482] Batch 2 ERROR: Could not parse JSON from response
+[2026-05-01 19:22:20.045000] Batch 3: mistake
+[2026-05-01 19:22:57.056698] Batch 3 done: 1 scenarios
+[2026-05-01 19:22:57.056698] Batch 4: phrase
+[2026-05-01 19:23:39.946912] Batch 4 done: 1 scenarios
+[2026-05-01 19:23:39.947980] TOTAL: 2 scenarios
+[2026-05-01 19:23:39.947980] Saved to C:\langapp-automation\data\scenarios_20260501_192339.json
+
+[2026-05-01 19:24:27.681279] Starting scenario generation (4 batches)...
+[2026-05-01 19:24:27.681279] Batch 1: fact
+[2026-05-01 19:25:06.670377] Batch 1 done: 1 scenarios
+[2026-05-01 19:25:06.670377] Batch 2: dialect
+[2026-05-01 19:26:23.734439] Batch 2 ERROR: Could not parse JSON from response
+[2026-05-01 19:26:23.734961] Batch 3: mistake
+[2026-05-01 19:27:29.142004] Batch 3 ERROR: Could not parse JSON from response
+[2026-05-01 19:27:29.142522] Batch 4: phrase
+[2026-05-01 19:27:56.861187] Batch 4 done: 5 scenarios
+[2026-05-01 19:27:56.866191] TOTAL: 6 scenarios
+[2026-05-01 19:27:56.866191] Saved to C:\langapp-automation\data\scenarios_20260501_192756.json
+
+[2026-05-01 19:31:57.321712] Starting scenario generation (4 batches)...
+[2026-05-01 19:31:57.321712] Batch 1: fact
+[2026-05-01 19:32:59.339924] Batch 1 ERROR: Could not parse JSON from response
+[2026-05-01 19:32:59.340445] Batch 2: dialect
+[2026-05-01 19:34:07.909559] Batch 2 ERROR: Could not parse JSON from response
+[2026-05-01 19:34:07.910081] Batch 3: mistake
+[2026-05-01 19:35:04.999286] Batch 3 ERROR: Could not parse JSON from response
+[2026-05-01 19:35:04.999286] Batch 4: phrase
+[2026-05-01 19:35:36.334192] Batch 4 done: 5 scenarios
+[2026-05-01 19:35:36.337189] TOTAL: 5 scenarios
+[2026-05-01 19:35:36.337189] Saved to C:\langapp-automation\data\scenarios_20260501_193536.json
+
+[2026-05-01 19:46:48.880386] Starting scenario generation (4 batches)...
+[2026-05-01 19:46:48.880386] Batch 1: fact
+[2026-05-01 19:47:19.943965] Batch 1 done: 5 scenarios
+[2026-05-01 19:47:19.944470] Batch 2: dialect
+[2026-05-01 19:47:57.684211] Batch 2 done: 1 scenarios
+[2026-05-01 19:47:57.684716] Batch 3: mistake
+[2026-05-01 19:49:03.336479] Batch 3 ERROR: Could not parse JSON from response
+[2026-05-01 19:49:03.337000] Batch 4: phrase
+[2026-05-01 19:50:03.950302] Batch 4 ERROR: Could not parse JSON from response
+[2026-05-01 19:50:03.951935] TOTAL: 6 scenarios
+[2026-05-01 19:50:03.951935] Saved to C:\langapp-automation\data\scenarios_20260501_195003.json
+
+[2026-05-01 22:31:40.220171] Starting scenario generation (4 batches)...
+[2026-05-01 22:31:40.220171] Batch 1: fact
+[2026-05-01 22:32:12.135369] Batch 1 done: 1 scenarios
+[2026-05-01 22:32:12.135369] Batch 2: dialect
+[2026-05-01 22:33:14.347901] Batch 2 ERROR: Could not parse JSON from response
+[2026-05-01 22:33:14.348426] Batch 3: mistake
+[2026-05-01 22:34:04.938319] Batch 3 ERROR: Could not parse JSON from response
+[2026-05-01 22:34:04.938319] Batch 4: phrase
+[2026-05-01 22:34:37.174274] Batch 4 done: 1 scenarios
+[2026-05-01 22:34:37.175859] TOTAL: 2 scenarios
+[2026-05-01 22:34:37.175859] Saved to C:\langapp-automation\data\scenarios_20260501_223437.json

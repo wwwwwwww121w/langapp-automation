@@ -1,0 +1,143 @@
+[
+  {
+    "id": 1,
+    "type": "fact",
+    "hook_en": "Your brain is about to EXPLODE 😱 This fact about English will shock you!",
+    "hook_ar": "دماغك على وشك الانفجار! هذه المعلومة عن الإنجليزية ستصدمك!",
+    "items": [
+      {
+        "en": "Algorithm",
+        "ar": "خوارزمي",
+        "pronunciation": "Khwarizmi"
+      },
+      {
+        "en": "Algebra",
+        "ar": "جبر",
+        "pronunciation": "Jabr"
+      },
+      {
+        "en": "Safari",
+        "ar": "سفر",
+        "pronunciation": "Safar"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#etymology",
+      "#wordorigins"
+    ]
+  },
+  {
+    "id": 2,
+    "type": "fact",
+    "hook_en": "Did you know these everyday words are actually ARABIC?? 👀💀",
+    "hook_ar": "هل تعلم أن هذه الكلمات اليومية هي في الحقيقة عربية؟؟ 👀💀",
+    "items": [
+      {
+        "en": "Alcohol",
+        "ar": "كحول",
+        "pronunciation": "Kuhul"
+      },
+      {
+        "en": "Coffee",
+        "ar": "قهوة",
+        "pronunciation": "Qahwa"
+      },
+      {
+        "en": "Lemon",
+        "ar": "ليمون",
+        "pronunciation": "Laymun"
+      },
+      {
+        "en": "Sugar",
+        "ar": "سكر",
+        "pronunciation": "Sukkar"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#englishwords",
+      "#languagefacts"
+    ]
+  },
+  {
+    "id": 3,
+    "type": "fact",
+    "hook_en": "English is basically HALF Arabic and here's the PROOF 🤯🔥",
+    "hook_ar": "الإنجليزية نصفها عربية وهذا دليل! 🤯🔥",
+    "items": [
+      {
+        "en": "Zero",
+        "ar": "صفر",
+        "pronunciation": "Sifr"
+      },
+      {
+        "en": "Hazard",
+        "ar": "زهر",
+        "pronunciation": "Zahr"
+      },
+      {
+        "en": "Couch",
+        "ar": "قهة",
+        "pronunciation": "Qaha"
+      },
+      {
+        "en": "Alchemy",
+        "ar": "كيمياء",
+        "pronunciation": "Kimiya"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#englishlearning",
+      "#surprisingfacts"
+    ]
+  },
+  {
+    "id": 7,
+    "type": "mistake",
+    "hook_en": "English hook line",
+    "hook_ar": "Arabic hook",
+    "items": [
+      {
+        "en": "English word",
+        "ar": "Arabic word",
+        "pronunciation": "romanized"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic"
+    ]
+  },
+  {
+    "id": 10,
+    "type": "phrase",
+    "hook_en": "English hook line",
+    "hook_ar": "Arabic hook",
+    "items": [
+      {
+        "en": "English word",
+        "ar": "Arabic word",
+        "pronunciation": "romanized"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic"
+    ]
+  }
+]

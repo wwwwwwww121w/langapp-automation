@@ -1,0 +1,295 @@
+[
+  {
+    "id": 4,
+    "type": "dialect",
+    "hook_en": "Same phrase, 4 different ways to say it! 🔥 Arabic dialects explained!",
+    "hook_ar": "نفس الجملة بأربعة لهجات عربية مختلفة! 🔥",
+    "items": [
+      {
+        "en": "How are you?",
+        "ar": "كيف حالك؟",
+        "pronunciation": "kayfa ḥaluk"
+      },
+      {
+        "en": "Egyptian:",
+        "ar": "عامل إيه؟",
+        "pronunciation": "'ammek 'eih?"
+      },
+      {
+        "en": "Lebanese:",
+        "ar": "كيفك؟",
+        "pronunciation": "kifak?"
+      },
+      {
+        "en": "Moroccan:",
+        "ar": "واش态؟",
+        "pronunciation": "wsh halak?"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabicdialects",
+      "#arabiclanguage",
+      "#egyptianarabic",
+      "#lebanese",
+      "#moroccanarabic",
+      "#msa"
+    ]
+  },
+  {
+    "id": 5,
+    "type": "dialect",
+    "hook_en": "Can you believe this? Same meaning but SO different! 😱",
+    "hook_ar": "تصدق؟ نفس المعنى بس شكل مختلف تماماً! 😱",
+    "items": [
+      {
+        "en": "Good morning",
+        "ar": "صباح الخير",
+        "pronunciation": "sabaḥ al-khayr"
+      },
+      {
+        "en": "Egyptian:",
+        "ar": "صباح النور",
+        "pronunciation": "sabaḥ al-nur"
+      },
+      {
+        "en": "Lebanese:",
+        "ar": "صباح الخير",
+        "pronunciation": "sabaḥ el-kheer"
+      },
+      {
+        "en": "Moroccan:",
+        "ar": "صباح لخير",
+        "pronunciation": "sabaḥ lkhīr"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabicdialects",
+      "#morninggreetings",
+      "#dailyarabic",
+      "#languagelearning"
+    ]
+  },
+  {
+    "id": 6,
+    "type": "dialect",
+    "hook_en": "Learning Arabic? You NEED to know these dialect differences! 💡",
+    "hook_ar": "تتعلم عربي؟ لازم تعرف فرق اللهجات! 💡",
+    "items": [
+      {
+        "en": "Where is the bathroom?",
+        "ar": "أين الحمام؟",
+        "pronunciation": "ayna al-ḥammam?"
+      },
+      {
+        "en": "Egyptian:",
+        "ar": "الحمام فين؟",
+        "pronunciation": "el-ḥammam feen?"
+      },
+      {
+        "en": "Lebanese:",
+        "ar": "وين الحمام؟",
+        "pronunciation": "win il-ḥammam?"
+      },
+      {
+        "en": "Moroccan:",
+        "ar": "فين الحمام؟",
+        "pronunciation": "fīn il-ḥammam?"
+      },
+      {
+        "en": "English:",
+        "ar": "download now!",
+        "pronunciation": "download now!"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabicvocabulary",
+      "#travelarabic",
+      "#usefulphrases",
+      "#arabiclanguage",
+      "#dialect"
+    ]
+  },
+  {
+    "id": 7,
+    "type": "mistake",
+    "hook_en": "Did you know these common Arabic mistakes?",
+    "hook_ar": "هل تعلم هذه الأخطاء العربية الشائعة؟",
+    "items": [
+      {
+        "en": "I going to the market",
+        "ar": "أنا ذاهبة إلى السوق",
+        "pronunciation": "Ana dhaahiba ila al-souq"
+      },
+      {
+        "en": "He have a car",
+        "ar": "لديه سيارة",
+        "pronunciation": "Lahu sayara"
+      }
+    ],
+    "cta_en": "Try ArabicEngLearn!",
+    "cta_ar": "جرب ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic"
+    ]
+  },
+  {
+    "id": 8,
+    "type": "mistake",
+    "hook_en": "Common Arabic grammar slip-ups!",
+    "hook_ar": "أخطاء نحوية عربية شائعة!",
+    "items": [
+      {
+        "en": "She eat breakfast",
+        "ar": "هي تتناول الفطور",
+        "pronunciation": "Hiya tatanawwal al-futur"
+      },
+      {
+        "en": "We go to school yesterday",
+        "ar": "ذهبنا إلى المدرسة أمس",
+        "pronunciation": "Dhabna ila al-madrasa ams"
+      }
+    ],
+    "cta_en": "Try ArabicEngLearn!",
+    "cta_ar": "جرب ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic"
+    ]
+  },
+  {
+    "id": 9,
+    "type": "mistake",
+    "hook_en": "Arabic vs English: watch out for these errors!",
+    "hook_ar": "العربية مقابل الإنجليزية: انتبه لهذه الأخطاء!",
+    "items": [
+      {
+        "en": "I am very interest in Arabic",
+        "ar": "أنا مهتم جداً بالعربية",
+        "pronunciation": "Ana muhtam jiddan bil-arabiya"
+      },
+      {
+        "en": "The book is in the table",
+        "ar": "الكتاب على الطاولة",
+        "pronunciation": "Al-kitaab 'ala at-tawla"
+      }
+    ],
+    "cta_en": "Try ArabicEngLearn!",
+    "cta_ar": "جرب ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic"
+    ]
+  },
+  {
+    "id": 10,
+    "type": "phrase",
+    "hook_en": "Ready to speak like a local? 😎",
+    "hook_ar": "هل أنت مستعد للتحدث كالمحليين؟ 😎",
+    "items": [
+      {
+        "en": "Hello",
+        "ar": "مرحبا",
+        "pronunciation": "marhaba"
+      },
+      {
+        "en": "How are you?",
+        "ar": "كيف حالك؟",
+        "pronunciation": "kayf halak?"
+      },
+      {
+        "en": "Thank you",
+        "ar": "شكراً",
+        "pronunciation": "shukran"
+      },
+      {
+        "en": "Goodbye",
+        "ar": "مع السلامة",
+        "pronunciation": "ma'a al-salama"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#dailyphrase"
+    ]
+  },
+  {
+    "id": 11,
+    "type": "phrase",
+    "hook_en": "Want to order like a pro? 🍽️",
+    "hook_ar": "تريد أن تطلب مثل المحترفين؟ 🍽️",
+    "items": [
+      {
+        "en": "Water",
+        "ar": "ماء",
+        "pronunciation": "ma'"
+      },
+      {
+        "en": "Bread",
+        "ar": "خبز",
+        "pronunciation": "khubz"
+      },
+      {
+        "en": "Please",
+        "ar": "من فضلك",
+        "pronunciation": "min fadlik"
+      },
+      {
+        "en": "The check, please",
+        "ar": "الفاتورة من فضلك",
+        "pronunciation": "al-fatura min fadlik"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#food"
+    ]
+  },
+  {
+    "id": 12,
+    "type": "phrase",
+    "hook_en": "Master the greetings in 15 seconds! ⏱️",
+    "hook_ar": "أتقن التحيات في 15 ثانية! ⏱️",
+    "items": [
+      {
+        "en": "Good morning",
+        "ar": "صباح الخير",
+        "pronunciation": "sabah al-khayr"
+      },
+      {
+        "en": "Good night",
+        "ar": "تصبح على خير",
+        "pronunciation": "tusbih 'ala khayr"
+      },
+      {
+        "en": "Good evening",
+        "ar": "مساء الخير",
+        "pronunciation": "masa' al-khayr"
+      },
+      {
+        "en": "Welcome",
+        "ar": "أهلاً وسهلاً",
+        "pronunciation": "ahlan wa sahlan"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#greetings"
+    ]
+  }
+]

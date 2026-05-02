@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "type": "fact",
+    "hook_en": "Wait... these English words are actually ARABIC?! 🤯",
+    "hook_ar": "انتظر... هل هذه الكلمات الإنجليزية هي في الحقيقة عربية؟!",
+    "items": [
+      {
+        "en": "ALGEBRA",
+        "ar": "الجَبْر",
+        "pronunciation": "al-jabr"
+      },
+      {
+        "en": "ALCOHOL",
+        "ar": "الكُحْل",
+        "pronunciation": "al-kuhl"
+      },
+      {
+        "en": "ZERO",
+        "ar": "صِفْر",
+        "pronunciation": "sifr"
+      },
+      {
+        "en": "ALGORITHM",
+        "ar": "الخوارزمي",
+        "pronunciation": "al-khwarizmi"
+      },
+      {
+        "en": "SUGAR",
+        "ar": "سُكَّر",
+        "pronunciation": "sukkar"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#etymology",
+      "#languagelearning",
+      "#wordorigin"
+    ]
+  },
+  {
+    "id": 2,
+    "type": "fact",
+    "hook_en": "Your favorite English words come from ARABIC 🇸🇦🔥",
+    "hook_ar": "كلماتك الإنجليزية المفضلة أصولها عربية 🇸🇦🔥",
+    "items": [
+      {
+        "en": "CAMEL",
+        "ar": "جَمَل",
+        "pronunciation": "jamal"
+      },
+      {
+        "en": "SOFA",
+        "ar": "صُوفَة",
+        "pronunciation": "soofah"
+      },
+      {
+        "en": "COUCH",
+        "ar": "كُوشَة",
+        "pronunciation": "kooshah"
+      },
+      {
+        "en": "ORANGE",
+        "ar": "نَارَنْج",
+        "pronunciation": "naranj"
+      },
+      {
+        "en": "SAFARI",
+        "ar": "سَفَر",
+        "pronunciation": "safar"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabicwords",
+      "#tiktoklearning",
+      "#englishwords",
+      "#arabicorigin"
+    ]
+  },
+  {
+    "id": 3,
+    "type": "fact",
+    "hook_en": "Arabic gave English way more words than you think! 😲",
+    "hook_ar": "العربية أعطت الإنجليزية كلمات أكثر مما تظن! 😲",
+    "items": [
+      {
+        "en": "ALCHEMY",
+        "ar": "الكِيمياء",
+        "pronunciation": "al-kimya"
+      },
+      {
+        "en": "COTTON",
+        "ar": "قُطْن",
+        "pronunciation": "qutn"
+      },
+      {
+        "en": "LIME",
+        "ar": "لَيْمُون",
+        "pronunciation": "laymoon"
+      },
+      {
+        "en": "JAR",
+        "ar": "جَرَّة",
+        "pronunciation": "jarrah"
+      },
+      {
+        "en": "ZENITH",
+        "ar": "سَمْت",
+        "pronunciation": "samt"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#history",
+      "#linguistics",
+      "#arabicenglearn"
+    ]
+  },
+  {
+    "id": 7,
+    "type": "mistake",
+    "hook_en": "English hook line",
+    "hook_ar": "Arabic hook",
+    "items": [
+      {
+        "en": "English word",
+        "ar": "Arabic word",
+        "pronunciation": "romanized"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic"
+    ]
+  },
+  {
+    "id": 10,
+    "type": "phrase",
+    "hook_en": "Did you know? 😍",
+    "hook_ar": "هل تعلم؟ 😍",
+    "items": [
+      {
+        "en": "Sweet as honey!",
+        "ar": "حلو كالعسل!",
+        "pron": "ḥulu kal-ʿasal"
+      },
+      {
+        "en": "You're so cute!",
+        "ar": "أنت حلو!",
+        "pron": "anta ḥulu"
+      }
+    ],
+    "cta_en": "Try ArabicEngLearn!",
+    "cta_ar": "جرب ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#tiktoklearning"
+    ]
+  },
+  {
+    "id": 11,
+    "type": "phrase",
+    "hook_en": "Plural magic! ✨",
+    "hook_ar": "سحر الجمع! ✨",
+    "items": [
+      {
+        "en": "One book: كتاب",
+        "ar": "كتاب",
+        "pron": "kitāb"
+      },
+      {
+        "en": "Many books: كتب",
+        "ar": "كتب",
+        "pron": "kutub"
+      }
+    ],
+    "cta_en": "Try ArabicEngLearn!",
+    "cta_ar": "جرب ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabicplural",
+      "#tiktoklearning"
+    ]
+  },
+  {
+    "id": 12,
+    "type": "phrase",
+    "hook_en": "Sun or Moon? ☀️🌙",
+    "hook_ar": "شمس أم قمر؟ ☀️🌙",
+    "items": [
+      {
+        "en": "The word 'sun' starts with a sun letter – the 'ل' doubles: الشمس",
+        "ar": "الشمس",
+        "pron": "ash-shams"
+      },
+      {
+        "en": "The word 'moon' starts with a moon letter – the 'ل' stays silent: القمر",
+        "ar": "القمر",
+        "pron": "al-qamar"
+      }
+    ],
+    "cta_en": "Try ArabicEngLearn!",
+    "cta_ar": "جرب ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabicphonetics",
+      "#tiktoklearning"
+    ]
+  }
+]

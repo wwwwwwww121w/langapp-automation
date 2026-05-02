@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "type": "fact",
+    "hook_en": "English words that are secretly Arabic! 🤯 Let's see which ones!",
+    "hook_ar": "كلمات إنجليزية أصلها عربي! 🤯 اكتشفها!",
+    "items": [
+      {
+        "en": "algebra",
+        "ar": "الجبر",
+        "pronunciation": "al-jabr"
+      },
+      {
+        "en": "alcohol",
+        "ar": "الكحول",
+        "pronunciation": "al-kuhl"
+      },
+      {
+        "en": "algorithm",
+        "ar": "الخوارزمي",
+        "pronunciation": "al-Khwarizmi"
+      },
+      {
+        "en": "coffee",
+        "ar": "القهوة",
+        "pronunciation": "al-qahwa"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#etymology",
+      "#tiktok"
+    ]
+  },
+  {
+    "id": 2,
+    "type": "fact",
+    "hook_en": "From 'sugar' to 'sofa', Arabic words hidden in everyday English! 😱",
+    "hook_ar": "من السكّر إلى الصوفا، كلمات عربية مخفية في الإنجليزية اليومية! 😱",
+    "items": [
+      {
+        "en": "sugar",
+        "ar": "السكّر",
+        "pronunciation": "al-sukkar"
+      },
+      {
+        "en": "cipher",
+        "ar": "الصفر",
+        "pronunciation": "al-sifr"
+      },
+      {
+        "en": "sofa",
+        "ar": "صُفَّة",
+        "pronunciation": "suffa"
+      },
+      {
+        "en": "mattress",
+        "ar": "مرتبة",
+        "pronunciation": "martaba"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#etymology",
+      "#language"
+    ]
+  },
+  {
+    "id": 3,
+    "type": "fact",
+    "hook_en": "Did you know 'cotton' & 'candy' come from Arabic? 😲",
+    "hook_ar": "هل تعلم أن 'قطن' و 'قند' لهما أصل عربي؟ 😲",
+    "items": [
+      {
+        "en": "cotton",
+        "ar": "قطن",
+        "pronunciation": "qatn"
+      },
+      {
+        "en": "candy",
+        "ar": "قند",
+        "pronunciation": "qand"
+      },
+      {
+        "en": "sultan",
+        "ar": "سلطان",
+        "pronunciation": "sultan"
+      },
+      {
+        "en": "camphor",
+        "ar": "كافور",
+        "pronunciation": "kafur"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#etymology",
+      "#wordorigin"
+    ]
+  }
+]

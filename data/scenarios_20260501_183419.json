@@ -1,0 +1,201 @@
+[
+  {
+    "id": 1,
+    "type": "fact",
+    "hook_en": "English hook line",
+    "hook_ar": "Arabic hook",
+    "items": [
+      {
+        "en": "English word",
+        "ar": "Arabic word",
+        "pronunciation": "romanized"
+      }
+    ],
+    "cta_en": "Download LinguaStart!",
+    "cta_ar": "حمل LinguaStart!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic"
+    ]
+  },
+  {
+    "id": 16,
+    "type": "phrase",
+    "hook_en": "Master the Arabic greeting that locals LOVE! 👋🇸🇦",
+    "hook_ar": "تعلم تحية عربية يحبها المحليون!",
+    "items": [
+      {
+        "en": "Hello",
+        "ar": "مرحبا",
+        "pronunciation": "marhaba"
+      },
+      {
+        "en": "How are you?",
+        "ar": "كيف حالك؟",
+        "pronunciation": "kayfa haluk?"
+      },
+      {
+        "en": "I'm fine",
+        "ar": "أنا بخير",
+        "pronunciation": "ana bikhayr"
+      },
+      {
+        "en": "Thank you",
+        "ar": "شكراً",
+        "pronunciation": "shukran"
+      }
+    ],
+    "cta_en": "Download LinguaStart!",
+    "cta_ar": "حمل LinguaStart!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#greeting",
+      "#dailyarabic"
+    ]
+  },
+  {
+    "id": 17,
+    "type": "phrase",
+    "hook_en": "Order food in Arabic like a NATIVE! 🍽️🇦🇪",
+    "hook_ar": "اطلب الطعام بالعربية كلغة محلية!",
+    "items": [
+      {
+        "en": "Water",
+        "ar": "ماء",
+        "pronunciation": "maa"
+      },
+      {
+        "en": "Menu",
+        "ar": "قائمة الطعام",
+        "pronunciation": "qaa'imat al-ta'aam"
+      },
+      {
+        "en": "The bill",
+        "ar": "الفاتورة",
+        "pronunciation": "al-faatura"
+      },
+      {
+        "en": "Delicious",
+        "ar": "لذيذ",
+        "pronunciation": "ladhidh"
+      }
+    ],
+    "cta_en": "Download LinguaStart!",
+    "cta_ar": "حمل LinguaStart!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#restaurant",
+      "#food"
+    ]
+  },
+  {
+    "id": 18,
+    "type": "phrase",
+    "hook_en": "Get directions in Arabic EASILY! 🗺️🇸🇦",
+    "hook_ar": "احصل على الاتجاهات بالعربية بسهولة!",
+    "items": [
+      {
+        "en": "Where is?",
+        "ar": "أين؟",
+        "pronunciation": "ayna?"
+      },
+      {
+        "en": "Left",
+        "ar": "يسار",
+        "pronunciation": "yasaar"
+      },
+      {
+        "en": "Right",
+        "ar": "يمين",
+        "pronunciation": "yameen"
+      },
+      {
+        "en": "Straight",
+        "ar": "مستقيم",
+        "pronunciation": "mustaqeem"
+      }
+    ],
+    "cta_en": "Download LinguaStart!",
+    "cta_ar": "حمل LinguaStart!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#directions",
+      "#travel"
+    ]
+  },
+  {
+    "id": 19,
+    "type": "phrase",
+    "hook_en": "Make friends in Arabic - Say this DAILY! 🤝🇸🇦",
+    "hook_ar": "اصنع أصدقاء بالعربية - قل هذا يومياً!",
+    "items": [
+      {
+        "en": "My name is",
+        "ar": "اسمي",
+        "pronunciation": "ismi"
+      },
+      {
+        "en": "Nice to meet you",
+        "ar": "تشرفت بمعرفتك",
+        "pronunciation": "tasharraft bima'reftek"
+      },
+      {
+        "en": "What is your name?",
+        "ar": "ما اسمك؟",
+        "pronunciation": "ma ismuk?"
+      },
+      {
+        "en": "See you soon",
+        "ar": "إلى اللقاء",
+        "pronunciation": "ilaa al-liqaa"
+      }
+    ],
+    "cta_en": "Download LinguaStart!",
+    "cta_ar": "حمل LinguaStart!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#friends",
+      "#introduction"
+    ]
+  },
+  {
+    "id": 20,
+    "type": "phrase",
+    "hook_en": "Shop in Arabic markets like a PRO! 🛒🇦🇪",
+    "hook_ar": "تسوّق في الأسواق العربية مثل المحترفين!",
+    "items": [
+      {
+        "en": "How much?",
+        "ar": "بكم؟",
+        "pronunciation": "bikam?"
+      },
+      {
+        "en": "Expensive",
+        "ar": "غالي",
+        "pronunciation": "ghaali"
+      },
+      {
+        "en": "Too expensive",
+        "ar": "غالي جداً",
+        "pronunciation": "ghaali jiddan"
+      },
+      {
+        "en": "Okay, I'll take it",
+        "ar": "حسناً، سآخذه",
+        "pronunciation": "hasanan, sa'akhudh"
+      }
+    ],
+    "cta_en": "Download LinguaStart!",
+    "cta_ar": "حمل LinguaStart!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#shopping",
+      "#market"
+    ]
+  }
+]

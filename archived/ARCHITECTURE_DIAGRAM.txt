@@ -1,0 +1,301 @@
+╔════════════════════════════════════════════════════════════════════════════════╗
+║                                                                                ║
+║              🏗️  CLAUDE + GROK COLLABORATION ARCHITECTURE 🏗️                   ║
+║                                                                                ║
+╚════════════════════════════════════════════════════════════════════════════════╝
+
+
+СИСТЕМА РАСПРЕДЕЛЕНИЯ ЗАДАЧ
+═══════════════════════════════════════════════════════════════════════════════
+
+                             📋 TASK ROUTER
+                           ┌──────────────────┐
+                           │   Определяет     │
+                           │   Сложность      │
+                           │   Приоритет      │
+                           │   Категорию      │
+                           └────┬─────────┬───┘
+                                │         │
+                    ┌───────────┘         └────────────┐
+                    │                                  │
+                    ▼                                  ▼
+        ┌──────────────────────┐        ┌──────────────────────┐
+        │  🔴 CRITICAL         │        │  🟢 SIMPLE           │
+        │  🟠 HIGH COMPLEX     │        │  🟡 MEDIUM SIMPLE    │
+        │  🟡 MEDIUM COMPLEX   │        │  🟢 LOW              │
+        └──────────┬───────────┘        └──────────┬───────────┘
+                   │                               │
+                   ▼                               ▼
+        ┌──────────────────────┐        ┌──────────────────────┐
+        │                      │        │                      │
+        │   👨‍💻 CLAUDE           │        │   🤖 GROK             │
+        │                      │        │                      │
+        │  MAIN ARCHITECT      │        │   ASSISTANT          │
+        │                      │        │                      │
+        └──────────────────────┘        └──────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════════
+CLAUDE RESPONSIBILITIES
+═══════════════════════════════════════════════════════════════════════════════
+
+┌────────────────────────────────────────────────────────────────────┐
+│ 🏛️ ARCHITECTURE & DESIGN                                           │
+├────────────────────────────────────────────────────────────────────┤
+│  • System architecture                                              │
+│  • Pipeline design                                                  │
+│  • Data flow                                                        │
+│  • Component structure                                              │
+│  • Scalability planning                                             │
+└────────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────────┐
+│ 💻 CORE CODE (main logic, business logic, APIs)                    │
+├────────────────────────────────────────────────────────────────────┤
+│  async def generate_video(count: int):                              │
+│      """Core generation logic"""                                    │
+│      # Integration with Grok API                                    │
+│      # Error handling                                               │
+│      # Data processing                                              │
+│      # Pipeline orchestration                                       │
+└────────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────────┐
+│ 🔗 INTEGRATIONS (Grok, Fireworks, FFmpeg, Telegram)               │
+├────────────────────────────────────────────────────────────────────┤
+│  • Grok API integration                                             │
+│  • Error handling & retries                                         │
+│  • Rate limiting                                                    │
+│  • Response parsing                                                 │
+│  • Fallback mechanisms                                              │
+└────────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────────┐
+│ 🔐 SECURITY & ERROR HANDLING                                       │
+├────────────────────────────────────────────────────────────────────┤
+│  • Input validation                                                 │
+│  • API key management                                               │
+│  • Error catching & logging                                         │
+│  • Graceful degradation                                             │
+│  • Security audit                                                   │
+└────────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────────┐
+│ ✅ TESTING & OPTIMIZATION                                          │
+├────────────────────────────────────────────────────────────────────┤
+│  • Unit tests                                                       │
+│  • Integration tests                                                │
+│  • Performance optimization                                         │
+│  • Memory profiling                                                 │
+│  • Load testing                                                     │
+└────────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────────┐
+│ 📊 QUALITY ASSURANCE                                               │
+├────────────────────────────────────────────────────────────────────┤
+│  • Code review (all changes)                                        │
+│  • Architecture compliance                                          │
+│  • Edge cases handling                                              │
+│  • Final integration                                                │
+└────────────────────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════════
+GROK RESPONSIBILITIES (when credits available)
+═══════════════════════════════════════════════════════════════════════════════
+
+┌────────────────────────────────────────────────────────────────────┐
+│ 📚 DOCUMENTATION                                                    │
+├────────────────────────────────────────────────────────────────────┤
+│  • README files                                                     │
+│  • Setup guides                                                     │
+│  • API documentation                                                │
+│  • User manuals                                                     │
+│  • FAQ sections                                                     │
+└────────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────────┐
+│ 🎨 DESIGN & FORMATTING                                             │
+├────────────────────────────────────────────────────────────────────┤
+│  • UI element design                                                │
+│  • Color schemes                                                    │
+│  • Layout suggestions                                               │
+│  • Emoji & formatting                                               │
+│  • Visual hierarchy                                                 │
+└────────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────────┐
+│ 🛠️ UTILITIES & HELPERS                                             │
+├────────────────────────────────────────────────────────────────────┤
+│  def format_output(data):                                           │
+│      """Simple formatter"""                                         │
+│      return formatted_data                                          │
+│                                                                      │
+│  • Helper functions                                                 │
+│  • Data formatters                                                  │
+│  • Simple scripts                                                   │
+└────────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────────┐
+│ ⚙️ CONFIGURATION & SETUP                                           │
+├────────────────────────────────────────────────────────────────────┤
+│  # .env templates                                                   │
+│  # Setup scripts                                                    │
+│  # Config examples                                                  │
+│  # Installation guides                                              │
+└────────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────────┐
+│ 📝 EXAMPLES & TUTORIALS                                            │
+├────────────────────────────────────────────────────────────────────┤
+│  • Usage examples                                                   │
+│  • Code snippets                                                    │
+│  • Best practices                                                   │
+│  • Common patterns                                                  │
+│  • Demo projects                                                    │
+└────────────────────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════════
+WORKFLOW: NEW FEATURE REQUEST
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────────────┐
+│                                                                     │
+│  1️⃣  USER: "Добавь новую функцию X"                                │
+│                                                                     │
+│      👨‍💻 CLAUDE:                                                      │
+│      ├─ Анализирует требования                                      │
+│      ├─ Проектирует архитектуру                                     │
+│      ├─ Пишет основную логику                                       │
+│      ├─ Пишет тесты                                                 │
+│      ├─ Оптимизирует                                                │
+│      └─ Определяет что для Grok                                     │
+│                                                                     │
+│  2️⃣  🤖 GROK (если нужна документация):                             │
+│      ├─ Pишет README                                                │
+│      ├─ Создает примеры                                             │
+│      ├─ Пишет FAQ                                                   │
+│      └─ Форматирует красиво                                         │
+│                                                                     │
+│  3️⃣  👨‍💻 CLAUDE:                                                      │
+│      ├─ Проверяет результаты Grok                                   │
+│      ├─ Исправляет неточности                                       │
+│      ├─ Интегрирует все части                                       │
+│      └─ Делает финальный review                                     │
+│                                                                     │
+│  ✅  READY TO USE!                                                  │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════════
+QUALITY GATES
+═══════════════════════════════════════════════════════════════════════════════
+
+CLAUDE CODE:
+  ✅ Passes unit tests
+  ✅ Passes integration tests
+  ✅ Error handling complete
+  ✅ Security review passed
+  ✅ Performance acceptable
+  ✅ Follows architecture
+  ✅ Code review passed
+  ✅ Ready for production
+
+GROK OUTPUT:
+  ✅ Claude reviewed it
+  ✅ Accurate information
+  ✅ Clear & complete
+  ✅ Well-formatted
+  ✅ No contradictions
+  ✅ Matches architecture
+  ✅ Claude approved
+  ✅ Ready to publish
+
+
+═══════════════════════════════════════════════════════════════════════════════
+TASK CATEGORIZATION
+═══════════════════════════════════════════════════════════════════════════════
+
+CRITICAL PRIORITY (CLAUDE ONLY):
+  🔴 Pipeline architecture
+  🔴 Security implementation
+  🔴 Core API integration
+  🔴 Error handling
+  🔴 Critical bug fixes
+  🔴 Performance optimization
+
+HIGH PRIORITY (mostly CLAUDE):
+  🟠 New features (core logic)
+  🟠 Bug fixes (complex)
+  🟠 Testing suite
+  🟠 Integration work
+  🟠 Documentation (review)
+
+MEDIUM PRIORITY (mixed):
+  🟡 Helper functions (Grok)
+  🟡 Config updates (Grok)
+  🟡 Examples (Grok)
+  🟡 Non-critical enhancements (Claude)
+  🟡 Setup guides (Grok)
+
+LOW PRIORITY (mostly GROK):
+  🟢 FAQ updates (Grok)
+  🟢 Formatting (Grok)
+  🟢 Simple utilities (Grok)
+  🟢 Demo projects (Grok)
+  🟢 Nice-to-have docs (Grok)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+EFFICIENCY METRICS
+═══════════════════════════════════════════════════════════════════════════════
+
+OLD APPROACH:
+  Claude: 100% of tasks
+  Completion time: T
+  Documentation: Sometimes
+  Code quality: Good
+  Scalability: Limited
+
+NEW APPROACH:
+  Claude: 40% of tasks (critical)
+  Grok: 60% of tasks (simple)
+  Completion time: T/1.5 (faster)
+  Documentation: Always
+  Code quality: Excellent
+  Scalability: High
+
+
+═══════════════════════════════════════════════════════════════════════════════
+CURRENT STATUS
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ READY:
+  ✓ Task Router system
+  ✓ Grok Delegate tool
+  ✓ Collaboration model
+  ✓ Architecture defined
+  ✓ Workflow established
+
+⏳ PENDING:
+  ⏳ Grok credits (need $20-30)
+  ⏳ Start using system
+  ⏳ First delegated tasks
+
+🚀 RESULT:
+  → Faster development
+  → Better code
+  → Complete documentation
+  → Higher quality
+  → Better scalability
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+READY TO LAUNCH! 🚀
+
+Next step: Пополни кредиты на Grok → Начнем в действие!
+
+═══════════════════════════════════════════════════════════════════════════════

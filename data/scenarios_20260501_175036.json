@@ -1,0 +1,241 @@
+[
+  {
+    "id": 1,
+    "type": "fact",
+    "hook_en": "🤯 These common English words are actually ARABIC! #learnarabic #arabic",
+    "hook_ar": "😲 هل تعلم إن هذي الكلمات الإنجليزية أصلها عربي؟",
+    "items": [
+      {
+        "en": "Algebra",
+        "ar": "الجبر",
+        "pronunciation": "al-jabr"
+      },
+      {
+        "en": "Algorithm",
+        "ar": "الخوارزمي",
+        "pronunciation": "al-Khwarizmi"
+      },
+      {
+        "en": "Alchemy",
+        "ar": "الكيمياء",
+        "pronunciation": "al-kīmiyā’"
+      },
+      {
+        "en": "Alcohol",
+        "ar": "الكحول",
+        "pronunciation": "al-kuhl"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#arabicorigins",
+      "#englishwords",
+      "#tiktoklearning"
+    ]
+  },
+  {
+    "id": 2,
+    "type": "fact",
+    "hook_en": "🔢 Zero, Cipher, Sofa... all from ARABIC! 😱 Tap to see! #learnarabic #arabic",
+    "hook_ar": "🔢 صفر، شيفرة، صوفا... كلها من العربي! 😱 شوف الآن!",
+    "items": [
+      {
+        "en": "Zero",
+        "ar": "صفر",
+        "pronunciation": "sifr"
+      },
+      {
+        "en": "Cipher",
+        "ar": "صفر",
+        "pronunciation": "sifr"
+      },
+      {
+        "en": "Sofa",
+        "ar": "صوفا",
+        "pronunciation": "ṣuffa"
+      },
+      {
+        "en": "Hazard",
+        "ar": "الزهر",
+        "pronunciation": "az-zahr"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#arabicorigins",
+      "#englishwords",
+      "#tiktoklearning"
+    ]
+  },
+  {
+    "id": 3,
+    "type": "fact",
+    "hook_en": "💡 Average, Almanac, Candy & more—Arabic roots! 🤓 Learn now! #learnarabic #arabic",
+    "hook_ar": "💡 المتوسّط، المناخ، قند وغيرهم—أصلهم عربي! 🤓 تعلّم الآن!",
+    "items": [
+      {
+        "en": "Average",
+        "ar": "المتوسط",
+        "pronunciation": "al-mutawassiṭ"
+      },
+      {
+        "en": "Almanac",
+        "ar": "المناخ",
+        "pronunciation": "al-manākh"
+      },
+      {
+        "en": "Candy",
+        "ar": "قند",
+        "pronunciation": "qand"
+      },
+      {
+        "en": "Algebra",
+        "ar": "الجبر",
+        "pronunciation": "al-jabr"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#arabicorigins",
+      "#englishwords",
+      "#tiktoklearning"
+    ]
+  },
+  {
+    "id": 4,
+    "type": "dialect",
+    "hook_en": "🔥 Ready to sound like a native? Let's compare how you say 'How are you?' across the Arab world!",
+    "hook_ar": "🔥 جاهز تتكلم كالناس؟ خلينا نشوف كيف تقول 'كيف حالك؟' في كل لهجة!",
+    "items": [
+      {
+        "en": "How are you?",
+        "ar": "كيف حالك؟",
+        "pronunciation": "Kayfa haluk?"
+      },
+      {
+        "en": "Thank you",
+        "ar": "شكراً",
+        "pronunciation": "Shukran"
+      },
+      {
+        "en": "Where is the bathroom?",
+        "ar": "أين الحمام؟",
+        "pronunciation": "Ayna al-hammam?"
+      },
+      {
+        "en": "I love you",
+        "ar": "أحبك",
+        "pronunciation": "Uhibbuka"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#dialect",
+      "#fusha",
+      "#ArabicEngLearn"
+    ]
+  },
+  {
+    "id": 5,
+    "type": "dialect",
+    "hook_en": "🌟 Wondering how to say 'I’m fine' in Egyptian vs Lebanese? Watch this quick crash!",
+    "hook_ar": "🌟 تتساءل كيف تقول 'أنا بخير' بالمصري مقابل اللبناني؟ شوف هذه السريعة!",
+    "items": [
+      {
+        "en": "I’m fine",
+        "ar": "أنا بخير",
+        "pronunciation": "Ana bikhayr"
+      },
+      {
+        "en": "Good morning",
+        "ar": "صباح الخير",
+        "pronunciation": "Sabah al-khayr"
+      },
+      {
+        "en": "See you later",
+        "ar": "بشوفك لاحقاً",
+        "pronunciation": "Bashufak la'iqan"
+      },
+      {
+        "en": "What is your name?",
+        "ar": "ما اسمك؟",
+        "pronunciation": "Ma ismuk?"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#EgyptianArabic",
+      "#LebaneseArabic",
+      "#ArabicEngLearn"
+    ]
+  },
+  {
+    "id": 6,
+    "type": "dialect",
+    "hook_en": "🚀 Want to master 'Can I have the bill?' across dialects? Tap to watch!",
+    "hook_ar": "🚀 تبي تتقن 'أقدر أطلب الفاتورة؟' في كل لهجة؟ اضغط للعرض!",
+    "items": [
+      {
+        "en": "Can I have the bill?",
+        "ar": "أقدر أطلب الفاتورة؟",
+        "pronunciation": "Aqdar atlub al-fatoura?"
+      },
+      {
+        "en": "I’m hungry",
+        "ar": "أنا جوعان",
+        "pronunciation": "Ana ju'an"
+      },
+      {
+        "en": "Let’s go",
+        "ar": "يلا نروح",
+        "pronunciation": "Yalla nrooh"
+      },
+      {
+        "en": "What do you want?",
+        "ar": "إيش تبي؟",
+        "pronunciation": "Ish tabi?"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#dialect",
+      "#MSA",
+      "#ArabicEngLearn"
+    ]
+  },
+  {
+    "id": 7,
+    "type": "mistake",
+    "hook_en": "English hook line",
+    "hook_ar": "Arabic hook",
+    "items": [
+      {
+        "en": "English word",
+        "ar": "Arabic word",
+        "pronunciation": "romanized"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic"
+    ]
+  }
+]

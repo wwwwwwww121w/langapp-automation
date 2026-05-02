@@ -1,0 +1,200 @@
+[
+  {
+    "id": 4,
+    "type": "dialect",
+    "hook_en": "Arabic letters change shape depending on where they sit in a word! 🎯",
+    "hook_ar": "حروف العربية تتغير شكلها حسب موقعها في الكلمة! 🎯",
+    "items": [
+      {
+        "en": "Arabic has 28 letters; each can have up to four forms: isolated, initial, medial, final.",
+        "ar": "للعربية 28 حرفاً، لكل منها حتى أربعة أشكال: منعزل، أول، متوسط، أخير.",
+        "pronunciation": "l-lugha al-ʿarabiyya tastaʿmil al-shakl al-maqamī"
+      }
+    ],
+    "cta_en": "Try ArabicEngLearn!",
+    "cta_ar": "جرب ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabicletters"
+    ]
+  },
+  {
+    "id": 5,
+    "type": "dialect",
+    "hook_en": "Did you know English has no gender for nouns? Arabic does! 🧠",
+    "hook_ar": "هل تعلم أن الإنجليزية ليس لديها جنس نحوي؟ العربية لديها! 🧠",
+    "items": [
+      {
+        "en": "In Arabic, most nouns have a grammatical gender (masculine or feminine), unlike English.",
+        "ar": "في العربية، معظم الأسماء لها جنس نحوي (مذكر أو مؤنث)، على عكس الإنجليزية.",
+        "pronunciation": "fi al-ʿarabiyya, akthar al-asmā' takun laha jins naḥwi"
+      }
+    ],
+    "cta_en": "Try ArabicEngLearn!",
+    "cta_ar": "جرب ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabicgrammar"
+    ]
+  },
+  {
+    "id": 6,
+    "type": "dialect",
+    "hook_en": "Arabic script reads right‑to‑left, opposite to English! 🚀",
+    "hook_ar": "الكتابة العربية تُقرأ من اليمين إلى اليسار، عكس الإنجليزية! 🚀",
+    "items": [
+      {
+        "en": "Arabic is written from right to left, while English is written left to right.",
+        "ar": "تُكتب العربية من اليمين إلى اليسار، بينما تُكتب الإنجليزية من اليسار إلى اليمين.",
+        "pronunciation": "taktubu al-ʿarabiyya min al-yameen ila al-yasaar"
+      }
+    ],
+    "cta_en": "Try ArabicEngLearn!",
+    "cta_ar": "جرب ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#rtl"
+    ]
+  },
+  {
+    "id": 7,
+    "type": "mistake",
+    "hook_en": "⚠️ These words look the same but mean COMPLETELY different!",
+    "hook_ar": "⚠️ هذه الكلمات تبدو متشابهة لكن معناها مختلف تمامًا!",
+    "items": [
+      {
+        "en": "actual (real)",
+        "ar": "فعلي",
+        "pronunciation": "fah-lee"
+      },
+      {
+        "en": "actual = not 'aktuell' (current)",
+        "ar": "المعنى الإنجليزي مختلف!",
+        "pronunciation": "al-ma'na al-injeelee mukhtalif"
+      },
+      {
+        "en": "family (relatives)",
+        "ar": "عائلة",
+        "pronunciation": "aa-mi-lee"
+      },
+      {
+        "en": "family = not 'familie' (in German sense)",
+        "ar": "ليست مثل معنى العائلة بالألمانية",
+        "pronunciation": "laysa mithl ma'na al-aa'ila bil-almaneya"
+      },
+      {
+        "en": "gift (present)",
+        "ar": "هدية",
+        "pronunciation": "hadiya"
+      },
+      {
+        "en": "gift = not 'Gift' (poison in German!)",
+        "ar": "انتبه! Gift بالألمانية يعني سم!",
+        "pronunciation": "intahib! Gift bil-almaniya ya'nee sam"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn to avoid these mistakes!",
+    "cta_ar": "حمل ArabicEngLearn لتجنب هذه الأخطاء!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#englishlearning",
+      "#languagetips",
+      "#arabicenglearn"
+    ]
+  },
+  {
+    "id": 8,
+    "type": "mistake",
+    "hook_en": "😱 I can't believe I said this! Common pronunciation errors!",
+    "hook_ar": "😱 لا أصدق أنني قلت هذا! أخطاء نطق شائعة!",
+    "items": [
+      {
+        "en": "THINK (θɪŋk)",
+        "ar": "ثينك",
+        "pronunciation": "th-een-k"
+      },
+      {
+        "en": "NOT 'sink' -舌头不要碰到牙齿",
+        "ar": "ليس سينك",
+        "pronunciation": "lays sin-k"
+      },
+      {
+        "en": "THREE (θriː)",
+        "ar": "ثري",
+        "pronunciation": "three"
+      },
+      {
+        "en": "NOT 'tree' -舌头位置不同!",
+        "ar": "ليس تري",
+        "pronunciation": "lays tree"
+      },
+      {
+        "en": "BIRD (bɜːrd)",
+        "ar": "بيرد",
+        "pronunciation": "burd"
+      },
+      {
+        "en": "NOT 'bed' - الفرق في الـ R",
+        "ar": "ليس بد",
+        "pronunciation": "lays bed"
+      }
+    ],
+    "cta_en": "Master English pronunciation with ArabicEngLearn!",
+    "cta_ar": "أتقن النطق الإنجليزي مع ArabicEngLearn!",
+    "hashtags": [
+      "#pronunciation",
+      "#englishspeaking",
+      "#learnenglish",
+      "#arabic",
+      "#arabicenglearn"
+    ]
+  },
+  {
+    "id": 9,
+    "type": "mistake",
+    "hook_en": "❌ STOP saying these! Native speakers will laugh! 😬",
+    "hook_ar": "❌ توقف عن قول هذه! الناطقون الأصليون سيضحكون! 😬",
+    "items": [
+      {
+        "en": "I am boring ❌",
+        "ar": "أنا ممل (خطأ!)",
+        "pronunciation": "ana mumil"
+      },
+      {
+        "en": "I am BORED ✅ (feeling bored)",
+        "ar": "أنا مللت (صحيح)",
+        "pronunciation": "ana mal-ltu"
+      },
+      {
+        "en": "She is interesting ❌",
+        "ar": "هي مثير للاهتمام (خطأ!)",
+        "pronunciation": "hiya muthir lil-ishtighal"
+      },
+      {
+        "en": "She is INTERESTED ✅ (in something)",
+        "ar": "هي مهتمة (صحيح)",
+        "pronunciation": "hiya muhtamma"
+      },
+      {
+        "en": "I have 25 years ❌",
+        "ar": "لدي 25 سنة (خطأ!)",
+        "pronunciation": "ladi 25 sana"
+      },
+      {
+        "en": "I am 25 years old ✅",
+        "ar": "عمري 25 سنة (صحيح)",
+        "pronunciation": "umri 25 sana"
+      }
+    ],
+    "cta_en": "Fix these mistakes - Download ArabicEngLearn now!",
+    "cta_ar": "صحح هذه الأخطاء - حمل ArabicEngLearn الآن!",
+    "hashtags": [
+      "#englishgrammar",
+      "#commont mistakes",
+      "#learnenglish",
+      "#arabiclearning",
+      "#arabicenglearn"
+    ]
+  }
+]

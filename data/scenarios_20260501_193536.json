@@ -1,0 +1,177 @@
+[
+  {
+    "id": 16,
+    "type": "phrase",
+    "hook_en": "Can you say 'Hello' in Arabic? Let's learn!",
+    "hook_ar": "هل يمكنك أن تقول 'مرحبا' بالعربية؟ هيا نتعلم!",
+    "items": [
+      {
+        "en": "Hello",
+        "ar": "مرحبا",
+        "pronunciation": "marḥaba"
+      },
+      {
+        "en": "How are you?",
+        "ar": "كيف حالك؟",
+        "pronunciation": "kayf ḥaluk?"
+      },
+      {
+        "en": "I'm fine",
+        "ar": "أنا بخير",
+        "pronunciation": "ana bikhayr"
+      },
+      {
+        "en": "Thank you",
+        "ar": "شكراً",
+        "pronunciation": "shukran"
+      }
+    ],
+    "cta_en": "Download LinguaStart!",
+    "cta_ar": "حمل LinguaStart!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#arabicwords"
+    ]
+  },
+  {
+    "id": 17,
+    "type": "phrase",
+    "hook_en": "Want to introduce yourself in Arabic? 🎉",
+    "hook_ar": "هل تريد أن تقدم نفسك بالعربية؟ 🎉",
+    "items": [
+      {
+        "en": "What is your name?",
+        "ar": "ما اسمك؟",
+        "pronunciation": "ma ismuk?"
+      },
+      {
+        "en": "My name is...",
+        "ar": "اسمي...",
+        "pronunciation": "ismi..."
+      },
+      {
+        "en": "Nice to meet you",
+        "ar": "تشرفنا",
+        "pronunciation": "tasharrafna"
+      },
+      {
+        "en": "I am happy",
+        "ar": "أنا سعيد",
+        "pronunciation": "ana sa'id"
+      }
+    ],
+    "cta_en": "Download LinguaStart!",
+    "cta_ar": "حمل LinguaStart!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#arabicgreetings"
+    ]
+  },
+  {
+    "id": 18,
+    "type": "phrase",
+    "hook_en": "Never get lost looking for a restroom again! 🚻",
+    "hook_ar": "لا تضيع في البحث عن الحمام مرة أخرى! 🚻",
+    "items": [
+      {
+        "en": "Where is the bathroom?",
+        "ar": "أين الحمام؟",
+        "pronunciation": "ayn al-ḥamam?"
+      },
+      {
+        "en": "To the left",
+        "ar": "على اليسار",
+        "pronunciation": "ʿala al-yasār"
+      },
+      {
+        "en": "To the right",
+        "ar": "على اليمين",
+        "pronunciation": "ʿala al-yīmīn"
+      },
+      {
+        "en": "Straight ahead",
+        "ar": "أمام مباشرة",
+        "pronunciation": "amām mubāshara"
+      }
+    ],
+    "cta_en": "Download LinguaStart!",
+    "cta_ar": "حمل LinguaStart!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#direction"
+    ]
+  },
+  {
+    "id": 19,
+    "type": "phrase",
+    "hook_en": "Don't get overcharged! Learn how to ask the price! 💰",
+    "hook_ar": "لا تدفع أكثر! تعلم كيف تسأل عن السعر! 💰",
+    "items": [
+      {
+        "en": "How much does this cost?",
+        "ar": "كم سعر هذا؟",
+        "pronunciation": "kam siʿr hatha?"
+      },
+      {
+        "en": "One dinar",
+        "ar": "دينار واحد",
+        "pronunciation": "dīnār wāḥid"
+      },
+      {
+        "en": "Two riyals",
+        "ar": "ريالان",
+        "pronunciation": "riyālān"
+      },
+      {
+        "en": "Too expensive",
+        "ar": "غالي جداً",
+        "pronunciation": "ghālī jiddan"
+      }
+    ],
+    "cta_en": "Download LinguaStart!",
+    "cta_ar": "حمل LinguaStart!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#pricetalk"
+    ]
+  },
+  {
+    "id": 20,
+    "type": "phrase",
+    "hook_en": "End every conversation on a high note! ✨",
+    "hook_ar": "أنهِ كل محادثة بنبرة عالية! ✨",
+    "items": [
+      {
+        "en": "Thank you",
+        "ar": "شكراً",
+        "pronunciation": "shukran"
+      },
+      {
+        "en": "You're welcome",
+        "ar": "عفواً",
+        "pronunciation": "ʿafwan"
+      },
+      {
+        "en": "Goodbye",
+        "ar": "مع السلامة",
+        "pronunciation": "maʿa al-salāma"
+      },
+      {
+        "en": "See you soon",
+        "ar": "إلى اللقاء",
+        "pronunciation": "ila al-liqā'"
+      }
+    ],
+    "cta_en": "Download LinguaStart!",
+    "cta_ar": "حمل LinguaStart!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#farewell"
+    ]
+  }
+]

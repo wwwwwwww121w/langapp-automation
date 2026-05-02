@@ -1,0 +1,15 @@
+file 'C:\langapp-automation\output\frames\scenario_003\frame_00_hook.png'
+duration 3.5
+file 'C:\langapp-automation\output\frames\scenario_003\frame_01_item.png'
+duration 3.5
+file 'C:\langapp-automation\output\frames\scenario_003\frame_02_item.png'
+duration 3.5
+file 'C:\langapp-automation\output\frames\scenario_003\frame_03_item.png'
+duration 3.5
+file 'C:\langapp-automation\output\frames\scenario_003\frame_04_item.png'
+duration 3.5
+file 'C:\langapp-automation\output\frames\scenario_003\frame_05_item.png'
+duration 3.5
+file 'C:\langapp-automation\output\frames\scenario_003\frame_06_cta.png'
+duration 3.5
+file 'C:\langapp-automation\output\frames\scenario_003\frame_06_cta.png'

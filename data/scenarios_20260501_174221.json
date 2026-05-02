@@ -1,0 +1,204 @@
+[
+  {
+    "id": 1,
+    "type": "fact",
+    "hook_en": "Wait, did you know these English words actually come from Arabic? 🤯",
+    "hook_ar": "انت ما تعرف إن هالألفاظ الإنجليزية أصلها عربي؟!",
+    "items": [
+      {
+        "en": "Alcohol",
+        "ar": "الكحول",
+        "pronunciation": "al-kuhul"
+      },
+      {
+        "en": "Algebra",
+        "ar": "الجبر",
+        "pronunciation": "al-jabr"
+      },
+      {
+        "en": "Alchemy",
+        "ar": "الكيمياء",
+        "pronunciation": "al-kimiyā"
+      },
+      {
+        "en": "Zero",
+        "ar": "صفر",
+        "pronunciation": "sifr"
+      },
+      {
+        "en": "Algorithm",
+        "ar": "الخوارزمي",
+        "pronunciation": "al-khwarazmi"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#etymology",
+      "#didyouknow"
+    ]
+  },
+  {
+    "id": 2,
+    "type": "fact",
+    "hook_en": "Think you know English? These words prove Arabic influenced it! 🧠",
+    "hook_ar": "تظن إنك تعرف الإنجليزي؟ هالكلمات تثبت التأثير العربي!",
+    "items": [
+      {
+        "en": "Bazaar",
+        "ar": "بازار",
+        "pronunciation": "bāzār"
+      },
+      {
+        "en": "Cotton",
+        "ar": "قطن",
+        "pronunciation": "quṭn"
+      },
+      {
+        "en": "Saffron",
+        "ar": "زعفران",
+        "pronunciation": "za'farān"
+      },
+      {
+        "en": "Lemon",
+        "ar": "ليمون",
+        "pronunciation": "laymūn"
+      },
+      {
+        "en": "Sofa",
+        "ar": "صوفا",
+        "pronunciation": "sufa"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabicwords",
+      "#etymology",
+      "#tiktoklearning"
+    ]
+  },
+  {
+    "id": 3,
+    "type": "fact",
+    "hook_en": "Your favorite English words? They're actually Arabic! 😱",
+    "hook_ar": "أكثر كلماتك الإنجليزية المفضلة؟ أصلها عربي!",
+    "items": [
+      {
+        "en": "Camel",
+        "ar": "جمل",
+        "pronunciation": "jamal"
+      },
+      {
+        "en": "Sultan",
+        "ar": "سلطان",
+        "pronunciation": "sultan"
+      },
+      {
+        "en": "Mummy",
+        "ar": "مومياء",
+        "pronunciation": "mumiya"
+      },
+      {
+        "en": "Hazard",
+        "ar": "الزهر",
+        "pronunciation": "al-zahr"
+      },
+      {
+        "en": "Sandal",
+        "ar": "صندل",
+        "pronunciation": "sandal"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabicorigin",
+      "#didyouknow",
+      "#tiktok"
+    ]
+  },
+  {
+    "id": 4,
+    "type": "dialect",
+    "hook_en": "Egyptian Arabic vs MSA? 🕌",
+    "hook_ar": "العربية المصرية مقابل الفصحى؟ 🕌",
+    "items": [
+      {
+        "en": "Hello",
+        "ar": "مرحبا",
+        "pronunciation": "mar-ha-ba"
+      },
+      {
+        "en": "How are you?",
+        "ar": "إزيك؟",
+        "pronunciation": "iz-zay-yak"
+      },
+      {
+        "en": "Thank you",
+        "ar": "شكراً",
+        "pronunciation": "shuk-ran"
+      }
+    ],
+    "cta_en": "Try ArabicEngLearn!",
+    "cta_ar": "جرب ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic"
+    ]
+  },
+  {
+    "id": 5,
+    "type": "dialect",
+    "hook_en": "Levantine Arabic secrets! 🌟",
+    "hook_ar": "أسرار اللغة الشامية! 🌟",
+    "items": [
+      {
+        "en": "Good morning",
+        "ar": "صباح الخير",
+        "pronunciation": "sa-baah al-khayr"
+      },
+      {
+        "en": "What's up?",
+        "ar": "كيفك؟",
+        "pronunciation": "kay-fak"
+      }
+    ],
+    "cta_en": "Try ArabicEngLearn!",
+    "cta_ar": "جرب ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic"
+    ]
+  },
+  {
+    "id": 6,
+    "type": "dialect",
+    "hook_en": "Gulf Arabic fun facts! 💎",
+    "hook_ar": "حقائق ممتعة عن اللهجة الخليجية! 💎",
+    "items": [
+      {
+        "en": "Yes",
+        "ar": "أيوه",
+        "pronunciation": "ay-wa"
+      },
+      {
+        "en": "No",
+        "ar": "لا",
+        "pronunciation": "la"
+      },
+      {
+        "en": "OK",
+        "ar": "خلاص",
+        "pronunciation": "kha-laas"
+      }
+    ],
+    "cta_en": "Try ArabicEngLearn!",
+    "cta_ar": "جرب ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic"
+    ]
+  }
+]

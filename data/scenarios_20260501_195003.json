@@ -1,0 +1,196 @@
+[
+  {
+    "id": 1,
+    "type": "fact",
+    "hook_en": "Wait... these English words are actually ARABIC?! 😱",
+    "hook_ar": "انتظر... هذي كلمات إنجليزية أصلها عربي؟! 🇸🇦",
+    "items": [
+      {
+        "en": "algebra",
+        "ar": "الجبر",
+        "pronunciation": "al-jabr"
+      },
+      {
+        "en": "algorithm",
+        "ar": "الخوارزمية",
+        "pronunciation": "al-khwarizmi"
+      },
+      {
+        "en": "zero",
+        "ar": "صفر",
+        "pronunciation": "sifr"
+      },
+      {
+        "en": "zenith",
+        "ar": "سمت",
+        "pronunciation": "samt"
+      }
+    ],
+    "cta_en": "Download LinguaStart!",
+    "cta_ar": "حمل LinguaStart!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabicorigins",
+      "#etymology"
+    ]
+  },
+  {
+    "id": 2,
+    "type": "fact",
+    "hook_en": "Your favorite drink words come from ARABIC! 🍷",
+    "hook_ar": "كلمات مشروباتك المفضلة أصلها عربي! 🍷",
+    "items": [
+      {
+        "en": "alcohol",
+        "ar": "الكحول",
+        "pronunciation": "al-kuhl"
+      },
+      {
+        "en": "sugar",
+        "ar": "السكر",
+        "pronunciation": "sukkar"
+      },
+      {
+        "en": "candy",
+        "ar": "قند",
+        "pronunciation": "qand"
+      },
+      {
+        "en": "coffee",
+        "ar": "قهوة",
+        "pronunciation": "qahwa"
+      }
+    ],
+    "cta_en": "Download LinguaStart!",
+    "cta_ar": "حمل LinguaStart!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#vocabulary"
+    ]
+  },
+  {
+    "id": 3,
+    "type": "fact",
+    "hook_en": "You're wearing ARABIC right now! 👗",
+    "hook_ar": "أنت ترتدي عربي الآن! 👗",
+    "items": [
+      {
+        "en": "cotton",
+        "ar": "القطن",
+        "pronunciation": "qutn"
+      },
+      {
+        "en": "muslin",
+        "ar": "الموسلين",
+        "pronunciation": "mawslīn"
+      },
+      {
+        "en": "turban",
+        "ar": "الطربال",
+        "pronunciation": "tarbūl"
+      },
+      {
+        "en": "sash",
+        "ar": "الشاش",
+        "pronunciation": "shāsh"
+      }
+    ],
+    "cta_en": "Download LinguaStart!",
+    "cta_ar": "حمل LinguaStart!",
+    "hashtags": [
+      "#learnarabic",
+      "#fashionhistory",
+      "#arabicwords"
+    ]
+  },
+  {
+    "id": 4,
+    "type": "fact",
+    "hook_en": "STOP! These common English words are ARABIC! 🫢",
+    "hook_ar": "توقف! هذي الكلمات الإنجليزية المشتركة أصلها عربي!",
+    "items": [
+      {
+        "en": "sofa",
+        "ar": "صوفا",
+        "pronunciation": "sūfa"
+      },
+      {
+        "en": "couch",
+        "ar": "كوتش",
+        "pronunciation": "kūch"
+      },
+      {
+        "en": "magazine",
+        "ar": "مخزن",
+        "pronunciation": "makhzin"
+      },
+      {
+        "en": "jacket",
+        "ar": "جاكيت",
+        "pronunciation": "jaket"
+      }
+    ],
+    "cta_en": "Download LinguaStart!",
+    "cta_ar": "حمل LinguaStart!",
+    "hashtags": [
+      "#learnarabic",
+      "#etymology",
+      "#arabic"
+    ]
+  },
+  {
+    "id": 5,
+    "type": "fact",
+    "hook_en": "Your English is more ARABIC than you think! 👀",
+    "hook_ar": "إنجليزيتك أكثر عربية مما تظن! 🇸🇦",
+    "items": [
+      {
+        "en": "lemon",
+        "ar": "لیمون",
+        "pronunciation": "laymūn"
+      },
+      {
+        "en": "orange",
+        "ar": "نارنج",
+        "pronunciation": "nāranj"
+      },
+      {
+        "en": "safari",
+        "ar": "سفاري",
+        "pronunciation": "safārī"
+      },
+      {
+        "en": "amber",
+        "ar": "عنبر",
+        "pronunciation": "anbar"
+      }
+    ],
+    "cta_en": "Download LinguaStart!",
+    "cta_ar": "حمل LinguaStart!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabicorigins",
+      "#wordhistory"
+    ]
+  },
+  {
+    "id": 6,
+    "type": "dialect",
+    "hook_en": "English hook line",
+    "hook_ar": "Arabic hook",
+    "items": [
+      {
+        "en": "English word",
+        "ar": "Arabic word",
+        "pronunciation": "romanized"
+      }
+    ],
+    "cta_en": "Download LinguaStart!",
+    "cta_ar": "حمل LinguaStart!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic"
+    ]
+  }
+]

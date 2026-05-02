@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "type": "fact",
+    "frames": [
+      "C:\\langapp-automation\\output\\frames\\scenario_001\\frame_00_hook.png",
+      "C:\\langapp-automation\\output\\frames\\scenario_001\\frame_01_item.png",
+      "C:\\langapp-automation\\output\\frames\\scenario_001\\frame_02_item.png",
+      "C:\\langapp-automation\\output\\frames\\scenario_001\\frame_03_item.png",
+      "C:\\langapp-automation\\output\\frames\\scenario_001\\frame_04_item.png",
+      "C:\\langapp-automation\\output\\frames\\scenario_001\\frame_05_item.png",
+      "C:\\langapp-automation\\output\\frames\\scenario_001\\frame_06_cta.png"
+    ],
+    "hashtags": [
+      "#learnarabic",
+      "#languagelearning",
+      "#arabic123"
+    ],
+    "hook_en": "Master Arabic Numbers in Seconds!",
+    "cta_en": "Download LinguaStart Now!"
+  },
+  {
+    "id": 2,
+    "type": "phrase",
+    "frames": [
+      "C:\\langapp-automation\\output\\frames\\scenario_002\\frame_00_hook.png",
+      "C:\\langapp-automation\\output\\frames\\scenario_002\\frame_01_item.png",
+      "C:\\langapp-automation\\output\\frames\\scenario_002\\frame_02_item.png",
+      "C:\\langapp-automation\\output\\frames\\scenario_002\\frame_03_item.png",
+      "C:\\langapp-automation\\output\\frames\\scenario_002\\frame_04_item.png",
+      "C:\\langapp-automation\\output\\frames\\scenario_002\\frame_05_item.png",
+      "C:\\langapp-automation\\output\\frames\\scenario_002\\frame_06_cta.png"
+    ],
+    "hashtags": [
+      "#arabic",
+      "#greetings",
+      "#languagetips"
+    ],
+    "hook_en": "Essential Arabic Greetings!",
+    "cta_en": "Start Learning Today!"
+  },
+  {
+    "id": 3,
+    "type": "dialect",
+    "frames": [
+      "C:\\langapp-automation\\output\\frames\\scenario_003\\frame_00_hook.png",
+      "C:\\langapp-automation\\output\\frames\\scenario_003\\frame_01_item.png",
+      "C:\\langapp-automation\\output\\frames\\scenario_003\\frame_02_item.png",
+      "C:\\langapp-automation\\output\\frames\\scenario_003\\frame_03_item.png",
+      "C:\\langapp-automation\\output\\frames\\scenario_003\\frame_04_item.png",
+      "C:\\langapp-automation\\output\\frames\\scenario_003\\frame_05_item.png",
+      "C:\\langapp-automation\\output\\frames\\scenario_003\\frame_06_cta.png"
+    ],
+    "hashtags": [
+      "#arabicdictionary",
+      "#vocabularybuilding",
+      "#learnarbic"
+    ],
+    "hook_en": "Learn Common Arabic Words!",
+    "cta_en": "Join Our Community!"
+  }
+]

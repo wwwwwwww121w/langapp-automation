@@ -1,0 +1,119 @@
+[
+  {
+    "id": 1,
+    "type": "fact",
+    "hook_en": "English hook line",
+    "hook_ar": "Arabic hook",
+    "items": [
+      {
+        "en": "English word",
+        "ar": "Arabic word",
+        "pronunciation": "romanized"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic"
+    ]
+  },
+  {
+    "id": 10,
+    "type": "phrase",
+    "hook_en": "Ever wondered how to ask about prices in Arabic? 😱",
+    "hook_ar": "هل تساءلت كيف تسأل عن الأسعار بالعربية؟ 😱",
+    "items": [
+      {
+        "en": "How much",
+        "ar": "بكم",
+        "pronunciation": "bikam"
+      },
+      {
+        "en": "this",
+        "ar": "هذا",
+        "pronunciation": "hatha"
+      },
+      {
+        "en": "cost",
+        "ar": "تكلفة",
+        "pronunciation": "taklifa"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#price",
+      "#everyday"
+    ]
+  },
+  {
+    "id": 11,
+    "type": "phrase",
+    "hook_en": "Lost in the city? Learn to ask for directions in Arabic! 🗺️",
+    "hook_ar": "تائه في المدينة؟ تعلم كيف تسأل عن الاتجاهات بالعربية! 🗺️",
+    "items": [
+      {
+        "en": "Where",
+        "ar": "أين",
+        "pronunciation": "ayna"
+      },
+      {
+        "en": "nearest",
+        "ar": "أقرب",
+        "pronunciation": "aqrab"
+      },
+      {
+        "en": "metro",
+        "ar": "مترو",
+        "pronunciation": "metro"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#directions",
+      "#city"
+    ]
+  },
+  {
+    "id": 12,
+    "type": "phrase",
+    "hook_en": "Want to order like a local? 🍵",
+    "hook_ar": "تريد أن تطلب كالمحليين؟ 🍵",
+    "items": [
+      {
+        "en": "I would like",
+        "ar": "أود",
+        "pronunciation": "a'ud"
+      },
+      {
+        "en": "cup",
+        "ar": "كوب",
+        "pronunciation": "kub"
+      },
+      {
+        "en": "tea",
+        "ar": "شاي",
+        "pronunciation": "shai"
+      },
+      {
+        "en": "please",
+        "ar": "من فضلك",
+        "pronunciation": "min fadlik"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#order",
+      "#teatime"
+    ]
+  }
+]

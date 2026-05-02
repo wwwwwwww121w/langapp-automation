@@ -1,0 +1,75 @@
+[
+  {
+    "id": 4,
+    "type": "dialect",
+    "hook_en": "English hook line",
+    "hook_ar": "Arabic hook",
+    "items": [
+      {
+        "en": "English word",
+        "ar": "Arabic word",
+        "pronunciation": "romanized"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic"
+    ]
+  },
+  {
+    "id": 7,
+    "type": "mistake",
+    "hook_en": "Think you know the difference? 😱",
+    "hook_ar": "هل تعرف الفرق؟ 😱",
+    "items": [
+      {
+        "en": "I need to go to the bathroom",
+        "ar": "أحتاج إلى الذهاب إلى الحمام",
+        "pronunciation": "aḥtāj ilā al-ḍahāb ilā al-ḥimām"
+      }
+    ],
+    "cta_en": "Try ArabicEngLearn!",
+    "cta_ar": "جرب ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic"
+    ]
+  },
+  {
+    "id": 8,
+    "type": "mistake",
+    "hook_en": "Stop mixing these up! 🎯",
+    "hook_ar": "توقف عن خلطهم! 🎯",
+    "items": [
+      {
+        "en": "He is a teacher",
+        "ar": "هو معلم",
+        "pronunciation": "huwa muʿallim"
+      }
+    ],
+    "cta_en": "Try ArabicEngLearn!",
+    "cta_ar": "جرب ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic"
+    ]
+  },
+  {
+    "id": 9,
+    "type": "mistake",
+    "hook_en": "Can you spot the error? 🤔",
+    "hook_ar": "هل تستطيع اكتشاف الخطأ؟ 🤔",
+    "items": [
+      {
+        "en": "We have a lot of work",
+        "ar": "لدينا كثير من العمل",
+        "pronunciation": "ladayna kathīr min al-ʿamal"
+      }
+    ],
+    "cta_en": "Try ArabicEngLearn!",
+    "cta_ar": "جرب ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic"
+    ]
+  }
+]

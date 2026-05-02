@@ -1,0 +1,198 @@
+[
+  {
+    "id": 1,
+    "type": "fact",
+    "hook_en": "🌟 Did you know? Arabic has no capital letters!",
+    "hook_ar": "🌟 هل تعلم؟ العربية ليس بها أحرف كبيرة!",
+    "items": [
+      {
+        "en": "Arabic has no capital letters, making it unique among major scripts.",
+        "ar": "العربية ليس بها أحرف كبيرة، مما يجعلها فريدة بين النصوص الكبرى.",
+        "pronunciation": "al-ʿarabiyya laysa biha aḥruf kibār, ma yujʿluha farīqa bayn al-nuṣūṣ al-kubrá."
+      }
+    ],
+    "cta_en": "Try ArabicEngLearn!",
+    "cta_ar": "جرب ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic"
+    ]
+  },
+  {
+    "id": 2,
+    "type": "fact",
+    "hook_en": "🧐 Word origins: 'Algebra' comes from Arabic!",
+    "hook_ar": "🧐 أصل الكلمة: 'الجبر' مشتقة من العربية!",
+    "items": [
+      {
+        "en": "The term 'Algebra' originates from the Arabic 'al-jabr', meaning 'reunion' or 'completion'.",
+        "ar": "كلمة 'الجبر' مشتقة من العربية وتعني 'إعادة التجمع' أو 'الإكمال'.",
+        "pronunciation": "kalimat al-jabr mushtaqqa min al-ʿarabiyya wa taʿnī 'iʿādat al-tajammuʿ' aw 'al-ikmāl'."
+      }
+    ],
+    "cta_en": "Try ArabicEngLearn!",
+    "cta_ar": "جرب ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic"
+    ]
+  },
+  {
+    "id": 3,
+    "type": "fact",
+    "hook_en": "🤓 Fun fact: Arabic has 28 letters, while English has 26!",
+    "hook_ar": "🤓 حقيقة ممتعة: العربية تحتوي على 28 حرفاً، بينما الإنجليزية 26!",
+    "items": [
+      {
+        "en": "Arabic alphabet consists of 28 letters, two more than the English alphabet.",
+        "ar": "الحروف العربية تتكون من 28 حرفاً، أي حرفان أكثر من الأبجدية الإنجليزية.",
+        "pronunciation": "al-ḥurūf al-ʿarabiyya tatakawwan min 28 ḥarfan, ay ḥarfān akthar min al-ʾabjadiyya al-ʾinglīziyya."
+      }
+    ],
+    "cta_en": "Try ArabicEngLearn!",
+    "cta_ar": "جرب ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic"
+    ]
+  },
+  {
+    "id": 7,
+    "type": "mistake",
+    "hook_en": "Stop saying 'make homework'! 😱 Are you making this mistake?",
+    "hook_ar": "توقف عن قول 'make homework'! 😱 هل ترتكب هذا الخطأ؟",
+    "items": [
+      {
+        "en": "Make a decision",
+        "ar": "اتخذ قراراً",
+        "pronunciation": "Ittakhith qararan"
+      },
+      {
+        "en": "Do homework",
+        "ar": "افعل الواجب",
+        "pronunciation": "If'al al-wajib"
+      },
+      {
+        "en": "Say a word",
+        "ar": "قل كلمة",
+        "pronunciation": "Qul kalimah"
+      },
+      {
+        "en": "Tell me",
+        "ar": "أخبرني",
+        "pronunciation": "Akhbirni"
+      },
+      {
+        "en": "Make an effort",
+        "ar": "بذل جهداً",
+        "pronunciation": "Bada jahdan"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#englishtips",
+      "#commonmistakes"
+    ]
+  },
+  {
+    "id": 8,
+    "type": "mistake",
+    "hook_en": "Your pronunciation is WRONG! 😱 These English words confuse Arabs!",
+    "hook_ar": "نطقك خاطئ! 😱 هذه الكلمات الإنجليزية تحيّر العرب!",
+    "items": [
+      {
+        "en": "February",
+        "ar": "فبراير",
+        "pronunciation": "Feb-yoo-air-ee"
+      },
+      {
+        "en": "Schedule",
+        "ar": "جدول",
+        "pronunciation": "Sked-yool"
+      },
+      {
+        "en": "Comfortable",
+        "ar": "مريح",
+        "pronunciation": "Com-for-ta-bul"
+      },
+      {
+        "en": "Colonel",
+        "ar": "عقيد",
+        "pronunciation": "Ker-nul"
+      },
+      {
+        "en": "Wednesday",
+        "ar": "الأربعاء",
+        "pronunciation": "Wenz-day"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#pronunciation",
+      "#englishspeaking"
+    ]
+  },
+  {
+    "id": 9,
+    "type": "mistake",
+    "hook_en": "English speakers keep making this Arabic mistake! 😂 Can you hear it?",
+    "hook_ar": "متحدثو الإنجليزية يرتكبون هذا الخطأ العربي! 😂 هل تستطيع سماعه؟",
+    "items": [
+      {
+        "en": "Qaf vs Kaf",
+        "ar": "خلط القاف مع الكاف",
+        "pronunciation": "Qaf vs Kaf"
+      },
+      {
+        "en": "Ain sound",
+        "ar": "صوت العين",
+        "pronunciation": "Al-'ayn"
+      },
+      {
+        "en": "Tha vs Dhal",
+        "ar": "خلط الثاء مع الذال",
+        "pronunciation": "Tha' vs Dhal"
+      },
+      {
+        "en": "Dad vs Dhad",
+        "ar": "خلط الضاد مع الظاء",
+        "pronunciation": "Dad vs Dhad"
+      },
+      {
+        "en": "Khah vs Hah",
+        "ar": "خلط الخاء مع الحاء",
+        "pronunciation": "Khah vs Hah"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#arabicpronunciation",
+      "#englishspeakers"
+    ]
+  },
+  {
+    "id": 10,
+    "type": "phrase",
+    "hook_en": "English hook line",
+    "hook_ar": "Arabic hook",
+    "items": [
+      {
+        "en": "English word",
+        "ar": "Arabic word",
+        "pronunciation": "romanized"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic"
+    ]
+  }
+]

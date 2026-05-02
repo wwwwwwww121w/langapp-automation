@@ -1,0 +1,10 @@
+
+[2026-05-02 02:17:48.375478] Starting Grok scenario generation (4 batches) - BROWSER MODE
+[2026-05-02 02:17:48.376003] Batch 1: fact
+[2026-05-02 02:17:54.082858] Batch 1 ERROR: Grok browser error: EOF when reading a line
+[2026-05-02 02:17:54.083859] Batch 2: dialect
+[2026-05-02 02:17:58.813661] Batch 2 ERROR: Grok browser error: EOF when reading a line
+[2026-05-02 02:17:58.814189] Batch 3: mistake
+[2026-05-02 02:18:03.609539] Batch 3 ERROR: Grok browser error: EOF when reading a line
+[2026-05-02 02:18:03.610538] Batch 4: phrase
+[2026-05-02 02:18:08.580257] Batch 4 ERROR: Grok browser error: EOF when reading a line

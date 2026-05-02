@@ -1,0 +1,194 @@
+[
+  {
+    "id": 7,
+    "type": "mistake",
+    "hook_en": "😱 Stop making these 5 English mistakes! #arabiclearning #englishtips",
+    "hook_ar": "😱 قف! هذه 5 أخطاء إنجليزية شائعة! #تعلم_العربية #نصائح_إنجليزية",
+    "items": [
+      {
+        "en": "a vs an",
+        "ar": "أداة التعريف a و an",
+        "pronunciation": "ey vs æn"
+      },
+      {
+        "en": "I have a car",
+        "ar": "لدي سيارة",
+        "pronunciation": "li-di sayyara"
+      },
+      {
+        "en": "I have a lot of",
+        "ar": "لدي كثير من",
+        "pronunciation": "li-di kathiyr min"
+      },
+      {
+        "en": "I will go",
+        "ar": "سأذهب",
+        "pronunciation": "sa-azhab"
+      },
+      {
+        "en": "He doesn't have any",
+        "ar": "ليس لديه أي",
+        "pronunciation": "laysa ladayhi ay"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn now!",
+    "cta_ar": "حمّل ArabicEngLearn الآن!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#englishtips"
+    ]
+  },
+  {
+    "id": 8,
+    "type": "mistake",
+    "hook_en": "❌ Pronounce 'Q' like 'ق' not 'k'! Learn how!",
+    "hook_ar": "❌ انطق 'Q' كـ'ق' وليس 'ك'! تعلم كيف!",
+    "items": [
+      {
+        "en": "qatar",
+        "ar": "قطر",
+        "pronunciation": "qa-taar"
+      },
+      {
+        "en": "qaaf",
+        "ar": "قاف",
+        "pronunciation": "qaf"
+      },
+      {
+        "en": "quality",
+        "ar": "جودة",
+        "pronunciation": "kwa-li-tee"
+      },
+      {
+        "en": "queen",
+        "ar": "ملكة",
+        "pronunciation": "kween"
+      },
+      {
+        "en": "question",
+        "ar": "سؤال",
+        "pronunciation": "kwes-chun"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn now!",
+    "cta_ar": "حمّل ArabicEngLearn الآن!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#pronunciation"
+    ]
+  },
+  {
+    "id": 9,
+    "type": "mistake",
+    "hook_en": "🔁 Using 'in' vs 'on' can trick you! Master them now.",
+    "hook_ar": "🔁 استخدام 'in' vs 'on' قد يربكك! أتقنهما الآن.",
+    "items": [
+      {
+        "en": "in the morning",
+        "ar": "في الصباح",
+        "pronunciation": "fi al-sabah"
+      },
+      {
+        "en": "on Monday",
+        "ar": "في يوم الاثنين",
+        "pronunciation": "fi yawm al-ithnayn"
+      },
+      {
+        "en": "in July",
+        "ar": "في يوليو",
+        "pronunciation": "fi yulyu"
+      },
+      {
+        "en": "on the weekend",
+        "ar": "في نهاية الأسبوع",
+        "pronunciation": "fi nihayat al-usbue"
+      },
+      {
+        "en": "in the summer",
+        "ar": "في الصيف",
+        "pronunciation": "fi al-seef"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn now!",
+    "cta_ar": "حمّل ArabicEngLearn الآن!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#englishtips"
+    ]
+  },
+  {
+    "id": 10,
+    "type": "phrase",
+    "hook_en": "Did you know Arabic has 28 letters?",
+    "hook_ar": "هل تعلم أن العربية تحتوي على 28 حرفًا؟",
+    "items": [
+      {
+        "en": "Alphabet",
+        "ar": "الأبجدية",
+        "pron": "al-abjadiyya"
+      },
+      {
+        "en": "Letters",
+        "ar": "حروف",
+        "pron": "huruf"
+      }
+    ],
+    "cta_en": "Try ArabicEngLearn!",
+    "cta_ar": "جرب ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#ArabicEnglish"
+    ]
+  },
+  {
+    "id": 11,
+    "type": "phrase",
+    "hook_en": "Arabic words can have no vowels!",
+    "hook_ar": "كلمات عربية قد لا تحتوي على حروف متحركة!",
+    "items": [
+      {
+        "en": "Vowel",
+        "ar": "صوت",
+        "pron": "sawt"
+      },
+      {
+        "en": "Consonant",
+        "ar": "حرف",
+        "pron": "harf"
+      }
+    ],
+    "cta_en": "Try ArabicEngLearn!",
+    "cta_ar": "جرب ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#ArabicEnglish"
+    ]
+  },
+  {
+    "id": 12,
+    "type": "phrase",
+    "hook_en": "English borrowed 'sugar' from Arabic!",
+    "hook_ar": "الإنجليزية استعارت كلمة 'سكر' من العربية!",
+    "items": [
+      {
+        "en": "Sugar",
+        "ar": "سكر",
+        "pron": "sukkar"
+      },
+      {
+        "en": "Borrowed",
+        "ar": "مستعارة",
+        "pron": "musta'ara"
+      }
+    ],
+    "cta_en": "Try ArabicEngLearn!",
+    "cta_ar": "جرب ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#ArabicEnglish"
+    ]
+  }
+]

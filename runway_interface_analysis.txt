@@ -1,0 +1,104 @@
+АНАЛИЗ RUNWAY ИНТЕРФЕЙСА
+================================================================================
+
+# Ответ по Runway ML Interface
+
+> **Честное предупреждение:** Я могу дать общую информацию, но точные CSS-селекторы и актуальное состояние UI могли измениться. Runway активно обновляет интерфейс.
+
+## 1. Вход в систему ✅
+```json
+{
+  "login_url": "https://app.runwayml.com/login",
+  "workspace_url": "https://app.runwayml.com",
+  "projects_url": "https://app.runwayml.com/projects",
+  "auth_required": true
+}
+```
+
+## 2. Интерфейс генерации видео
+
+### Общая схема (актуальная на 2024/2025):
+```
+Лендинг → Projects → Create New → Gen-3 Alpha Turbo (или Gen-2)
+```
+
+### Модели (из того что известно):
+- **Gen-3 Alpha** — флагман, текст→видео, высокое качество
+- **Gen-3 Alpha Turbo** — быстрая версия
+- **Gen-2** — предыдущее поколение
+
+### Поля в интерфейсе обычно включают:
+- **Prompt** (textarea) — текстовое описание
+- **Duration** — длительность (обычно 5-10 сек)
+- **Aspect ratio** — 16:9, 9:16, 1:1, 4:3
+- **Motion** — управление движением камеры (иногда)
+
+### ⚠️ Важное ограничение:
+**Бесплатный тариф обычно даёт ограниченное количество генераций ("credits").** Точные лимиты меняются — проверяйте актуальные условия на сайте.
+
+## 3. Пример для арабских цифр 1-5
+
+```json
+{
+  "prompt": "Arabic numerals 1 2 3 4 5 floating in space, elegant calligraphy, dark background, cinematic lighting, smooth animation",
+  "duration": 10,
+  "aspect_ratio": "16:9",
+  "style": "cinematic",
+  "recommendations": [
+    "Используйте простые, чёткие описания",
+    "Добавьте стиль 'cinematic' или 'minimal'",
+    "Для арабской визуализации можно указать конкретный стиль: 'Arabic geometric style'",
+    "Избегайте длинных предложений — лучше короткие фразы"
+  ]
+}
+```
+
+## 4. Кнопки и статусы
+
+- Кнопка: обычно **"Generate"** или **"Create"** → **"Generate video"**
+- Статусы: **Queued → Processing → Completed**
+- Прогресс: progress bar или процент
+- Скачивание: кнопка **"Download"** на карточке результата
+
+## 5. CSS селекторы — ⚠️ ПРЕДУПРЕЖДЕНИЕ
+
+> **Я НЕ могу дать точные актуальные селекторы.** UI Runway постоянно меняется. Вот что могу предложить:
+
+### Подход через Playwright:
+```javascript
+// Вместо жёстких селекторов используйте:
+// 1. Текстовый поиск
+await page.getByText("Generate").click();
+await page.getByPlaceholder("Describe your video").fill(prompt);
+
+// 2. Общие атрибуты
+await page.locator('textarea').first().fill(prompt);
+await page.locator('button:has-text("Generate")').click();
+
+// 3. Запасной вариант — селектор по role
+await page.getByRole("button", { name: /generate/i }).click();
+```
+
+### Причина проблемы:
+Runway использует React с динамическими class names (например, `css-1abc123`), поэтому жёсткие CSS-селекторы ломаются после каждого обновления.
+
+## 6. API
+
+**⚠️ На момент моих данных:**
+- REST API **существует**, но доступ受限 (требует API key, не у всех аккаунтов)
+- Webhooks — нужно проверять документацию
+- Документация: https://docs.runwayml.com
+
+## Рекомендация для автоматизации:
+
+```javascript
+// Надёжный подход — через placeholder и aria-label
+const promptInput = page.locator('textarea[placeholder*="video"], textarea[aria-label*="video"]');
+const generateBtn = page.locator('button:has-text("Generate")');
+```
+
+---
+
+**Совет:** Для точных селекторов используйте DevTools в браузере (`Inspect` → найдите нужный элемент) или Playwright Inspector (`npx playwright show-report`), чтобы получить актуальные DOM-структуры.
+
+================================================================================

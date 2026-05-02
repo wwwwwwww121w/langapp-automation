@@ -1,0 +1,110 @@
+[
+  {
+    "id": 4,
+    "type": "dialect",
+    "hook_en": "Can you say 'How are you?' in 4 different Arabic dialects? 🌎",
+    "hook_ar": "تقدر تقول 'كيف حالك' بأربعة لهجات عربية؟",
+    "items": [
+      {
+        "en": "How are you? (MSA)",
+        "ar": "كيف حالك؟",
+        "pronunciation": "Kayfa ḥāluka?"
+      },
+      {
+        "en": "How are you? (Egyptian)",
+        "ar": "عامل إيه؟",
+        "pronunciation": "ʿĀmel eih?"
+      },
+      {
+        "en": "How are you? (Lebanese)",
+        "ar": "كيفك؟",
+        "pronunciation": "Kīfak?"
+      },
+      {
+        "en": "How are you? (Moroccan)",
+        "ar": "شكون نتا؟",
+        "pronunciation": "Shkūn ntā?"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#dialect",
+      "#MSA"
+    ]
+  },
+  {
+    "id": 5,
+    "type": "dialect",
+    "hook_en": "Say 'Good morning' like a native in Egypt, Lebanon & Morocco! ☀️",
+    "hook_ar": "قل 'صباح الخير' بأسلوب مصري ولبناني ومغربي!",
+    "items": [
+      {
+        "en": "Good morning (MSA)",
+        "ar": "صباح الخير",
+        "pronunciation": "Ṣabāḥ al-khayr"
+      },
+      {
+        "en": "Good morning (Egyptian)",
+        "ar": "صباح النور",
+        "pronunciation": "Ṣabāḥ al-nūr"
+      },
+      {
+        "en": "Good morning (Lebanese)",
+        "ar": "صباح الخير",
+        "pronunciation": "Ṣabāḥ al-khēr"
+      },
+      {
+        "en": "Good morning (Moroccan)",
+        "ar": "صباح الخير",
+        "pronunciation": "Ṣabāḥ al-khīr"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#greeting",
+      "#dialects"
+    ]
+  },
+  {
+    "id": 6,
+    "type": "dialect",
+    "hook_en": "Master 'Nice to meet you' across Arabic dialects – tap to learn! 🤝",
+    "hook_ar": "أتقن 'تشرفت' بأربعة لهجات عربية – انقر للتعلم!",
+    "items": [
+      {
+        "en": "Nice to meet you (MSA)",
+        "ar": "تشرفت بمعرفتك",
+        "pronunciation": "Tasharraftu bi-maʿriftika"
+      },
+      {
+        "en": "Nice to meet you (Egyptian)",
+        "ar": "شرفني أتعرف عليك",
+        "pronunciation": "Sharafnī atʿarraf ʿalēk"
+      },
+      {
+        "en": "Nice to meet you (Lebanese)",
+        "ar": "تشرفت",
+        "pronunciation": "Tasharraft"
+      },
+      {
+        "en": "Nice to meet you (Moroccan)",
+        "ar": "سررت بمقابلتك",
+        "pronunciation": "Surrirt bi-muqābalatk"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic",
+      "#nicetomeetyou",
+      "#dialects"
+    ]
+  }
+]

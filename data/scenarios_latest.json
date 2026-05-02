@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "type": "fact",
+    "hook_en": "Master Arabic Numbers in Seconds!",
+    "hook_ar": "أتقن أرقام العربية في ثوانٍ!",
+    "items": [
+      {
+        "en": "One",
+        "ar": "واحد",
+        "pronunciation": "waa-hid"
+      },
+      {
+        "en": "Two",
+        "ar": "اثنان",
+        "pronunciation": "ith-naan"
+      },
+      {
+        "en": "Three",
+        "ar": "ثلاثة",
+        "pronunciation": "tha-laa-tha"
+      },
+      {
+        "en": "Four",
+        "ar": "أربعة",
+        "pronunciation": "ar-ba-a"
+      },
+      {
+        "en": "Five",
+        "ar": "خمسة",
+        "pronunciation": "kham-sa"
+      }
+    ],
+    "cta_en": "Download LinguaStart Now!",
+    "cta_ar": "حمل لينجوا ستارت!",
+    "hashtags": [
+      "#learnarabic",
+      "#languagelearning",
+      "#arabic123"
+    ]
+  },
+  {
+    "id": 2,
+    "type": "phrase",
+    "hook_en": "Essential Arabic Greetings!",
+    "hook_ar": "تحيات عربية أساسية!",
+    "items": [
+      {
+        "en": "Hello",
+        "ar": "مرحبا",
+        "pronunciation": "mar-ha-ba"
+      },
+      {
+        "en": "Good morning",
+        "ar": "صباح الخير",
+        "pronunciation": "sa-bah al-khair"
+      },
+      {
+        "en": "Thank you",
+        "ar": "شكراً",
+        "pronunciation": "shuk-ran"
+      },
+      {
+        "en": "Yes",
+        "ar": "نعم",
+        "pronunciation": "na-am"
+      },
+      {
+        "en": "No",
+        "ar": "لا",
+        "pronunciation": "laa"
+      }
+    ],
+    "cta_en": "Start Learning Today!",
+    "cta_ar": "ابدأ التعلم اليوم!",
+    "hashtags": [
+      "#arabic",
+      "#greetings",
+      "#languagetips"
+    ]
+  },
+  {
+    "id": 3,
+    "type": "dialect",
+    "hook_en": "Learn Common Arabic Words!",
+    "hook_ar": "تعلم الكلمات الشائعة!",
+    "items": [
+      {
+        "en": "Water",
+        "ar": "ماء",
+        "pronunciation": "ma-a"
+      },
+      {
+        "en": "Bread",
+        "ar": "خبز",
+        "pronunciation": "khubz"
+      },
+      {
+        "en": "House",
+        "ar": "بيت",
+        "pronunciation": "bayt"
+      },
+      {
+        "en": "Family",
+        "ar": "عائلة",
+        "pronunciation": "a-a-la"
+      },
+      {
+        "en": "Friend",
+        "ar": "صديق",
+        "pronunciation": "sa-deek"
+      }
+    ],
+    "cta_en": "Join Our Community!",
+    "cta_ar": "انضم لمجتمعنا!",
+    "hashtags": [
+      "#arabicdictionary",
+      "#vocabularybuilding",
+      "#learnarbic"
+    ]
+  }
+]

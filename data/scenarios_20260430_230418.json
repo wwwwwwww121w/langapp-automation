@@ -1,0 +1,25 @@
+[
+  "#learnarabic",
+  "#arabicorigin",
+  "#wordhistory",
+  "#ArabicEngLearn",
+  {
+    "id": 6,
+    "type": "dialect",
+    "hook_en": "English hook line",
+    "hook_ar": "Arabic hook",
+    "items": [
+      {
+        "en": "English word",
+        "ar": "Arabic word",
+        "pronunciation": "romanized"
+      }
+    ],
+    "cta_en": "Download ArabicEngLearn!",
+    "cta_ar": "حمل ArabicEngLearn!",
+    "hashtags": [
+      "#learnarabic",
+      "#arabic"
+    ]
+  }
+]
