@@ -19,6 +19,14 @@ load_dotenv()
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'core'))
 
+# Импортируем генератор видео
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'scripts'))
+try:
+    from generate_videos_via_grok import GrokVideoGenerator
+    HAS_VIDEO_GENERATOR = True
+except ImportError:
+    HAS_VIDEO_GENERATOR = False
+
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import (
     Application,
@@ -134,75 +142,100 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
 
         try:
-            # Запускаем скрипт генерации видео
-            result = subprocess.run(
-                [sys.executable, "scripts/04_generate_videos_via_grok.py"],
-                capture_output=True,
-                text=True,
-                timeout=600
-            )
+            # Используем GrokVideoGenerator с отслеживанием прогресса
+            status_message = None
+            last_progress = 0
 
-            if result.returncode == 0:
-                # Читаем URL видео
-                url_file = VIDEOS_DIR / "video_url.txt"
-                if url_file.exists():
-                    with open(url_file, 'r', encoding='utf-8') as f:
-                        urls = f.readlines()
+            async def update_progress(status_info):
+                """Обновляет сообщение о прогрессе в Telegram"""
+                nonlocal status_message, last_progress
 
-                    if len(urls) >= 3:
-                        message = """✅ **Видео успешно сгенерированы!**
+                progress = status_info.get('progress', 0)
+                message = status_info.get('message', '')
+                status = status_info.get('status', '')
+
+                # Обновляем сообщение каждый раз когда прогресс меняется на 10%
+                if progress - last_progress >= 10 or status in ['COMPLETE', 'ERROR']:
+                    last_progress = progress
+
+                    progress_bar = f"{'█' * (progress // 10)}{'░' * (10 - progress // 10)} {progress}%"
+                    update_text = (
+                        f"🎬 **Генерирую видео...**\n\n"
+                        f"[{progress_bar}]\n\n"
+                        f"📊 Статус: {message}\n"
+                        f"⏱️  Это может занять 1-2 минуты"
+                    )
+
+                    try:
+                        await query.edit_message_text(
+                            text=update_text,
+                            parse_mode=ParseMode.MARKDOWN
+                        )
+                    except Exception as e:
+                        print(f"Error updating progress: {e}")
+
+            # Генерируем видео
+            generator = GrokVideoGenerator()
+
+            # Генерируем 3 видео с отслеживанием прогресса
+            all_urls = []
+            prompts = [
+                "Обучающее видео про приложение для изучения английского языка LinguaStart. Показать интерфейс, обучение, интерактивные уроки. 9:16 формат.",
+                "Видео про приложение LinguaStart для изучения арабского языка. Показать прогресс студентов, достижения, рейтинги. 9:16 формат.",
+                "Промо-видео LinguaStart. Показать основные возможности: быстрое обучение, геймификация, сообщество. Вирусный контент для социальных сетей. 9:16 формат."
+            ]
+
+            for i, prompt in enumerate(prompts, 1):
+                await update_progress({
+                    "status": "STARTING",
+                    "progress": (i-1) * 33,
+                    "message": f"🎬 Генерирую видео {i}/3..."
+                })
+
+                result = generator.generate_video(prompt, str(VIDEOS_DIR), update_progress)
+
+                if result['success']:
+                    all_urls.append(result['url'])
+                else:
+                    raise Exception(f"Ошибка при генерации видео {i}: {result['error']}")
+
+            if len(all_urls) >= 3:
+                message = f"""✅ **Видео успешно сгенерированы!**
 
 🎬 **Видео готовы к публикации:**
 
 1️⃣ **Английский язык**
-🔗 [Скачать видео](""" + urls[-3].strip() + """)
+🔗 [Скачать видео]({all_urls[0].strip()})
 
 2️⃣ **Арабский язык**
-🔗 [Скачать видео](""" + urls[-2].strip() + """)
+🔗 [Скачать видео]({all_urls[1].strip()})
 
 3️⃣ **Преимущества LinguaStart**
-🔗 [Скачать видео](""" + urls[-1].strip() + """)
+🔗 [Скачать видео]({all_urls[2].strip()})
 
 📲 Загрузи эти видео на TikTok/Instagram Reels!
 🚀 Видео готовы к вирусному распространению!"""
 
-                        await query.edit_message_text(
-                            text=message,
-                            parse_mode=ParseMode.MARKDOWN,
-                            reply_markup=get_main_menu_keyboard()
-                        )
-                        log_message(user_id, "Generated 3 videos successfully")
-                    else:
-                        await query.edit_message_text(
-                            text="⚠️ Видео сгенерированы, но файл содержит меньше 3 ссылок.",
-                            reply_markup=get_main_menu_keyboard()
-                        )
-                else:
-                    await query.edit_message_text(
-                        text="❌ Ошибка: файл с URL видео не найден.",
-                        reply_markup=get_main_menu_keyboard()
-                    )
-            else:
-                error_msg = result.stderr[:200] if result.stderr else "Unknown error"
                 await query.edit_message_text(
-                    text=f"❌ **Ошибка при генерации видео:**\n\n`{error_msg}`",
+                    text=message,
                     parse_mode=ParseMode.MARKDOWN,
                     reply_markup=get_main_menu_keyboard()
                 )
-                log_message(user_id, f"Generation failed: {error_msg}")
+                log_message(user_id, "Generated 3 videos successfully")
+            else:
+                await query.edit_message_text(
+                    text="⚠️ Видео сгенерированы, но меньше 3 ссылок.",
+                    reply_markup=get_main_menu_keyboard()
+                )
 
-        except subprocess.TimeoutExpired:
-            await query.edit_message_text(
-                text="⏱️ **Timeout:** Генерация видео заняла слишком много времени",
-                reply_markup=get_main_menu_keyboard()
-            )
-            log_message(user_id, "Generation timeout")
         except Exception as e:
+            error_msg = str(e)[:200]
             await query.edit_message_text(
-                text=f"❌ **Ошибка:** {str(e)[:100]}",
+                text=f"❌ **Ошибка при генерации видео:**\n\n`{error_msg}`",
+                parse_mode=ParseMode.MARKDOWN,
                 reply_markup=get_main_menu_keyboard()
             )
-            log_message(user_id, f"Error: {str(e)}")
+            log_message(user_id, f"Generation error: {error_msg}")
 
     elif query.data == "status":
         status_text = """📊 **Статус системы:**
