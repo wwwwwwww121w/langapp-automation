@@ -127,7 +127,78 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         format_welcome_message(),
         reply_markup=get_main_menu_keyboard(),
-        parse_mode=ParseMode.HTML
+        parse_mode=ParseMode.MARKDOWN
+    )
+
+
+async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Команда /help"""
+    user_id = update.effective_user.id
+    log_message(user_id, "Viewed help")
+
+    help_text = """❓ **Справка:**
+
+🎬 **Как генерировать видео?**
+1. Нажми кнопку '🎬 Генерировать видео'
+2. Подожди 1-2 минуты пока идет обработка
+3. Получи ссылки на готовые видео
+4. Загрузи на TikTok/Instagram Reels
+
+📱 **Поддерживаемые темы:**
+  • Приложение для английского
+  • Изучение арабского
+  • Преимущества LinguaStart
+
+🎥 **Характеристики видео:**
+  • Качество: 720p
+  • Формат: 9:16 (вертикальное)
+  • Длительность: 8-10 сек
+  • Готовые к публикации
+
+🚀 **Технология:**
+  Powered by xAI Grok Video API"""
+
+    await update.message.reply_text(
+        help_text,
+        reply_markup=get_main_menu_keyboard(),
+        parse_mode=ParseMode.MARKDOWN
+    )
+
+
+async def menu_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Команда /menu"""
+    user_id = update.effective_user.id
+    log_message(user_id, "Opened menu")
+
+    menu_text = """📋 **Доступные функции:**
+
+🎬 **Генерировать видео**
+Создай 3 профессиональных видео через xAI Grok для TikTok/Reels
+
+📊 **Статус**
+Проверь статус системы и подключения к API
+
+📹 **Видео**
+Посмотри все сгенерированные видео и получи ссылки
+
+⚙️ **Настройки**
+Информация о параметрах генерации видео
+
+🔄 **Обновить**
+Проверь актуальный статус системы
+
+📞 **Поддержка**
+Контакты поддержки и документация
+
+❓ **Справка**
+Подробная справка по использованию бота
+
+✨ Выбери нужное действие из меню ниже!"""
+
+    await update.message.reply_text(
+        menu_text,
+        reply_markup=get_main_menu_keyboard(),
+        parse_mode=ParseMode.MARKDOWN
     )
 
 
@@ -409,6 +480,8 @@ def main():
 
     # Handlers
     application.add_handler(CommandHandler("start", start))
+    application.add_handler(CommandHandler("help", help_command))
+    application.add_handler(CommandHandler("menu", menu_command))
     application.add_handler(CallbackQueryHandler(button_callback))
 
     print(f"\n{'=' * 60}")
