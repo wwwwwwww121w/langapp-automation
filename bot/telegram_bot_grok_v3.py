@@ -1,535 +1,417 @@
 #!/usr/bin/env python3
 """
 LinguaStart Telegram Bot v3.0
-Генерация видео через Stable Diffusion WebUI API (локальное)
+Railway — принимает команды и держит очередь заданий.
+Генерация видео — на локальном ПК через local_worker.py
 """
 
 import os
 import sys
 import json
+import uuid
 import asyncio
-import subprocess
 from datetime import datetime
 from pathlib import Path
 from typing import Optional
 from dotenv import load_dotenv
+from aiohttp import web
 
-# Загружаем переменные окружения
 load_dotenv()
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'core'))
-
-# Импортируем генератор видео
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'scripts'))
-try:
-    from generate_videos_via_stable_diffusion import StableDiffusionVideoGenerator
-    HAS_VIDEO_GENERATOR = True
-except ImportError:
-    HAS_VIDEO_GENERATOR = False
-
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, Bot
 from telegram.ext import (
     Application,
     CommandHandler,
     CallbackQueryHandler,
-    MessageHandler,
     ContextTypes,
-    filters,
 )
-from telegram.constants import ChatAction, ParseMode
+from telegram.constants import ParseMode
 
-# DEBUG: Print all environment variables
-print("DEBUG: Environment variables available:")
-print(f"  TELEGRAM_BOT_TOKEN: {'SET' if os.getenv('TELEGRAM_BOT_TOKEN') else 'EMPTY'}")
-print(f"  TELEGRAM_ADMIN_ID: {'SET' if os.getenv('TELEGRAM_ADMIN_ID') else 'EMPTY'}")
-print(f"  SD_API_URL: {os.getenv('SD_API_URL', 'http://127.0.0.1:7860')}")
-print(f"All env vars: {list(os.environ.keys())[:20]}")
-
-# Load config
+# ─── Конфиг ─────────────────────────────────────────────────────────────────
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
-TELEGRAM_ADMIN_ID = int(os.getenv("TELEGRAM_ADMIN_ID", "0"))
-APP_NAME = "LinguaStart"
+TELEGRAM_ADMIN_ID  = int(os.getenv("TELEGRAM_ADMIN_ID", "0"))
+PORT               = int(os.getenv("PORT", "8080"))
+APP_NAME           = "LinguaStart"
 
-# Validate tokens
 if not TELEGRAM_BOT_TOKEN:
-    print("ERROR: TELEGRAM_BOT_TOKEN is empty!")
+    print("ERROR: TELEGRAM_BOT_TOKEN не задан!")
     sys.exit(1)
-if TELEGRAM_ADMIN_ID == 0:
-    print("ERROR: TELEGRAM_ADMIN_ID is empty!")
 
-# Paths
+print(f"DEBUG: TOKEN={'SET' if TELEGRAM_BOT_TOKEN else 'EMPTY'} | ADMIN={TELEGRAM_ADMIN_ID}")
+
+# ─── Пути ────────────────────────────────────────────────────────────────────
 VIDEOS_DIR = Path(__file__).parent.parent / "output" / "videos"
-LOGS_DIR = Path(__file__).parent.parent / "logs"
+LOGS_DIR   = Path(__file__).parent.parent / "logs"
 LOGS_DIR.mkdir(exist_ok=True)
 VIDEOS_DIR.mkdir(parents=True, exist_ok=True)
 
+# ─── Очередь заданий (в памяти Railway) ──────────────────────────────────────
+# job_id → {chat_id, user_id, prompts, status, created_at}
+pending_jobs: dict = {}
 
-def log_message(user_id: int, message: str):
-    """Логирование действий бота"""
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    log_file = LOGS_DIR / "telegram_bot_grok.log"
+# Сохраняем глобальный bot объект чтобы воркер мог уведомлять пользователей
+_bot: Optional[Bot] = None
+
+PROMPTS = [
+    "Beautiful language learning app LinguaStart interface for English, "
+    "modern UI design, bright colors, vertical 9:16 format, students learning, "
+    "high quality professional video.",
+
+    "LinguaStart app for Arabic language learning, student progress, "
+    "achievements, gamification, vertical 9:16 format, modern design.",
+
+    "LinguaStart promo video, fast learning, interactive lessons, "
+    "community, games, viral social media content, 9:16 vertical format.",
+]
+
+
+# ─── Утилиты ─────────────────────────────────────────────────────────────────
+def log(user_id: int, msg: str):
+    ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    log_file = LOGS_DIR / "bot.log"
     with open(log_file, "a", encoding="utf-8") as f:
-        f.write(f"[{timestamp}] User {user_id}: {message}\n")
+        f.write(f"[{ts}] User {user_id}: {msg}\n")
 
 
 def get_main_menu_keyboard():
-    """Главное меню с расширенными опциями"""
     keyboard = [
+        [InlineKeyboardButton("🎬 Генерировать видео", callback_data="generate")],
         [
-            InlineKeyboardButton("🎬 Генерировать видео", callback_data="generate_grok"),
+            InlineKeyboardButton("📊 Статус",    callback_data="status"),
+            InlineKeyboardButton("📹 Видео",     callback_data="videos"),
         ],
         [
-            InlineKeyboardButton("📊 Статус", callback_data="status"),
-            InlineKeyboardButton("📹 Видео", callback_data="videos"),
-        ],
-        [
-            InlineKeyboardButton("❓ Справка", callback_data="help"),
+            InlineKeyboardButton("❓ Справка",   callback_data="help"),
             InlineKeyboardButton("⚙️ Настройки", callback_data="settings"),
         ],
         [
-            InlineKeyboardButton("🔄 Обновить", callback_data="refresh"),
+            InlineKeyboardButton("🔄 Обновить",  callback_data="refresh"),
             InlineKeyboardButton("📞 Поддержка", callback_data="support"),
         ],
     ]
     return InlineKeyboardMarkup(keyboard)
 
 
-def format_welcome_message():
-    """Приветственное сообщение"""
-    return f"""
-╔════════════════════════════════════╗
-║  🚀 {APP_NAME} Video Generator 🚀  ║
-║  Powered by Stable Diffusion       ║
-╚════════════════════════════════════╝
-
-👋 Добро пожаловать в генератор видео!
-
-🎯 Возможности:
-  • 🎬 Генерирование видео через Stable Diffusion
-  • 📹 Профессиональные видео для TikTok/Reels
-  • 🎨 Высокое качество 720p (9:16)
-  • ⚙️ Локальное решение - полный контроль
-
-⏰ Время генерации: 5-10 минут на видео
-
-📝 Темы видео:
-  1. Приложение для изучения английского
-  2. Изучение арабского языка
-  3. Преимущества LinguaStart
-
-Нажми кнопку ниже для начала! 👇
-"""
+def welcome_text():
+    return (
+        f"╔══════════════════════════════════╗\n"
+        f"║  🚀 {APP_NAME} Video Generator 🚀  ║\n"
+        f"║  Powered by Stable Diffusion      ║\n"
+        f"╚══════════════════════════════════╝\n\n"
+        f"👋 Добро пожаловать!\n\n"
+        f"🎯 *Как работает:*\n"
+        f"  1️⃣ Нажми «🎬 Генерировать видео»\n"
+        f"  2️⃣ Задание уходит в очередь\n"
+        f"  3️⃣ ПК с GPU генерирует видео\n"
+        f"  4️⃣ Видео приходит прямо сюда\n\n"
+        f"⏰ Время генерации: 3–5 мин (GPU)\n\n"
+        f"Нажми кнопку ниже! 👇"
+    )
 
 
+# ─── Telegram handlers ────────────────────────────────────────────────────────
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Команда /start"""
-    user_id = update.effective_user.id
-    log_message(user_id, "Started bot")
-
+    log(update.effective_user.id, "start")
     await update.message.reply_text(
-        format_welcome_message(),
+        welcome_text(),
         reply_markup=get_main_menu_keyboard(),
-        parse_mode=ParseMode.MARKDOWN
+        parse_mode=ParseMode.MARKDOWN,
     )
 
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Команда /help"""
-    user_id = update.effective_user.id
-    log_message(user_id, "Viewed help")
-
-    help_text = """❓ **Справка:**
-
-🎬 **Как генерировать видео?**
-1. Убедись что Stable Diffusion WebUI запущен
-2. Нажми кнопку '🎬 Генерировать видео'
-3. Подожди 5-10 минут пока идет генерация кадров
-4. Получи готовое видео в папке output/videos
-5. Загрузи на TikTok/Instagram Reels
-
-⚙️ **Требования:**
-  • Запущен Stable Diffusion WebUI локально
-  • Адрес: http://127.0.0.1:7860
-  • Установлен ffmpeg
-  • Достаточно видеопамяти (8GB+)
-
-🎥 **Характеристики видео:**
-  • Качество: 720p (720x1280)
-  • Формат: 9:16 (вертикальное)
-  • Кадры: 8 штук
-  • Длительность: ~8 сек
-  • Готовы к публикации
-
-🚀 **Технология:**
-  Stable Diffusion WebUI (локальное)"""
-
+    log(update.effective_user.id, "help")
+    text = (
+        "❓ *Справка*\n\n"
+        "🎬 *Генерация видео:*\n"
+        "1. Нажми «🎬 Генерировать видео»\n"
+        "2. Задание попадает в очередь на Railway\n"
+        "3. Запусти воркер на ПК с GPU:\n"
+        "   `python scripts/local_worker.py`\n"
+        "4. Видео придёт прямо в этот чат\n\n"
+        "🎥 *Параметры видео:*\n"
+        "  • 720p, формат 9:16 (вертикальное)\n"
+        "  • 8 кадров ≈ 8 сек\n"
+        "  • Stable Diffusion + ffmpeg\n\n"
+        "🚀 *Технология:* Stable Diffusion (GPU)"
+    )
     await update.message.reply_text(
-        help_text,
-        reply_markup=get_main_menu_keyboard(),
-        parse_mode=ParseMode.MARKDOWN
+        text, reply_markup=get_main_menu_keyboard(), parse_mode=ParseMode.MARKDOWN
     )
 
 
 async def menu_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Команда /menu"""
-    user_id = update.effective_user.id
-    log_message(user_id, "Opened menu")
-
-    menu_text = """📋 **Доступные функции:**
-
-🎬 **Генерировать видео**
-Создай профессиональное видео через Stable Diffusion для TikTok/Reels (5-10 мин)
-
-📊 **Статус**
-Проверь статус системы и подключения к Stable Diffusion
-
-📹 **Видео**
-Посмотри все сгенерированные видео в папке
-
-⚙️ **Настройки**
-Информация о параметрах генерации Stable Diffusion
-
-🔄 **Обновить**
-Проверь актуальный статус системы
-
-📞 **Поддержка**
-Контакты поддержки и документация
-
-❓ **Справка**
-Подробная справка по использованию бота
-
-✨ Выбери нужное действие из меню ниже!"""
-
+    log(update.effective_user.id, "menu")
+    text = (
+        "📋 *Доступные функции:*\n\n"
+        "🎬 *Генерировать видео* — создать 3 видео для TikTok/Reels\n"
+        "📊 *Статус* — очередь и состояние системы\n"
+        "📹 *Видео* — список готовых видео\n"
+        "⚙️ *Настройки* — параметры генерации\n"
+        "🔄 *Обновить* — перезапросить статус\n"
+        "📞 *Поддержка* — связаться с командой\n\n"
+        "✨ Выбери действие:"
+    )
     await update.message.reply_text(
-        menu_text,
-        reply_markup=get_main_menu_keyboard(),
-        parse_mode=ParseMode.MARKDOWN
+        text, reply_markup=get_main_menu_keyboard(), parse_mode=ParseMode.MARKDOWN
     )
 
 
 async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Обработка кнопок"""
-    query = update.callback_query
-    user_id = query.from_user.id
-
+    query    = update.callback_query
+    user_id  = query.from_user.id
+    chat_id  = query.message.chat_id
     await query.answer()
 
-    if query.data == "generate_grok":
-        log_message(user_id, "Started Stable Diffusion video generation")
+    # ── ГЕНЕРАЦИЯ ──────────────────────────────────────────────────────────
+    if query.data == "generate":
+        log(user_id, "generate requested")
 
-        await query.edit_message_text(
-            text="🎬 **Генерирую видео через Stable Diffusion...**\n\n"
-                 "Это может занять 5-10 минут⏳\n\n"
-                 "_Убедитесь что Stable Diffusion WebUI запущен локально_",
-            parse_mode=ParseMode.MARKDOWN
-        )
-
-        try:
-            # Используем StableDiffusionVideoGenerator с отслеживанием прогресса
-            status_message = None
-            last_progress = 0
-
-            async def update_progress(status_info):
-                """Обновляет сообщение о прогрессе в Telegram"""
-                nonlocal status_message, last_progress
-
-                progress = status_info.get('progress', 0)
-                message = status_info.get('message', '')
-                status = status_info.get('status', '')
-
-                # Обновляем сообщение каждый раз когда прогресс меняется на 5%
-                if progress - last_progress >= 5 or status in ['COMPLETE', 'ERROR']:
-                    last_progress = progress
-
-                    progress_bar = f"{'█' * (progress // 10)}{'░' * (10 - progress // 10)} {progress}%"
-                    update_text = (
-                        f"🎬 **Генерирую видео...**\n\n"
-                        f"[{progress_bar}]\n\n"
-                        f"📊 Статус: {message}\n"
-                        f"⏱️  Это может занять 5-10 минут"
-                    )
-
-                    try:
-                        await query.edit_message_text(
-                            text=update_text,
-                            parse_mode=ParseMode.MARKDOWN
-                        )
-                    except Exception as e:
-                        print(f"Error updating progress: {e}")
-
-            # Генерируем видео
-            generator = StableDiffusionVideoGenerator()
-
-            # Генерируем 3 видео с отслеживанием прогресса
-            all_urls = []
-            prompts = [
-                "Красивое видео приложение LinguaStart для изучения английского языка. Показать интерфейс, уроки, студентов учащихся. Современный дизайн, яркие цвета. 9:16 формат вертикальное видео.",
-                "Видео приложение LinguaStart для изучения арабского языка. Показать прогресс студентов, достижения, рейтинги, награды. Геймификация. 9:16 вертикальное видео.",
-                "Промо-видео LinguaStart. Показать основные возможности: быстрое обучение, интерактивные уроки, сообщество учеников, игры. Вирусный контент для социальных сетей. 9:16 вертикальное."
-            ]
-
-            for i, prompt in enumerate(prompts, 1):
-                await update_progress({
-                    "status": "STARTING",
-                    "progress": (i-1) * 30,
-                    "message": f"🎬 Генерирую видео {i}/3..."
-                })
-
-                result = generator.generate_video(prompt, str(VIDEOS_DIR), update_progress)
-
-                if result['success']:
-                    all_urls.append(result['url'])
-                else:
-                    raise Exception(f"Ошибка при генерации видео {i}: {result['error']}")
-
-            if len(all_urls) >= 1:
-                await query.edit_message_text(
-                    text=f"✅ **Сгенерировано {len(all_urls)} видео! Отправляю...**",
-                    parse_mode=ParseMode.MARKDOWN
-                )
-
-                titles = [
-                    "🇬🇧 Английский язык",
-                    "🇸🇦 Арабский язык",
-                    "🚀 Преимущества LinguaStart",
-                ]
-
-                # Отправляем каждое видео напрямую в Telegram
-                for idx, url in enumerate(all_urls, 1):
-                    video_path = Path(url)
-                    title = titles[idx - 1] if idx <= len(titles) else f"Видео {idx}"
-                    if video_path.exists():
-                        with open(video_path, "rb") as vf:
-                            await context.bot.send_video(
-                                chat_id=query.message.chat_id,
-                                video=vf,
-                                caption=f"{title}\n📲 Готово для TikTok/Instagram Reels!",
-                                supports_streaming=True,
-                            )
-
-                await query.message.reply_text(
-                    text="🎉 **Все видео отправлены!**\n\n🚀 Загружай на TikTok/Reels!",
-                    parse_mode=ParseMode.MARKDOWN,
-                    reply_markup=get_main_menu_keyboard()
-                )
-                log_message(user_id, f"Generated and sent {len(all_urls)} videos")
-            else:
-                await query.edit_message_text(
-                    text="⚠️ Видео не сгенерированы.",
-                    reply_markup=get_main_menu_keyboard()
-                )
-
-        except Exception as e:
-            error_msg = str(e)[:300]
+        # Проверяем — нет ли уже активного задания для этого пользователя
+        active = [j for j in pending_jobs.values()
+                  if j["user_id"] == user_id and j["status"] in ("pending", "processing")]
+        if active:
             await query.edit_message_text(
-                text=f"❌ **Ошибка при генерации видео:**\n\n`{error_msg}`\n\n"
-                     f"💡 **Возможные причины:**\n"
-                     f"• Недостаточно VRAM (нужно 4GB+)\n"
-                     f"• Не установлены зависимости (pip install diffusers torch)\n"
-                     f"• Проблемы с ffmpeg",
+                text="⏳ *У вас уже есть задание в очереди!*\n\nПодождите завершения текущей генерации.",
                 parse_mode=ParseMode.MARKDOWN,
-                reply_markup=get_main_menu_keyboard()
+                reply_markup=get_main_menu_keyboard(),
             )
-            log_message(user_id, f"Generation error: {error_msg}")
+            return
 
-    elif query.data == "status":
-        import torch
-        has_cuda = torch.cuda.is_available()
-        gpu_name = torch.cuda.get_device_name(0) if has_cuda else "Нет GPU"
-        sd_model = os.getenv("SD_MODEL", "runwayml/stable-diffusion-v1-5")
+        job_id = str(uuid.uuid4())[:8].upper()
+        pending_jobs[job_id] = {
+            "job_id":     job_id,
+            "chat_id":    chat_id,
+            "user_id":    user_id,
+            "prompts":    PROMPTS,
+            "status":     "pending",
+            "created_at": datetime.now().isoformat(),
+        }
 
-        status_text = f"""📊 **Статус системы:**
-
-🖥️ **Оборудование:**
-  • GPU: {"✅" if has_cuda else "⚠️"} {gpu_name}
-  • Устройство: {"CUDA (GPU)" if has_cuda else "CPU (медленно)"}
-
-🤖 **Модель:**
-  • {sd_model}
-  • Кадров на видео: 8
-  • Шагов генерации: 25
-
-📈 **Параметры видео:**
-  • Качество: 720p (9:16)
-  • Формат: MP4
-  • Длительность: ~8 сек
-  • Время генерации: {"3-5 мин (GPU)" if has_cuda else "30+ мин (CPU)"}"""
+        log(user_id, f"job created: {job_id}")
 
         await query.edit_message_text(
-            text=status_text,
+            text=(
+                f"✅ *Задание #{job_id} принято!*\n\n"
+                f"📋 Будет сгенерировано *3 видео* про LinguaStart\n\n"
+                f"*Запустите воркер на ПК с GPU:*\n"
+                f"`python scripts/local_worker.py`\n\n"
+                f"⏰ Видео придут сюда через 3–5 минут после запуска воркера."
+            ),
             parse_mode=ParseMode.MARKDOWN,
-            reply_markup=get_main_menu_keyboard()
+            reply_markup=get_main_menu_keyboard(),
         )
 
+    # ── СТАТУС ─────────────────────────────────────────────────────────────
+    elif query.data in ("status", "refresh"):
+        total   = len(pending_jobs)
+        pending = sum(1 for j in pending_jobs.values() if j["status"] == "pending")
+        proc    = sum(1 for j in pending_jobs.values() if j["status"] == "processing")
+        done    = sum(1 for j in pending_jobs.values() if j["status"] == "done")
+
+        text = (
+            f"📊 *Статус системы*\n\n"
+            f"🌐 *Railway бот:* ✅ Online\n"
+            f"🖥️ *Воркер:* запустите `python scripts/local_worker.py`\n\n"
+            f"📋 *Очередь заданий:*\n"
+            f"  • Ожидают: {pending}\n"
+            f"  • В работе: {proc}\n"
+            f"  • Завершено: {done}\n"
+            f"  • Всего: {total}\n\n"
+            f"🤖 *Генератор:* Stable Diffusion\n"
+            f"🎥 *Параметры:* 720p, 9:16, 8 кадров"
+        )
+        await query.edit_message_text(
+            text=text, parse_mode=ParseMode.MARKDOWN, reply_markup=get_main_menu_keyboard()
+        )
+
+    # ── ВИДЕО ──────────────────────────────────────────────────────────────
     elif query.data == "videos":
-        if VIDEOS_DIR.exists():
-            mp4_files = list(VIDEOS_DIR.glob("*.mp4"))
-            if mp4_files:
-                video_list = "\n".join([f"  • {f.name}" for f in mp4_files[:10]])
-                await query.edit_message_text(
-                    text=f"📹 **Список видео:**\n\n{video_list}",
-                    parse_mode=ParseMode.MARKDOWN,
-                    reply_markup=get_main_menu_keyboard()
-                )
-            else:
-                await query.edit_message_text(
-                    text="📭 **Видео еще не сгенерированы**\n\nНажми на кнопку '🎬 Генерировать видео Grok'",
-                    reply_markup=get_main_menu_keyboard()
-                )
+        mp4_files = list(VIDEOS_DIR.glob("*.mp4")) if VIDEOS_DIR.exists() else []
+        if mp4_files:
+            mp4_files.sort(key=lambda f: f.stat().st_mtime, reverse=True)
+            files_text = "\n".join(f"  • {f.name}" for f in mp4_files[:10])
+            text = f"📹 *Последние видео:*\n\n{files_text}"
         else:
-            await query.edit_message_text(
-                text="📭 **Папка с видео не найдена**",
-                reply_markup=get_main_menu_keyboard()
-            )
+            text = "📭 *Видео ещё не сгенерированы*\n\nНажми «🎬 Генерировать видео»"
+        await query.edit_message_text(
+            text=text, parse_mode=ParseMode.MARKDOWN, reply_markup=get_main_menu_keyboard()
+        )
 
+    # ── СПРАВКА ────────────────────────────────────────────────────────────
     elif query.data == "help":
-        help_text = """❓ **Справка:**
-
-🎬 **Как генерировать видео?**
-1. Убедись что Stable Diffusion WebUI запущен
-2. Нажми кнопку '🎬 Генерировать видео'
-3. Подожди 5-10 минут пока идет генерация
-4. Получи видео в папке /output/videos
-5. Загрузи на TikTok/Instagram Reels
-
-⚙️ **Требования:**
-  • Stable Diffusion WebUI запущен
-  • http://127.0.0.1:7860 доступен
-  • ffmpeg установлен
-  • 8GB+ видеопамяти
-
-🎥 **Характеристики видео:**
-  • Качество: 720p (720x1280)
-  • Формат: 9:16 (вертикальное)
-  • Кадры: 8 штук
-  • Длительность: ~8 сек
-  • Готовы к публикации
-
-🚀 **Технология:**
-  Stable Diffusion WebUI"""
-
+        text = (
+            "❓ *Справка*\n\n"
+            "🎬 *Как генерировать:*\n"
+            "1. Нажми «🎬 Генерировать видео»\n"
+            "2. Запусти на ПК: `python scripts/local_worker.py`\n"
+            "3. Видео придут в этот чат автоматически\n\n"
+            "⚙️ *Требования для воркера:*\n"
+            "  • NVIDIA GPU 4GB+ VRAM\n"
+            "  • ffmpeg в PATH\n"
+            "  • Python пакеты из requirements.txt\n\n"
+            "🎥 *Характеристики видео:*\n"
+            "  • 720p, 9:16 (вертикальное)\n"
+            "  • ~8 сек, MP4"
+        )
         await query.edit_message_text(
-            text=help_text,
-            parse_mode=ParseMode.MARKDOWN,
-            reply_markup=get_main_menu_keyboard()
+            text=text, parse_mode=ParseMode.MARKDOWN, reply_markup=get_main_menu_keyboard()
         )
 
+    # ── НАСТРОЙКИ ──────────────────────────────────────────────────────────
     elif query.data == "settings":
-        settings_text = """⚙️ **Настройки:**
-
-🎬 **Параметры генерации видео:**
-  • Генератор: Stable Diffusion WebUI
-  • Качество: 720p (720x1280)
-  • Формат: 9:16 (вертикальное)
-  • Кадры: 8 на видео
-  • Длительность: ~8 секунд
-  • Шаги: 20 на кадр
-  • CFG Scale: 7.5
-
-📊 **Информация о системе:**
-  • Версия: LinguaStart v3.0
-  • Статус: ✅ Локальный режим
-  • Генератор: Stable Diffusion
-  • Язык: Русский
-
-💾 **Хранилище:**
-  • Папка видео: /output/videos
-  • Кадры: /output/frames
-  • Логи: /logs
-  • Данные: /data
-
-⚡ Все настройки оптимизированы для качества"""
-
+        sd_model = os.getenv("SD_MODEL", "runwayml/stable-diffusion-v1-5")
+        text = (
+            f"⚙️ *Настройки*\n\n"
+            f"🤖 *Модель:* `{sd_model}`\n"
+            f"📐 *Разрешение:* 512×912 (9:16)\n"
+            f"🖼️ *Кадров:* 8\n"
+            f"🔢 *Шагов:* 25\n"
+            f"🎚️ *CFG Scale:* 7.5\n"
+            f"📦 *Планировщик:* DPMSolver++ Karras\n\n"
+            f"💾 *Видео:* /output/videos\n"
+            f"📝 *Логи:* /logs/bot.log"
+        )
         await query.edit_message_text(
-            text=settings_text,
-            parse_mode=ParseMode.MARKDOWN,
-            reply_markup=get_main_menu_keyboard()
+            text=text, parse_mode=ParseMode.MARKDOWN, reply_markup=get_main_menu_keyboard()
         )
 
-    elif query.data == "refresh":
-        refresh_text = """🔄 **Обновление информации...**
-
-✅ Статус системы: Активен
-✅ Подключение к API: OK
-✅ Хранилище: Доступно
-✅ Логирование: Включено
-
-📈 **Статистика:**
-  • Всего видео сгенерировано: ∞
-  • Ошибок: 0
-  • Среднее время генерации: 1-2 мин
-
-🚀 Система готова к работе!"""
-
-        await query.edit_message_text(
-            text=refresh_text,
-            parse_mode=ParseMode.MARKDOWN,
-            reply_markup=get_main_menu_keyboard()
-        )
-
+    # ── ПОДДЕРЖКА ──────────────────────────────────────────────────────────
     elif query.data == "support":
-        support_text = """📞 **Поддержка и контакты:**
-
-🌐 **Веб-сайт:**
-  https://linguastart.com
-
-📧 **Email:**
-  support@linguastart.com
-
-💬 **Telegram:**
-  @linguastart_support
-
-📱 **Мобильное приложение:**
-  • iOS: App Store
-  • Android: Google Play
-
-🐛 **Сообщить об ошибке:**
-  Используй команду /bug [описание]
-
-📚 **Документация:**
-  https://docs.linguastart.com
-
-⏰ **Время поддержки:**
-  24/7 онлайн
-
-🤝 Мы здесь, чтобы помочь!"""
-
+        text = (
+            "📞 *Поддержка*\n\n"
+            "🐛 Если что-то не работает:\n"
+            "  1. Проверьте логи Railway\n"
+            "  2. Убедитесь что воркер запущен\n"
+            "  3. Проверьте VRAM GPU\n\n"
+            "📚 *Документация:*\n"
+            "  https://github.com/wwwwwwww121w/langapp-automation\n\n"
+            "⏰ Поддержка: 24/7"
+        )
         await query.edit_message_text(
-            text=support_text,
-            parse_mode=ParseMode.MARKDOWN,
-            reply_markup=get_main_menu_keyboard()
+            text=text, parse_mode=ParseMode.MARKDOWN, reply_markup=get_main_menu_keyboard()
         )
 
     else:
         await query.edit_message_text(
-            text=format_welcome_message(),
-            reply_markup=get_main_menu_keyboard()
+            text=welcome_text(), reply_markup=get_main_menu_keyboard(), parse_mode=ParseMode.MARKDOWN
         )
 
 
-def main():
-    """Запуск бота"""
-    application = Application.builder().token(TELEGRAM_BOT_TOKEN).build()
+# ─── HTTP сервер (очередь для воркера) ───────────────────────────────────────
+async def http_get_jobs(request: web.Request) -> web.Response:
+    """Воркер запрашивает следующее задание"""
+    for job_id, job in pending_jobs.items():
+        if job["status"] == "pending":
+            job["status"] = "processing"
+            return web.json_response(job)
+    return web.json_response({"job_id": None})
 
-    # Handlers
+
+async def http_complete_job(request: web.Request) -> web.Response:
+    """Воркер сообщает о завершении задания"""
+    global _bot
+    try:
+        data   = await request.json()
+        job_id = data.get("job_id")
+        success= data.get("success", False)
+        error  = data.get("error", "")
+
+        if job_id not in pending_jobs:
+            return web.json_response({"ok": False, "error": "job not found"})
+
+        job = pending_jobs[job_id]
+        job["status"] = "done" if success else "error"
+
+        # Уведомляем пользователя об ошибке (видео отправляет сам воркер)
+        if not success and _bot:
+            await _bot.send_message(
+                chat_id=job["chat_id"],
+                text=(
+                    f"❌ *Задание #{job_id} завершилось с ошибкой:*\n\n"
+                    f"`{error[:300]}`"
+                ),
+                parse_mode=ParseMode.MARKDOWN,
+                reply_markup=get_main_menu_keyboard(),
+            )
+
+        # Удаляем выполненные задания через 5 минут (не сразу, чтобы воркер не дублировал)
+        async def cleanup():
+            await asyncio.sleep(300)
+            pending_jobs.pop(job_id, None)
+        asyncio.create_task(cleanup())
+
+        return web.json_response({"ok": True})
+
+    except Exception as e:
+        return web.json_response({"ok": False, "error": str(e)})
+
+
+async def http_healthcheck(request: web.Request) -> web.Response:
+    return web.json_response({
+        "status": "ok",
+        "bot": APP_NAME,
+        "jobs_pending": sum(1 for j in pending_jobs.values() if j["status"] == "pending"),
+        "jobs_processing": sum(1 for j in pending_jobs.values() if j["status"] == "processing"),
+    })
+
+
+async def start_http_server():
+    app = web.Application()
+    app.router.add_get ("/",              http_healthcheck)
+    app.router.add_get ("/jobs/pending",  http_get_jobs)
+    app.router.add_post("/jobs/complete", http_complete_job)
+
+    runner = web.AppRunner(app)
+    await runner.setup()
+    site = web.TCPSite(runner, "0.0.0.0", PORT)
+    await site.start()
+    print(f"✅ HTTP сервер запущен на порту {PORT}")
+
+
+# ─── Запуск ──────────────────────────────────────────────────────────────────
+async def run_all():
+    global _bot
+
+    application = (
+        Application.builder()
+        .token(TELEGRAM_BOT_TOKEN)
+        .build()
+    )
+
+    _bot = application.bot
+
     application.add_handler(CommandHandler("start", start))
-    application.add_handler(CommandHandler("help", help_command))
-    application.add_handler(CommandHandler("menu", menu_command))
+    application.add_handler(CommandHandler("help",  help_command))
+    application.add_handler(CommandHandler("menu",  menu_command))
     application.add_handler(CallbackQueryHandler(button_callback))
 
-    sd_api_url = os.getenv("SD_API_URL", "http://127.0.0.1:7860")
-
     print(f"\n{'=' * 60}")
-    print(f"🤖 {APP_NAME} Telegram Bot v3.0 запущен!")
+    print(f"🤖 {APP_NAME} Bot v3.0 запущен (Railway режим)")
     print(f"{'=' * 60}")
-    print(f"✅ Bot token: {TELEGRAM_BOT_TOKEN[:30]}...")
-    print(f"✅ Admin ID: {TELEGRAM_ADMIN_ID}")
-    print(f"✅ Генератор: Stable Diffusion WebUI")
-    print(f"✅ API URL: {sd_api_url}")
+    print(f"✅ Admin ID : {TELEGRAM_ADMIN_ID}")
+    print(f"✅ HTTP порт: {PORT}")
     print(f"{'=' * 60}\n")
 
-    # Use application's built-in run method
-    application.run_polling()
+    # Запускаем HTTP сервер параллельно с ботом
+    await start_http_server()
+
+    # Запускаем бота
+    await application.initialize()
+    await application.start()
+    await application.updater.start_polling()
+
+    # Держим процесс живым
+    try:
+        await asyncio.Event().wait()
+    finally:
+        await application.updater.stop()
+        await application.stop()
+        await application.shutdown()
+
+
+def main():
+    asyncio.run(run_all())
 
 
 if __name__ == "__main__":
