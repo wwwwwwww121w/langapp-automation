@@ -1,11 +1,12 @@
 #!/bin/bash
 set -e
 
-# Debug: Print actual environment variables passed by Railway
-echo "DEBUG: Environment variables from Railway:"
-echo "DEBUG: TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}"
-echo "DEBUG: TELEGRAM_ADMIN_ID=${TELEGRAM_ADMIN_ID}"
-echo "DEBUG: XAI_API_KEY=${XAI_API_KEY:0:20}..."
+echo "=============================="
+echo "LinguaStart Bot v3.0 - Railway"
+echo "=============================="
+echo "TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:0:20}..."
+echo "TELEGRAM_ADMIN_ID:  ${TELEGRAM_ADMIN_ID}"
+echo "PORT:               ${PORT}"
+echo "=============================="
 
-# Run the bot with all inherited environment variables
 python bot/telegram_bot_grok_v3.py
