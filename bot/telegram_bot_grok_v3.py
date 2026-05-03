@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 LinguaStart Telegram Bot v3.0
-Генерация видео через xAI Grok Video API
+Генерация видео через Stable Diffusion WebUI API (локальное)
 """
 
 import os
@@ -22,7 +22,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(
 # Импортируем генератор видео
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'scripts'))
 try:
-    from generate_videos_via_grok import GrokVideoGenerator
+    from generate_videos_via_stable_diffusion import StableDiffusionVideoGenerator
     HAS_VIDEO_GENERATOR = True
 except ImportError:
     HAS_VIDEO_GENERATOR = False
@@ -42,7 +42,7 @@ from telegram.constants import ChatAction, ParseMode
 print("DEBUG: Environment variables available:")
 print(f"  TELEGRAM_BOT_TOKEN: {'SET' if os.getenv('TELEGRAM_BOT_TOKEN') else 'EMPTY'}")
 print(f"  TELEGRAM_ADMIN_ID: {'SET' if os.getenv('TELEGRAM_ADMIN_ID') else 'EMPTY'}")
-print(f"  XAI_API_KEY: {'SET' if os.getenv('XAI_API_KEY') else 'EMPTY'}")
+print(f"  SD_API_URL: {os.getenv('SD_API_URL', 'http://127.0.0.1:7860')}")
 print(f"All env vars: {list(os.environ.keys())[:20]}")
 
 # Load config
@@ -99,16 +99,18 @@ def format_welcome_message():
     return f"""
 ╔════════════════════════════════════╗
 ║  🚀 {APP_NAME} Video Generator 🚀  ║
-║  Powered by xAI Grok Video API    ║
+║  Powered by Stable Diffusion       ║
 ╚════════════════════════════════════╝
 
 👋 Добро пожаловать в генератор видео!
 
 🎯 Возможности:
-  • 🎬 Генерирование видео через xAI Grok
+  • 🎬 Генерирование видео через Stable Diffusion
   • 📹 Профессиональные видео для TikTok/Reels
-  • ⚡ Быстрая обработка (8-10 сек видео)
-  • 🎨 Высокое качество 720p
+  • 🎨 Высокое качество 720p (9:16)
+  • ⚙️ Локальное решение - полный контроль
+
+⏰ Время генерации: 5-10 минут на видео
 
 📝 Темы видео:
   1. Приложение для изучения английского
@@ -139,24 +141,27 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     help_text = """❓ **Справка:**
 
 🎬 **Как генерировать видео?**
-1. Нажми кнопку '🎬 Генерировать видео'
-2. Подожди 1-2 минуты пока идет обработка
-3. Получи ссылки на готовые видео
-4. Загрузи на TikTok/Instagram Reels
+1. Убедись что Stable Diffusion WebUI запущен
+2. Нажми кнопку '🎬 Генерировать видео'
+3. Подожди 5-10 минут пока идет генерация кадров
+4. Получи готовое видео в папке output/videos
+5. Загрузи на TikTok/Instagram Reels
 
-📱 **Поддерживаемые темы:**
-  • Приложение для английского
-  • Изучение арабского
-  • Преимущества LinguaStart
+⚙️ **Требования:**
+  • Запущен Stable Diffusion WebUI локально
+  • Адрес: http://127.0.0.1:7860
+  • Установлен ffmpeg
+  • Достаточно видеопамяти (8GB+)
 
 🎥 **Характеристики видео:**
-  • Качество: 720p
+  • Качество: 720p (720x1280)
   • Формат: 9:16 (вертикальное)
-  • Длительность: 8-10 сек
-  • Готовые к публикации
+  • Кадры: 8 штук
+  • Длительность: ~8 сек
+  • Готовы к публикации
 
 🚀 **Технология:**
-  Powered by xAI Grok Video API"""
+  Stable Diffusion WebUI (локальное)"""
 
     await update.message.reply_text(
         help_text,
@@ -173,16 +178,16 @@ async def menu_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     menu_text = """📋 **Доступные функции:**
 
 🎬 **Генерировать видео**
-Создай 3 профессиональных видео через xAI Grok для TikTok/Reels
+Создай профессиональное видео через Stable Diffusion для TikTok/Reels (5-10 мин)
 
 📊 **Статус**
-Проверь статус системы и подключения к API
+Проверь статус системы и подключения к Stable Diffusion
 
 📹 **Видео**
-Посмотри все сгенерированные видео и получи ссылки
+Посмотри все сгенерированные видео в папке
 
 ⚙️ **Настройки**
-Информация о параметрах генерации видео
+Информация о параметрах генерации Stable Diffusion
 
 🔄 **Обновить**
 Проверь актуальный статус системы
@@ -210,17 +215,17 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await query.answer()
 
     if query.data == "generate_grok":
-        log_message(user_id, "Started Grok video generation")
+        log_message(user_id, "Started Stable Diffusion video generation")
 
         await query.edit_message_text(
-            text="🎬 **Генерирую видео через xAI Grok...**\n\n"
-                 "Это может занять 1-2 минуты⏳\n\n"
-                 "_Генерирую 3 видео про LinguaStart_",
+            text="🎬 **Генерирую видео через Stable Diffusion...**\n\n"
+                 "Это может занять 5-10 минут⏳\n\n"
+                 "_Убедитесь что Stable Diffusion WebUI запущен локально_",
             parse_mode=ParseMode.MARKDOWN
         )
 
         try:
-            # Используем GrokVideoGenerator с отслеживанием прогресса
+            # Используем StableDiffusionVideoGenerator с отслеживанием прогресса
             status_message = None
             last_progress = 0
 
@@ -232,8 +237,8 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 message = status_info.get('message', '')
                 status = status_info.get('status', '')
 
-                # Обновляем сообщение каждый раз когда прогресс меняется на 10%
-                if progress - last_progress >= 10 or status in ['COMPLETE', 'ERROR']:
+                # Обновляем сообщение каждый раз когда прогресс меняется на 5%
+                if progress - last_progress >= 5 or status in ['COMPLETE', 'ERROR']:
                     last_progress = progress
 
                     progress_bar = f"{'█' * (progress // 10)}{'░' * (10 - progress // 10)} {progress}%"
@@ -241,7 +246,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
                         f"🎬 **Генерирую видео...**\n\n"
                         f"[{progress_bar}]\n\n"
                         f"📊 Статус: {message}\n"
-                        f"⏱️  Это может занять 1-2 минуты"
+                        f"⏱️  Это может занять 5-10 минут"
                     )
 
                     try:
@@ -253,20 +258,20 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
                         print(f"Error updating progress: {e}")
 
             # Генерируем видео
-            generator = GrokVideoGenerator()
+            generator = StableDiffusionVideoGenerator()
 
             # Генерируем 3 видео с отслеживанием прогресса
             all_urls = []
             prompts = [
-                "Обучающее видео про приложение для изучения английского языка LinguaStart. Показать интерфейс, обучение, интерактивные уроки. 9:16 формат.",
-                "Видео про приложение LinguaStart для изучения арабского языка. Показать прогресс студентов, достижения, рейтинги. 9:16 формат.",
-                "Промо-видео LinguaStart. Показать основные возможности: быстрое обучение, геймификация, сообщество. Вирусный контент для социальных сетей. 9:16 формат."
+                "Красивое видео приложение LinguaStart для изучения английского языка. Показать интерфейс, уроки, студентов учащихся. Современный дизайн, яркие цвета. 9:16 формат вертикальное видео.",
+                "Видео приложение LinguaStart для изучения арабского языка. Показать прогресс студентов, достижения, рейтинги, награды. Геймификация. 9:16 вертикальное видео.",
+                "Промо-видео LinguaStart. Показать основные возможности: быстрое обучение, интерактивные уроки, сообщество учеников, игры. Вирусный контент для социальных сетей. 9:16 вертикальное."
             ]
 
             for i, prompt in enumerate(prompts, 1):
                 await update_progress({
                     "status": "STARTING",
-                    "progress": (i-1) * 33,
+                    "progress": (i-1) * 30,
                     "message": f"🎬 Генерирую видео {i}/3..."
                 })
 
@@ -277,56 +282,59 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 else:
                     raise Exception(f"Ошибка при генерации видео {i}: {result['error']}")
 
-            if len(all_urls) >= 3:
+            if len(all_urls) >= 1:
                 message = f"""✅ **Видео успешно сгенерированы!**
 
-🎬 **Видео готовы к публикации:**
+🎬 **Видео готовы к публикации:**"""
 
-1️⃣ **Английский язык**
-🔗 [Скачать видео]({all_urls[0].strip()})
+                for idx, url in enumerate(all_urls, 1):
+                    message += f"\n\n{idx}️⃣ **Видео {idx}**\n📁 {Path(url).name}"
 
-2️⃣ **Арабский язык**
-🔗 [Скачать видео]({all_urls[1].strip()})
+                message += """
 
-3️⃣ **Преимущества LinguaStart**
-🔗 [Скачать видео]({all_urls[2].strip()})
-
-📲 Загрузи эти видео на TikTok/Instagram Reels!
-🚀 Видео готовы к вирусному распространению!"""
+📲 Видео сохранены в папке output/videos
+Загрузи их на TikTok/Instagram Reels!
+🚀 Готовы к вирусному распространению!"""
 
                 await query.edit_message_text(
                     text=message,
                     parse_mode=ParseMode.MARKDOWN,
                     reply_markup=get_main_menu_keyboard()
                 )
-                log_message(user_id, "Generated 3 videos successfully")
+                log_message(user_id, f"Generated {len(all_urls)} videos successfully")
             else:
                 await query.edit_message_text(
-                    text="⚠️ Видео сгенерированы, но меньше 3 ссылок.",
+                    text="⚠️ Видео сгенерированы, но нет файлов.",
                     reply_markup=get_main_menu_keyboard()
                 )
 
         except Exception as e:
             error_msg = str(e)[:200]
             await query.edit_message_text(
-                text=f"❌ **Ошибка при генерации видео:**\n\n`{error_msg}`",
+                text=f"❌ **Ошибка при генерации видео:**\n\n`{error_msg}`\n\n"
+                     f"💡 **Проверьте:**\n"
+                     f"• Запущен ли Stable Diffusion WebUI?\n"
+                     f"• Правильный ли URL? (http://127.0.0.1:7860)",
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=get_main_menu_keyboard()
             )
             log_message(user_id, f"Generation error: {error_msg}")
 
     elif query.data == "status":
-        status_text = """📊 **Статус системы:**
+        sd_api_url = os.getenv("SD_API_URL", "http://127.0.0.1:7860")
+        status_text = f"""📊 **Статус системы:**
 
-✅ xAI Grok Video API: Connected
-✅ Telegram Bot: Online
-✅ Video Generator: Ready
+🖥️ **Компоненты:**
+  • Telegram Bot: ✅ Online
+  • Stable Diffusion API: 🔗 {sd_api_url}
+  • Video Generator: 🎬 Ready
 
-📈 **Статистика:**
-  • Видео сгенерировано: 3
+📈 **Информация:**
+  • Генератор: Stable Diffusion WebUI (локальный)
   • Качество: 720p (9:16)
   • Формат: MP4
-  • Длительность: 8 сек каждое"""
+  • Длительность: ~8 сек на видео
+  • Время генерации: 5-10 минут на видео"""
 
         await query.edit_message_text(
             text=status_text,
@@ -359,24 +367,27 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         help_text = """❓ **Справка:**
 
 🎬 **Как генерировать видео?**
-1. Нажми кнопку '🎬 Генерировать видео Grok'
-2. Подожди 1-2 минуты пока идет обработка
-3. Получи ссылки на готовые видео
-4. Загрузи на TikTok/Instagram Reels
+1. Убедись что Stable Diffusion WebUI запущен
+2. Нажми кнопку '🎬 Генерировать видео'
+3. Подожди 5-10 минут пока идет генерация
+4. Получи видео в папке /output/videos
+5. Загрузи на TikTok/Instagram Reels
 
-📱 **Поддерживаемые темы:**
-  • Приложение для английского
-  • Изучение арабского
-  • Преимущества LinguaStart
+⚙️ **Требования:**
+  • Stable Diffusion WebUI запущен
+  • http://127.0.0.1:7860 доступен
+  • ffmpeg установлен
+  • 8GB+ видеопамяти
 
 🎥 **Характеристики видео:**
-  • Качество: 720p
+  • Качество: 720p (720x1280)
   • Формат: 9:16 (вертикальное)
-  • Длительность: 8-10 сек
-  • Готовые к публикации
+  • Кадры: 8 штук
+  • Длительность: ~8 сек
+  • Готовы к публикации
 
 🚀 **Технология:**
-  Powered by xAI Grok Video API"""
+  Stable Diffusion WebUI"""
 
         await query.edit_message_text(
             text=help_text,
@@ -388,24 +399,27 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         settings_text = """⚙️ **Настройки:**
 
 🎬 **Параметры генерации видео:**
-  • Модель: xAI Grok Video API
-  • Качество: 720p
+  • Генератор: Stable Diffusion WebUI
+  • Качество: 720p (720x1280)
   • Формат: 9:16 (вертикальное)
-  • Длительность: 8 секунд
-  • Количество видео: 3 шт
+  • Кадры: 8 на видео
+  • Длительность: ~8 секунд
+  • Шаги: 20 на кадр
+  • CFG Scale: 7.5
 
 📊 **Информация о системе:**
   • Версия: LinguaStart v3.0
-  • Статус: ✅ Активен
-  • API: xAI Grok Video API
+  • Статус: ✅ Локальный режим
+  • Генератор: Stable Diffusion
   • Язык: Русский
 
 💾 **Хранилище:**
   • Папка видео: /output/videos
+  • Кадры: /output/frames
   • Логи: /logs
-  • Кэш: /data
+  • Данные: /data
 
-⚡ Все настройки зафиксированы и оптимизированы"""
+⚡ Все настройки оптимизированы для качества"""
 
         await query.edit_message_text(
             text=settings_text,
@@ -484,12 +498,15 @@ def main():
     application.add_handler(CommandHandler("menu", menu_command))
     application.add_handler(CallbackQueryHandler(button_callback))
 
+    sd_api_url = os.getenv("SD_API_URL", "http://127.0.0.1:7860")
+
     print(f"\n{'=' * 60}")
     print(f"🤖 {APP_NAME} Telegram Bot v3.0 запущен!")
     print(f"{'=' * 60}")
     print(f"✅ Bot token: {TELEGRAM_BOT_TOKEN[:30]}...")
     print(f"✅ Admin ID: {TELEGRAM_ADMIN_ID}")
-    print(f"✅ Используется xAI Grok Video API")
+    print(f"✅ Генератор: Stable Diffusion WebUI")
+    print(f"✅ API URL: {sd_api_url}")
     print(f"{'=' * 60}\n")
 
     # Use application's built-in run method
