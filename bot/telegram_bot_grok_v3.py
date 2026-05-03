@@ -283,58 +283,77 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     raise Exception(f"Ошибка при генерации видео {i}: {result['error']}")
 
             if len(all_urls) >= 1:
-                message = f"""✅ **Видео успешно сгенерированы!**
-
-🎬 **Видео готовы к публикации:**"""
-
-                for idx, url in enumerate(all_urls, 1):
-                    message += f"\n\n{idx}️⃣ **Видео {idx}**\n📁 {Path(url).name}"
-
-                message += """
-
-📲 Видео сохранены в папке output/videos
-Загрузи их на TikTok/Instagram Reels!
-🚀 Готовы к вирусному распространению!"""
-
                 await query.edit_message_text(
-                    text=message,
+                    text=f"✅ **Сгенерировано {len(all_urls)} видео! Отправляю...**",
+                    parse_mode=ParseMode.MARKDOWN
+                )
+
+                titles = [
+                    "🇬🇧 Английский язык",
+                    "🇸🇦 Арабский язык",
+                    "🚀 Преимущества LinguaStart",
+                ]
+
+                # Отправляем каждое видео напрямую в Telegram
+                for idx, url in enumerate(all_urls, 1):
+                    video_path = Path(url)
+                    title = titles[idx - 1] if idx <= len(titles) else f"Видео {idx}"
+                    if video_path.exists():
+                        with open(video_path, "rb") as vf:
+                            await context.bot.send_video(
+                                chat_id=query.message.chat_id,
+                                video=vf,
+                                caption=f"{title}\n📲 Готово для TikTok/Instagram Reels!",
+                                supports_streaming=True,
+                            )
+
+                await query.message.reply_text(
+                    text="🎉 **Все видео отправлены!**\n\n🚀 Загружай на TikTok/Reels!",
                     parse_mode=ParseMode.MARKDOWN,
                     reply_markup=get_main_menu_keyboard()
                 )
-                log_message(user_id, f"Generated {len(all_urls)} videos successfully")
+                log_message(user_id, f"Generated and sent {len(all_urls)} videos")
             else:
                 await query.edit_message_text(
-                    text="⚠️ Видео сгенерированы, но нет файлов.",
+                    text="⚠️ Видео не сгенерированы.",
                     reply_markup=get_main_menu_keyboard()
                 )
 
         except Exception as e:
-            error_msg = str(e)[:200]
+            error_msg = str(e)[:300]
             await query.edit_message_text(
                 text=f"❌ **Ошибка при генерации видео:**\n\n`{error_msg}`\n\n"
-                     f"💡 **Проверьте:**\n"
-                     f"• Запущен ли Stable Diffusion WebUI?\n"
-                     f"• Правильный ли URL? (http://127.0.0.1:7860)",
+                     f"💡 **Возможные причины:**\n"
+                     f"• Недостаточно VRAM (нужно 4GB+)\n"
+                     f"• Не установлены зависимости (pip install diffusers torch)\n"
+                     f"• Проблемы с ffmpeg",
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=get_main_menu_keyboard()
             )
             log_message(user_id, f"Generation error: {error_msg}")
 
     elif query.data == "status":
-        sd_api_url = os.getenv("SD_API_URL", "http://127.0.0.1:7860")
+        import torch
+        has_cuda = torch.cuda.is_available()
+        gpu_name = torch.cuda.get_device_name(0) if has_cuda else "Нет GPU"
+        sd_model = os.getenv("SD_MODEL", "runwayml/stable-diffusion-v1-5")
+
         status_text = f"""📊 **Статус системы:**
 
-🖥️ **Компоненты:**
-  • Telegram Bot: ✅ Online
-  • Stable Diffusion API: 🔗 {sd_api_url}
-  • Video Generator: 🎬 Ready
+🖥️ **Оборудование:**
+  • GPU: {"✅" if has_cuda else "⚠️"} {gpu_name}
+  • Устройство: {"CUDA (GPU)" if has_cuda else "CPU (медленно)"}
 
-📈 **Информация:**
-  • Генератор: Stable Diffusion WebUI (локальный)
+🤖 **Модель:**
+  • {sd_model}
+  • Кадров на видео: 8
+  • Шагов генерации: 25
+
+📈 **Параметры видео:**
   • Качество: 720p (9:16)
   • Формат: MP4
-  • Длительность: ~8 сек на видео
-  • Время генерации: 5-10 минут на видео"""
+  • Длительность: ~8 сек
+  • Время генерации: {"3-5 мин (GPU)" if has_cuda else "30+ мин (CPU)"}"""
 
         await query.edit_message_text(
             text=status_text,

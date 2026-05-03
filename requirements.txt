@@ -1,8 +1,20 @@
+# Telegram Bot
 python-telegram-bot>=20.0
-xai-sdk>=1.10.0
 python-dotenv>=1.0.0
-openai>=1.0.0
-requests>=2.31.0
-ffmpeg-python>=0.2.0
+
+# Stable Diffusion (прямая интеграция)
+diffusers>=0.27.0
+transformers>=4.38.0
+accelerate>=0.27.0
+safetensors>=0.4.2
+torch>=2.2.0
+torchvision>=0.17.0
+
+# Изображения и видео
 Pillow>=10.0.0
+ffmpeg-python>=0.2.0
+
+# Утилиты
+requests>=2.31.0
 aiohttp>=3.9.0
+numpy>=1.24.0

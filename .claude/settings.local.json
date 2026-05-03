@@ -69,7 +69,10 @@
       "Bash(git push *)",
       "Bash(git reset *)",
       "mcp__Claude_in_Chrome__read_page",
-      "mcp__Claude_in_Chrome__find"
+      "mcp__Claude_in_Chrome__find",
+      "Bash(python -c ' *)",
+      "Bash(nvidia-smi)",
+      "Bash(python -c \"import torch; print\\('✅ CUDA:', torch.cuda.is_available\\(\\)\\); print\\('✅ GPU:', torch.cuda.get_device_name\\(0\\)\\)\")"
     ]
   }
 }

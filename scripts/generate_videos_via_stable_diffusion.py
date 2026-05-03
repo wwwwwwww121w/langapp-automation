@@ -1,261 +1,264 @@
 #!/usr/bin/env python3
 """
-Video Generator using Stable Diffusion WebUI API
-Generates video by creating frames and assembling them with ffmpeg
+Video Generator using Stable Diffusion (diffusers) — прямая интеграция
+Без WebUI — модели загружаются напрямую через HuggingFace diffusers
+Генерирует кадры и собирает видео через ffmpeg
 """
 
 import os
 import sys
-import json
-import requests
-import base64
-from pathlib import Path
-from typing import Optional, Callable, Dict
-import subprocess
 import time
+import base64
+import subprocess
+import shutil
+from pathlib import Path
 from datetime import datetime
+from typing import Optional, Callable, Dict
 
-# Stable Diffusion WebUI API URL
-SD_API_URL = os.getenv("SD_API_URL", "http://127.0.0.1:7860")
-OUTPUT_DIR = Path(__file__).parent.parent / "output" / "videos"
-FRAMES_DIR = Path(__file__).parent.parent / "output" / "frames"
+import torch
+from PIL import Image
+from diffusers import (
+    StableDiffusionPipeline,
+    DPMSolverMultistepScheduler,
+    EulerAncestralDiscreteScheduler,
+)
 
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-FRAMES_DIR.mkdir(parents=True, exist_ok=True)
+# ─── Пути ───────────────────────────────────────────────────────────────────
+SD_WEBUI_MODELS = Path(
+    r"C:\Users\Tetro\Downloads\stable-diffusion-webui-master"
+    r"\stable-diffusion-webui-master\models\Stable-diffusion"
+)
+BASE_DIR    = Path(__file__).parent.parent
+OUTPUT_DIR  = BASE_DIR / "output" / "videos"
+FRAMES_DIR  = BASE_DIR / "output" / "frames"
+MODELS_DIR  = BASE_DIR / "models"
+
+for d in (OUTPUT_DIR, FRAMES_DIR, MODELS_DIR):
+    d.mkdir(parents=True, exist_ok=True)
+
+# ─── Настройки ───────────────────────────────────────────────────────────────
+DEFAULT_MODEL   = os.getenv("SD_MODEL", "runwayml/stable-diffusion-v1-5")
+NUM_FRAMES      = int(os.getenv("SD_NUM_FRAMES", "8"))
+VIDEO_FPS       = int(os.getenv("SD_FPS", "1"))          # 1 fps → 8 сек при 8 кадрах
+STEPS           = int(os.getenv("SD_STEPS", "25"))
+CFG_SCALE       = float(os.getenv("SD_CFG", "7.5"))
+WIDTH           = int(os.getenv("SD_WIDTH", "512"))
+HEIGHT          = int(os.getenv("SD_HEIGHT", "912"))      # ближайшее к 9:16
+NEGATIVE_PROMPT = (
+    "blurry, low quality, distorted, ugly, bad anatomy, "
+    "watermark, text, nsfw, low resolution"
+)
+
+
+def _detect_device() -> str:
+    if torch.cuda.is_available():
+        name = torch.cuda.get_device_name(0)
+        vram = torch.cuda.get_device_properties(0).total_memory / 1024**3
+        print(f"✅ GPU: {name} ({vram:.1f} GB VRAM)")
+        return "cuda"
+    print("⚠️  GPU не найден — используется CPU (очень медленно!)")
+    return "cpu"
+
+
+def _find_local_checkpoint() -> Optional[Path]:
+    """Ищет .safetensors / .ckpt в папке SD WebUI и в models/"""
+    for folder in (SD_WEBUI_MODELS, MODELS_DIR):
+        for ext in ("*.safetensors", "*.ckpt"):
+            files = sorted(folder.glob(ext))
+            if files:
+                print(f"📦 Найдена локальная модель: {files[0]}")
+                return files[0]
+    return None
 
 
 class StableDiffusionVideoGenerator:
-    """Генератор видео через Stable Diffusion API"""
+    """Генератор видео напрямую через diffusers (без WebUI)"""
 
     def __init__(self):
-        self.api_url = SD_API_URL
-        self.num_frames = 8  # 8 кадров на видео
-        self.fps = 1  # 1 кадр в секунду = 8 сек видео
+        self.device   = _detect_device()
+        self.dtype     = torch.float16 if self.device == "cuda" else torch.float32
+        self.pipeline: Optional[StableDiffusionPipeline] = None
 
-    def report_status(self, callback: Optional[Callable], status: str, progress: int, message: str):
-        """Отправить статус прогресса"""
-        if callback:
-            try:
-                callback({
-                    'status': status,
-                    'progress': progress,
-                    'message': message
-                })
-            except Exception as e:
-                print(f"Error reporting status: {e}")
+    # ── загрузка модели ───────────────────────────────────────────────────────
+    def _load_pipeline(self) -> StableDiffusionPipeline:
+        if self.pipeline is not None:
+            return self.pipeline
 
-    def check_api_connection(self) -> bool:
-        """Проверить подключение к API"""
-        try:
-            response = requests.get(f"{self.api_url}/api/sd-models", timeout=5)
-            return response.status_code == 200
-        except Exception as e:
-            print(f"API Connection Error: {e}")
-            return False
+        local_ckpt = _find_local_checkpoint()
 
-    def generate_frame(self, prompt: str, frame_num: int, seed: int) -> bool:
-        """Генерировать один кадр через Stable Diffusion"""
-        try:
-            payload = {
-                "prompt": prompt,
-                "negative_prompt": "blurry, low quality, distorted",
-                "steps": 20,
-                "cfg_scale": 7.5,
-                "width": 720,
-                "height": 1280,  # 9:16 формат
-                "seed": seed + frame_num,  # Разные семена для разных кадров
-                "sampler_name": "DPM++ 2M Karras",
-                "scheduler": "karras"
-            }
-
-            print(f"Generating frame {frame_num}...")
-            response = requests.post(
-                f"{self.api_url}/api/txt2img",
-                json=payload,
-                timeout=120
+        if local_ckpt:
+            print(f"🔄 Загружаю локальный checkpoint: {local_ckpt.name}")
+            pipe = StableDiffusionPipeline.from_single_file(
+                str(local_ckpt),
+                torch_dtype=self.dtype,
+                safety_checker=None,
+            )
+        else:
+            print(f"🌐 Скачиваю модель с HuggingFace: {DEFAULT_MODEL}")
+            print("   (первый раз займёт несколько минут)")
+            pipe = StableDiffusionPipeline.from_pretrained(
+                DEFAULT_MODEL,
+                torch_dtype=self.dtype,
+                safety_checker=None,
+                cache_dir=str(MODELS_DIR),
             )
 
-            if response.status_code != 200:
-                print(f"API Error: {response.text}")
-                return False
+        # быстрый планировщик
+        pipe.scheduler = DPMSolverMultistepScheduler.from_config(
+            pipe.scheduler.config,
+            use_karras_sigmas=True,
+        )
 
-            result = response.json()
+        pipe = pipe.to(self.device)
 
-            if "images" not in result or not result["images"]:
-                print("No image in response")
-                return False
+        # оптимизации памяти
+        if self.device == "cuda":
+            pipe.enable_attention_slicing()
+            try:
+                pipe.enable_xformers_memory_efficient_attention()
+                print("✅ xFormers включён")
+            except Exception:
+                print("ℹ️  xFormers недоступен — используется стандартный attention")
 
-            # Сохранить кадр
-            image_data = base64.b64decode(result["images"][0])
-            frame_path = FRAMES_DIR / f"frame_{frame_num:03d}.png"
+        self.pipeline = pipe
+        print("✅ Модель загружена")
+        return pipe
 
-            with open(frame_path, "wb") as f:
-                f.write(image_data)
+    # ── генерация одного кадра ───────────────────────────────────────────────
+    def _generate_frame(self, prompt: str, seed: int, frame_idx: int) -> Image.Image:
+        pipe = self._load_pipeline()
+        generator = torch.Generator(device=self.device).manual_seed(seed + frame_idx * 7)
 
-            print(f"✅ Frame {frame_num} saved: {frame_path}")
-            return True
+        result = pipe(
+            prompt=prompt,
+            negative_prompt=NEGATIVE_PROMPT,
+            width=WIDTH,
+            height=HEIGHT,
+            num_inference_steps=STEPS,
+            guidance_scale=CFG_SCALE,
+            generator=generator,
+        )
+        return result.images[0]
 
-        except Exception as e:
-            print(f"Error generating frame: {e}")
-            return False
-
-    def assemble_video(self, output_path: Path, prompt_theme: str) -> bool:
-        """Собрать видео из кадров"""
+    # ── сборка видео через ffmpeg ─────────────────────────────────────────────
+    @staticmethod
+    def _assemble_video(frames_dir: Path, output_path: Path) -> bool:
+        pattern = str(frames_dir / "frame_%03d.png")
+        cmd = [
+            "ffmpeg", "-y",
+            "-framerate", str(VIDEO_FPS),
+            "-i", pattern,
+            "-c:v", "libx264",
+            "-pix_fmt", "yuv420p",
+            "-crf", "20",
+            "-vf", "scale=720:-2",          # нормализуем ширину до 720
+            str(output_path),
+        ]
         try:
-            # Найти все кадры
-            frames = sorted(FRAMES_DIR.glob("frame_*.png"))
-
-            if not frames:
-                print("No frames found")
+            res = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+            if res.returncode != 0:
+                print(f"FFmpeg error: {res.stderr[-500:]}")
                 return False
-
-            print(f"Assembling {len(frames)} frames into video...")
-
-            # FFmpeg команда для создания видео из кадров
-            cmd = [
-                "ffmpeg",
-                "-framerate", str(self.fps),
-                "-i", str(FRAMES_DIR / "frame_%03d.png"),
-                "-c:v", "libx264",
-                "-pix_fmt", "yuv420p",
-                "-crf", "23",
-                str(output_path),
-                "-y"  # Перезаписать файл без вопросов
-            ]
-
-            result = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
-
-            if result.returncode != 0:
-                print(f"FFmpeg Error: {result.stderr}")
-                return False
-
-            print(f"✅ Video assembled: {output_path}")
-
-            # Очистить кадры
-            for frame in frames:
-                frame.unlink()
-
             return True
-
-        except Exception as e:
-            print(f"Error assembling video: {e}")
+        except FileNotFoundError:
+            print("❌ ffmpeg не найден! Установите ffmpeg и добавьте в PATH.")
+            return False
+        except subprocess.TimeoutExpired:
+            print("❌ FFmpeg завис (timeout 120 сек)")
             return False
 
+    # ── очистка кадров ────────────────────────────────────────────────────────
+    @staticmethod
+    def _clear_frames(frames_dir: Path):
+        for f in frames_dir.glob("frame_*.png"):
+            f.unlink(missing_ok=True)
+
+    # ── публичный метод ───────────────────────────────────────────────────────
     def generate_video(
         self,
         prompt: str,
-        output_dir: str = None,
-        callback: Optional[Callable] = None
+        output_dir: Optional[str] = None,
+        callback: Optional[Callable[[Dict], None]] = None,
     ) -> Dict:
         """
-        Генерировать видео
-
-        Args:
-            prompt: Текстовое описание для видео
-            output_dir: Директория для сохранения видео
-            callback: Функция для отправки статуса прогресса
+        Генерирует видео из текстового описания.
 
         Returns:
-            Dict с ключами: success, url, error, status
+            {"success": bool, "url": str | None, "error": str | None, "status": str}
         """
+
+        def report(status: str, progress: int, message: str):
+            print(f"[{status}] {progress}% — {message}")
+            if callback:
+                try:
+                    callback({"status": status, "progress": progress, "message": message})
+                except Exception as e:
+                    print(f"Callback error: {e}")
+
+        out_dir = Path(output_dir) if output_dir else OUTPUT_DIR
+        out_dir.mkdir(parents=True, exist_ok=True)
+
+        # временная папка для кадров этого видео
+        run_id     = datetime.now().strftime("%Y%m%d_%H%M%S")
+        frames_dir = FRAMES_DIR / run_id
+        frames_dir.mkdir(parents=True, exist_ok=True)
+
         try:
-            if output_dir is None:
-                output_dir = str(OUTPUT_DIR)
+            # ── загрузка модели ──────────────────────────────────────────────
+            report("LOADING", 5, "🔄 Загружаю модель Stable Diffusion...")
+            self._load_pipeline()
 
-            output_dir = Path(output_dir)
-            output_dir.mkdir(parents=True, exist_ok=True)
+            # ── генерация кадров ─────────────────────────────────────────────
+            base_seed = int(time.time()) % 10_000_000
+            ok_frames = 0
 
-            # Проверить подключение к API
-            self.report_status(callback, "CHECKING", 5, "🔍 Проверка подключения к Stable Diffusion...")
+            for i in range(1, NUM_FRAMES + 1):
+                pct = 10 + int((i / NUM_FRAMES) * 75)
+                report("PROCESSING", pct, f"🖼️ Генерирую кадр {i}/{NUM_FRAMES}...")
 
-            if not self.check_api_connection():
-                error_msg = f"Cannot connect to Stable Diffusion API at {self.api_url}. Is WebUI running?"
-                self.report_status(callback, "ERROR", 0, f"❌ {error_msg}")
-                return {
-                    'success': False,
-                    'url': None,
-                    'error': error_msg,
-                    'status': 'ERROR'
-                }
+                img  = self._generate_frame(prompt, base_seed, i)
+                path = frames_dir / f"frame_{i:03d}.png"
+                img.save(path)
+                ok_frames += 1
+                print(f"   ✅ Кадр {i} сохранён ({path.name})")
 
-            # Генерировать кадры
-            self.report_status(callback, "STARTING", 10, "🎬 Начинаю генерацию видео...")
+            if ok_frames < 3:
+                raise RuntimeError(f"Сгенерировано только {ok_frames} кадров, нужно минимум 3")
 
-            seed = int(time.time()) % 1000000
-            successful_frames = 0
+            # ── сборка видео ─────────────────────────────────────────────────
+            report("ASSEMBLING", 88, "🎞️ Собираю видео из кадров...")
+            out_file = out_dir / f"video_sd_{run_id}.mp4"
 
-            for frame_num in range(1, self.num_frames + 1):
-                progress = 10 + (frame_num / self.num_frames) * 70
-                self.report_status(
-                    callback,
-                    "PROCESSING",
-                    int(progress),
-                    f"🖼️ Генерирую кадр {frame_num}/{self.num_frames}..."
-                )
+            if not self._assemble_video(frames_dir, out_file):
+                raise RuntimeError("FFmpeg не смог собрать видео")
 
-                if self.generate_frame(prompt, frame_num, seed):
-                    successful_frames += 1
-                else:
-                    # Продолжить даже если один кадр не получился
-                    print(f"Warning: Frame {frame_num} generation failed, continuing...")
-
-            if successful_frames < 3:
-                error_msg = f"Generated only {successful_frames} frames, need at least 3"
-                self.report_status(callback, "ERROR", 0, f"❌ {error_msg}")
-                return {
-                    'success': False,
-                    'url': None,
-                    'error': error_msg,
-                    'status': 'ERROR'
-                }
-
-            # Собрать видео
-            self.report_status(callback, "ASSEMBLING", 85, "🎞️ Собираю видео из кадров...")
-
-            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            output_file = output_dir / f"video_sd_{timestamp}.mp4"
-
-            if not self.assemble_video(output_file, prompt):
-                error_msg = "Failed to assemble video with ffmpeg"
-                self.report_status(callback, "ERROR", 0, f"❌ {error_msg}")
-                return {
-                    'success': False,
-                    'url': None,
-                    'error': error_msg,
-                    'status': 'ERROR'
-                }
-
-            # Успех!
-            self.report_status(callback, "COMPLETE", 100, "✅ Видео готово!")
-
-            return {
-                'success': True,
-                'url': str(output_file),
-                'error': None,
-                'status': 'COMPLETE'
-            }
+            report("COMPLETE", 100, "✅ Видео готово!")
+            return {"success": True, "url": str(out_file), "error": None, "status": "COMPLETE"}
 
         except Exception as e:
-            error_msg = f"Unexpected error: {str(e)}"
-            self.report_status(callback, "ERROR", 0, f"❌ {error_msg}")
-            return {
-                'success': False,
-                'url': None,
-                'error': error_msg,
-                'status': 'ERROR'
-            }
+            msg = str(e)[:300]
+            report("ERROR", 0, f"❌ {msg}")
+            return {"success": False, "url": None, "error": msg, "status": "ERROR"}
+
+        finally:
+            # всегда удаляем временные кадры
+            shutil.rmtree(frames_dir, ignore_errors=True)
 
 
+# ── CLI тест ─────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
-    # Пример использования
-    generator = StableDiffusionVideoGenerator()
+    gen = StableDiffusionVideoGenerator()
 
-    def status_callback(info):
-        print(f"[{info['status']}] {info['progress']}% - {info['message']}")
+    def cb(info):
+        print(f"  [{info['status']}] {info['progress']}% — {info['message']}")
 
-    result = generator.generate_video(
-        prompt="Красивое видео про приложение для изучения языков, яркие цвета, современный дизайн",
-        callback=status_callback
+    result = gen.generate_video(
+        prompt=(
+            "beautiful mobile app interface for language learning, "
+            "modern UI design, bright colors, vertical 9:16 format, "
+            "high quality, professional"
+        ),
+        callback=cb,
     )
-
-    print(f"\nResult: {result}")
+    print("\n=== Результат ===")
+    print(result)
